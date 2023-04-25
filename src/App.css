@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --pink-neon-color: #f580f8; 
   --green-neon-color: #0dfab3;
 }
@@ -12,22 +12,22 @@
 
 html {
   font-size: 62.5%;
-}
+} */
 
-body {
+/* body {
   position: relative;
   font-size: inherit;
   background: url(../public/background-img/background2.jpg) no-repeat center center/cover;
   font-family: 'Press Start 2P', cursive;
-  /* font-family: 'Tilt Neon', cursive; */
-  /* font-family: 'Monoton', cursive; */
+  font-family: 'Tilt Neon', cursive;
+  font-family: 'Monoton', cursive;
   user-select: none;
   height: 100vh;
   width: 100vw;
   padding: 4rem;
-}
+} */
 
-body::after {
+/* body::after {
   content: "";
   position: absolute;
   top: 0;
@@ -36,4 +36,4 @@ body::after {
   width: 100vw;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: -1;
-}
+} */

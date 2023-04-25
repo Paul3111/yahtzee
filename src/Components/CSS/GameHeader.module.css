@@ -1,0 +1,12 @@
+.game-header {
+  display: flex;
+  flex-direction: row;
+          align-items: center;
+  justify-content: center;
+}
+
+.game-header h1 {
+  color: #f9dcfe;
+  font-size: 4rem;
+}
+

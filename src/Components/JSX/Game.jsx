@@ -1,10 +1,11 @@
-import style from './Game.module.css'
+import style from '../CSS/Game.module.css';
+import GameHeader from './GameHeader';
 
 
 const Game = () => {
   return (
     <div className={style['game-container']}>
-      <h1>Title</h1>
+      <GameHeader />
     </div>
   );
 };
