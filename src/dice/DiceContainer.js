@@ -11,22 +11,45 @@ const DiceContainer = () => {
     { value: 1, locked: false }
   ]);
 
+    //console log functions ------------
+    const logRolls = (rolls) => {
+      let r = [];
+      rolls.forEach(die => {
+        r.push(die.value);
+      })
+      console.log(r);
+    }
+
+    const logLockedState = (rolls) => {
+      let l = [];
+      rolls.forEach(die => {
+        l.push(die.locked);
+      })
+      console.log(l)
+    }
+    // ---------------------------------
+
+
+  // toggles dice state between locked and unlocked
   const toggleLock = (index) =>  {
     const updatedDice = [...dice];
     updatedDice[index].locked = !updatedDice[index].locked;
     setDice(updatedDice);
-    console.log(updatedDice);
+    logLockedState(updatedDice);
   }
 
+  // rolls dice that are not locked and updates the dice values
   const rollDice = () => {
     const rolledDice = dice.map(die => (die.locked ? die : { ...die, value: rollDie()}));
     setDice(rolledDice);
-    console.log("rollAll called: " + rolledDice)
+    logRolls(rolledDice)
     }
   
+  // returns a random number 1 - 6
   const rollDie = () => {
     return Math.floor(Math.random() * 6) + 1;
   }
+
   return (
     <div className="wrapper">
       <div className="dice-container">
@@ -37,26 +60,5 @@ const DiceContainer = () => {
       <button className="roll-button" onClick={rollDice}>Roll Dice</button>
       </div>
   )
-
 }
 export default DiceContainer;
-
-      
-
-
-
-// {/* values.forEach(value => {
-      //   return <Dice img={diceImages[value - 1]} />
-      // }) */}
-
-
-
-
-// const diceImages = [
-//   "./assets/dice-one.png",
-//   "./assets/dice-two.png",
-//   "./assets/dice-three.png",
-//   "./assets/dice-four.png",
-//   "./assets/dice-five.png",
-//   "./assets/dice-six.png"
-// ];
