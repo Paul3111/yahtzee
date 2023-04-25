@@ -20,8 +20,13 @@ const UserSchema = new mongoose.Schema({
   ngames: {
     type: Number,
     default: 0
+  },
+  scores: {
+    score: [Number]
+  },
+  wins: {
+    type: Number,
   }
-  top
 });
 
 const User = mongoose.model("User", UserSchema);
