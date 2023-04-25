@@ -1,4 +1,5 @@
 import style from '../CSS/Game.module.css';
+import RollDiceButton from '../RollDiceButton';
 import GameHeader from './GameHeader';
 import GameRooms from './GameRooms';
 
@@ -11,6 +12,7 @@ const Game = () => {
         <GameHeader />
         <GameRooms /> 
         {/* <DiceContainer /> */}
+        <RollDiceButton />
       </div>
     </div>
   );
