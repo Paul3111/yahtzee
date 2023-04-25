@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dice-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  margin-bottom: -100px;
+}
+
+.roll-button {
+  display: block;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 10 20px;
+  cursor: pointer;
+
+}

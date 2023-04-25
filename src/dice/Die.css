@@ -1,0 +1,17 @@
+.die {
+  background-color: red;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  margin: 0 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+
+}
+
+.die.locked {
+  background-color: grey;
+}

@@ -1,28 +1,17 @@
 import React, { useState } from 'react'
+import './Die.css'
 
-const Die = () => {
-  const [value, setValue] = useState(0);
-  const diceImages = [
-    "./assets/dice-one.png",
-    "./assets/dice-two.png",
-    "./assets/dice-three.png",
-    "./assets/dice-four.png",
-    "./assets/dice-five.png",
-    "./assets/dice-six.png"
-  ];
+const Die = (props) => {
+  const { value, locked, onClick } = props
 
-  const rollDie = () => {
-    const result = Math.floor(Math.random() * 6);
-    setValue(result);
-  }
-
-  const placeholderBackgroundStyle = {
-    backgroundColor: '#ff0000',
-  }
+  // const toggleLock = () => {
+  //   setLocked(!locked);
+  //   console.log(locked);
+  // }
 
   return (
-    <div style={placeholderBackgroundStyle} onClick={rollDie}>
-      <img src={diceImages[value]} width="70"/>
+    <div className={`die ${locked ? "locked" : ""}`} onClick={onClick}>
+      <img src={`./assets/dice-${value}.png`} width="70" alt=""/>
     </div>
   )
 }
