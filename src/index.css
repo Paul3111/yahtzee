@@ -1,6 +1,19 @@
 :root {
+  --title-color: #f9dcfe;
+
   --pink-neon-color: #f580f8; 
   --green-neon-color: #0dfab3;
+
+  --pink-neon-off: #3f3241;
+  --pink-neon-on: #f0befa;
+
+  --link-off: #a174a8;
+  --link-on: #f9dcfe;
+  --link-on-light-cast: white;
+
+  --alternative-font: 'Tilt Neon', cursive;
+
+  --background-overlay: rgba(17, 0, 18, 0.9);
 }
 
 * {
@@ -20,9 +33,7 @@ body {
   font-size: inherit;
   background: url(../public/background-img/background7.jpg) no-repeat center center/cover;
   font-family: 'Press Start 2P', cursive;
-  /* font-family: 'Tilt Neon', cursive; */
-  /* font-family: 'Monoton', cursive; */
-  /* user-select: none; */
+  user-select: none;
   height: 100vh;
   width: 100vw;
   -webkit-font-smoothing: antialiased;
@@ -36,7 +47,7 @@ body::after {
   left: 0;
   height: 100vh;
   width: 100vw;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: var(--background-overlay);
   z-index: -1;
 }
 

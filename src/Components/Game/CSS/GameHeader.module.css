@@ -3,10 +3,11 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  height: 8vh;
 }
 
 .game-header h1 {
-  color: #f9dcfe;
+  color: var(--title-color);
   font-size: 4rem;
 }
 

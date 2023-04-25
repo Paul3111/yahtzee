@@ -1,5 +1,5 @@
 import './App.css';
-import Game from './Components/JSX/Game';
+import Game from './Components/Game/JSX/Game';
 
 const App = () => {
   return <Game />;

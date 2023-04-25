@@ -1,0 +1,85 @@
+.how-to-play-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--background-overlay);
+}
+
+.how-to-play-container__inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  width: 50vw;
+  height: 70vh;
+}
+
+.how-to-play-popup {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  
+  border-radius: 20px;
+  border: var(--pink-neon-color) 5px solid ;
+  
+  background-color: #111;
+  box-shadow: 0 0 30px 1px var(--pink-neon-color);
+}
+
+.how-to-play-popup__header {
+  color: var(--title-color);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}
+.how-to-play-popup__header div {
+  cursor: default;
+  font-family: inherit;
+  font-size: 3rem;
+  opacity: 0;
+}
+
+.how-to-play-popup__header h2 {
+  background-color: transparent;
+  color: var(--title-color);
+  border: none;
+  font-size: 4rem;
+  letter-spacing: 1rem;
+  text-shadow: 0 0 9px var(--pink-neon-color);
+
+  /* ALTERNATIVE: UNCOMMENT TO SEE */
+  font-family: var(--alternative-font);
+}
+
+.how-to-play-popup__btn {
+  background-color: transparent;
+  color: var(--link-off);
+  border: none;
+  font-size: 3.5rem;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 1.5rem;
+
+  /* ALTERNATIVES: UNCOMMENT ONE IN AND THE OTHER OUT TO SEE */
+  /* font-family: inherit; */
+  font-family: var(--alternative-font);
+}
+.how-to-play-popup__btn:hover {
+  color: var(--link-on);
+  text-shadow: 0 0 9px var(--link-on-light-cast);
+  transition: all .1s ease;
+}
+
+.how-to-play-popup__rules {
+  color: #d6d6d6;
+  font-size: 1.5rem;
+  padding: 2rem 5rem;
+  text-align: justify;
+  overflow: hidden;
+}

@@ -1,12 +1,42 @@
+.roll-dice-btn-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  /* border: red 2px solid; */
+
+}
+
 .roll-dice-btn {
-  font-size: 3.5rem;
-  font-family: 'Tilt Neon', cursive;
-  background-color: var(--pink-neon-color);
-  flex-grow: 0;
-  width: 35rem;
-  height: 5rem;
-  border: none;
-  border-radius: 10px;
   cursor: pointer;
+  font-size: 4rem;
+  font-weight: 900;
+  font-family: 'Tilt Neon', cursive;
   line-height: 5rem;
+  
+  width: 50%;
+  height: 8rem;
+  border: transparent 4px solid;
+  border-radius: 20px;
+ 
+  border: var(--pink-neon-off) 3px solid;
+  color: var(--pink-neon-off);
+  background-color: var(--pink-neon-color);
+
+  flex-grow: 0;
+}
+
+.roll-dice-btn:hover {
+  border: var(--pink-neon-on) 4px solid;
+  color: var(--pink-neon-on);
+  box-shadow: 0 0 30px 5px var(--pink-neon-color);
+  transition: all .1s ease;
+}
+
+.roll-dice-btn:active {
+  box-shadow: 0 0 20px 1px var(--pink-neon-color);
+  transform: translateY(3px);
+  transition: all .1s ease;
 }

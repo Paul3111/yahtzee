@@ -3,7 +3,7 @@ import style from '../CSS/GameHeader.module.css';
 const GameHeader = () => {
   return (
     <div className={style['game-header']}>
-      <h1>Yahtzee</h1>
+      <h1>YAHTZEE</h1>
     </div>
   );
 };
