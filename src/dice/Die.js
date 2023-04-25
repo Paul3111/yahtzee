@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 const Die = () => {
-  const [value, setValue] = useState(1);
+  const [value, setValue] = useState(0);
   const diceImages = [
     "./assets/dice-one.png",
     "./assets/dice-two.png",
@@ -16,13 +16,13 @@ const Die = () => {
     setValue(result);
   }
 
-  const placeholderStyle = {
-    backgroundColor: '#ff0000'
+  const placeholderBackgroundStyle = {
+    backgroundColor: '#ff0000',
   }
 
   return (
-    <div style={placeholderStyle} onClick={rollDie}>
-      <img src={diceImages[value]}/>
+    <div style={placeholderBackgroundStyle} onClick={rollDie}>
+      <img src={diceImages[value]} width="70"/>
     </div>
   )
 }
