@@ -15,6 +15,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.10.0",
     "react-scripts": "^4.0.3",
+    "socket.io": "^4.6.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -50,5 +51,9 @@
     "concurrently": "^8.0.1",
     "cypress": "^12.10.0",
     "nodemon": "^2.0.22"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^4.0.7",
+    "utf-8-validate": "^5.0.10"
   }
 }
