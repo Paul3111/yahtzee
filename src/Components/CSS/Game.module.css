@@ -16,6 +16,8 @@
   height: 95%;
   display: flex;
   flex-direction: column;
+  /* align-items: center;
+  justify-content: center; */
   box-shadow: 0 0 30px 1px var(--pink-neon-color);
   /* border: red 2px solid; */
 }

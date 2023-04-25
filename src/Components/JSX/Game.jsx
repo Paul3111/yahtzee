@@ -11,7 +11,6 @@ const Game = () => {
         <GameHeader />
         <GameRooms /> 
         {/* <DiceContainer /> */}
-
       </div>
     </div>
   );
