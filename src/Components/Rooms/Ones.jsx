@@ -1,6 +1,6 @@
 const Ones = () => {
   return (
-    <div>
+    <div className="room-inner">
 
     </div>
   );

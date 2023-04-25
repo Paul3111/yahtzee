@@ -1,0 +1,8 @@
+.rooms-main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  /* border: #0dfab3 2px solid; */
+}

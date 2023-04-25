@@ -7,9 +7,11 @@ import Yathzee from '../Rooms/Ones'; import Chance from '../Rooms/Ones';
 import SmallStraight from '../Rooms/Ones';
 import LargeStraight from '../Rooms/Ones';
 
+import style from '../CSS/GameRooms.module.css'
+
 const GameRooms = () => {
   return (
-    <>
+    <div className={style['rooms-main-container']}>
       <Ones />
       <Twos />
       <Threes />
@@ -24,7 +26,7 @@ const GameRooms = () => {
       <LargeStraight />
       <Yathzee />
       <Chance />
-    </>
+    </div>
   );
 };
 

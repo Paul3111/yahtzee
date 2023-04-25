@@ -4,12 +4,15 @@ import GameRooms from './GameRooms';
 
 
 const Game = () => {
+
   return (
-    <div className={style['game-container']}>
-      <GameHeader />
-      <GameRooms /> 
-      {/* <DiceContainer /> */}
-      
+    <div className={style['god-container']}>
+      <div className={style['game-container']}>
+        <GameHeader />
+        <GameRooms /> 
+        {/* <DiceContainer /> */}
+
+      </div>
     </div>
   );
 };
