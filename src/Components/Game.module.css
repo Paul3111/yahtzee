@@ -1,0 +1,12 @@
+.game-container {
+  margin: auto;
+  max-width: 900px;
+  background-color: #111;
+  height: 100%;
+  border: var(--pink-neon-color) 5px solid ;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 30px 1px var(--pink-neon-color);
+  /* border: #0dfab3 2px solid; */
+}
