@@ -1,7 +1,12 @@
 .roll-dice-btn {
   font-size: 3.5rem;
   font-family: 'Tilt Neon', cursive;
-  height: 10rem;
-  width: 10rem;
   background-color: var(--pink-neon-color);
+  flex-grow: 0;
+  width: 35rem;
+  height: 5rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  line-height: 5rem;
 }
