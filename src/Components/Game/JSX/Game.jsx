@@ -9,21 +9,19 @@ import DiceContainer from '../../Dice/DiceContainer';
 
 const Game = () => {
   const [isHovered, setIsHovered] = useState(false) 
+  const [data, setData] = useState({});
 
   const hoverHandler = () => {
     setIsHovered(!isHovered)
   }
 
-  const [data, setData] = useState({});
-
-
-  useEffect(() => {
-    fetch('http://localhost:8080/players')
-      .then(res => res.json())
-      .then(data => {
-        setData(data)
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch('http://localhost:8080/players')
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       setData(data)
+  //     });
+  // }, []);
 
   return (
     <div className={style['god-container']}>

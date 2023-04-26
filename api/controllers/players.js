@@ -3,8 +3,6 @@ const { ObjectId } = require("mongodb");
 
 const PlayersController = {
     Index: (_req, res) => {
-        console.log('IN THE CONTROLLER')
-
         res.status(200).json({data: [
             {username: "Paul", score: [100]},
             {username: "Chang", score: [100]}
