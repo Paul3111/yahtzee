@@ -1,8 +1,8 @@
 const Player = require('../models/player');
 
 const PlayersController = {
-    Index: (req, res) => {
-        Player,find(async (err, players) => {
+    Index: (_req, res) => {
+        Player.find(async (err, players) => {
             if (err) {
                 throw err;
             }
