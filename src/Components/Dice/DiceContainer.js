@@ -18,7 +18,8 @@ const DiceContainer = (props) => {
     rolls.forEach(die => {
       r.push(die.value);
     })
-    console.log(r);
+    //console.log(r);
+    return r
   }
 
   const logLockedState = (rolls) => {
@@ -36,14 +37,14 @@ const DiceContainer = (props) => {
     const updatedDice = [...dice];
     updatedDice[index].locked = !updatedDice[index].locked;
     setDice(updatedDice);
-    logLockedState(updatedDice);
+    //logLockedState(updatedDice);
   }
 
   // rolls dice that are not locked and updates the dice values
   const rollDice = () => {
     const rolledDice = dice.map(die => (die.locked ? die : { ...die, rolling: true, value: rollDie()}));
     setDice(rolledDice);
-    logRolls(rolledDice);
+    console.log(logRolls(rolledDice));
 
     setTimeout(() => {
       const finishedDice = rolledDice.map(die => ({ ...die, rolling: false }));
