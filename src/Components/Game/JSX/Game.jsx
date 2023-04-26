@@ -3,10 +3,9 @@ import {useState} from 'react'
 import style from '../CSS/Game.module.css';
 import GameHeader from './GameHeader';
 import GameRooms from './GameRooms';
-import RollDiceButton from '../../RollDiceButton';
-import HowToPlay from '../../HowToPlay';
+import HowToPlay from '../../HowToPlay/JSX/HowToPlay';
 import GameTotalScore from './GameTotalScore';
-
+import DiceContainer from '../../Dice/DiceContainer';
 
 const Game = () => {
   const [isHovered, setIsHovered] = useState(false) 
@@ -15,17 +14,13 @@ const Game = () => {
     setIsHovered(!isHovered)
   }
 
-
   return (
     <div className={style['god-container']}>
       <GameHeader />
       <div className={`${style['game-container']} ${isHovered && style['lights-up']}`}>
         <GameTotalScore isHovered={isHovered} />
-        <GameRooms /> 
-        
-        {/* <Dice /> */}
-
-        <RollDiceButton onBtnHover={hoverHandler} />
+        <GameRooms />  
+        <DiceContainer onBtnHover={hoverHandler} />
       </div>
         <HowToPlay />
     </div>

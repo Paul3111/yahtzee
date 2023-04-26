@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import Die from './Die'
+import RollDiceButton from '../RollDiceButton/RollDiceButton'
+import Die from './Die/Die'
 import './DiceContainer.css'
 
-const DiceContainer = () => {
+const DiceContainer = (props) => {
   const [dice, setDice] = useState([
     { value: 1, locked: false },
     { value: 1, locked: false },
@@ -63,7 +64,7 @@ const DiceContainer = () => {
           <Die key={index} value={die.value} locked={die.locked} rolling={die.rolling} onClick={() => toggleLock(index)}/>
         ))}
       </div>
-      <button className="roll-button" onClick={rollDice}>Roll Dice</button>
+      <RollDiceButton onBtnHover={props.onBtnHover} onRoll={rollDice}/>
       </div>
   )
 }

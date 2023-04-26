@@ -1,4 +1,4 @@
-import style from './HowToPlayPopUp.module.css';
+import style from '../CSS/HowToPlayPopUp.module.css';
 
 const HowToPlayPopUp = (props) => {
   const yahtzeeRules = `
