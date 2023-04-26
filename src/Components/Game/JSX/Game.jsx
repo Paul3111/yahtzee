@@ -5,6 +5,7 @@ import GameHeader from './GameHeader';
 import GameRooms from './GameRooms';
 import RollDiceButton from '../../RollDiceButton';
 import HowToPlay from '../../HowToPlay';
+import GameTotalScore from './GameTotalScore';
 
 
 const Game = () => {
@@ -14,15 +15,19 @@ const Game = () => {
     setIsHovered(!isHovered)
   }
 
+
   return (
     <div className={style['god-container']}>
       <GameHeader />
       <div className={`${style['game-container']} ${isHovered && style['lights-up']}`}>
+        <GameTotalScore isHovered={isHovered} />
         <GameRooms /> 
-        {/* <DiceContainer /> */}
+        
+        {/* <Dice /> */}
+
         <RollDiceButton onBtnHover={hoverHandler} />
-        <HowToPlay />
       </div>
+        <HowToPlay />
     </div>
   );
 };

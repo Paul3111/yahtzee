@@ -12,6 +12,7 @@
 .reverse {
   flex-direction: row-reverse;
 }
+
 .room button {
   position: relative;
   /* opacity: 0; */
@@ -21,15 +22,19 @@
   flex-shrink: 0;
 
   color: var(--link-off);
-  font-size: 2rem;
+  font-size: 3rem;
   font-family: var(--alternative-font);
   
   border: none;
-  border-radius: 10px;
+  border-radius: 10px 0 0 10px;
 
   cursor: pointer;
 
   background-color: transparent;
+}
+
+.reverse button{
+  border-radius: 0 10px 10px 0;
 }
 
 .room:hover {
@@ -61,6 +66,27 @@
 }
 
 .room div p {
-  color: #eee;
+  color: #5e5e5e;
   font-size: 1.7rem;
+}
+
+.room:hover div p {
+  color: #dedede;
+}
+
+.room.is-used {
+  border: var(--link-on) 2px solid ;
+  box-shadow: 0 0 20px 1px var(--pink-neon-color);
+}
+
+.room.is-used button{
+  color: var(--link-on);
+  text-shadow: 0 0 9px var(--link-on-light-cast);
+  cursor: default;
+}
+.room.is-used div {
+  border: var(--link-on) 1px solid ;
+}
+.room.is-used div p {
+  color: #dedede;
 }

@@ -11,7 +11,7 @@
 
 .roll-dice-btn {
   cursor: pointer;
-  font-size: 4rem;
+  font-size: 5rem;
   font-weight: 900;
   font-family: 'Tilt Neon', cursive;
   line-height: 5rem;
@@ -26,6 +26,9 @@
   background-color: var(--pink-neon-color);
 
   flex-grow: 0;
+
+  box-shadow: 0 0 0 0 var(--pink-neon-color);
+  transition: all .1s ease;
 }
 
 .roll-dice-btn:hover {
@@ -33,6 +36,7 @@
   color: var(--pink-neon-on);
   box-shadow: 0 0 30px 5px var(--pink-neon-color);
   transition: all .1s ease;
+
 }
 
 .roll-dice-btn:active {
