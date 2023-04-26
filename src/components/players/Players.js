@@ -4,9 +4,16 @@ function Players() {
   const [data, setData] = useState({});
 
   useEffect(() => {
-    fetch('/api/players')
-      .then(res => res.json())
-      .then(data => setData(data));
+    fetch('/').then(res => res.json()).then(data => console.log(data))
+
+
+    // fetch('/api/players')
+    //   .then(res => {
+    //     return res
+    //   })
+    //   .then(data => {
+    //     return setData(data)
+    //   });
   }, []);
 
   return (
