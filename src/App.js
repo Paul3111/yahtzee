@@ -1,15 +1,9 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Players from './components/players/Players';
+import './App.css';
+import Game from './Components/Game/JSX/Game';
 
-function App() {
-  return (
-      <BrowserRouter>
-        <Routes>
-          <Route path="/players" element={<Players />}/>
-        </Routes>
-      </BrowserRouter>
-  );
+const App = () => {
+  return <Game />;
 }
+
 
 export default App;

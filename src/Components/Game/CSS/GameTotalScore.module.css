@@ -1,0 +1,88 @@
+.score__container {
+  width: 100%;
+  height: 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3rem auto;
+  /* border: white 1px solid; */
+}
+
+.score__inner-container {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5rem;
+  /* background-color: black;
+  border: var(--link-on) 2px solid ; */
+  border-radius: 10px;
+  /* box-shadow: 0 0 20px 1px var(--pink-neon-color); */
+  /* border: rgb(41, 41, 41) 3px solid; */
+  padding: 0 3rem;
+}
+
+.score__decoration {
+  width: 50%;
+  height: 1rem;
+  background-color: var(--pink-neon-off);
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 0 0 0 0 var(--pink-neon-color);
+  transition: all .6s;
+}
+.score__decoration::before {
+  content: '';
+  position: absolute;
+  top: 2rem;
+  left: 0;
+  width: 100%;
+  height: 1rem;
+
+  background-color: var(--pink-neon-off);
+  border-radius: 20px;
+  box-shadow: 0 0 0 0 var(--pink-neon-color);
+  transition: all .3s;
+}
+.score__decoration::after {
+  content: '';
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  width: 100%;
+  height: 1rem;
+  background-color: var(--pink-neon-off);
+  border-radius: 20px;
+  box-shadow: 0 0 0 0 var(--pink-neon-color);
+  transition: all .9s;
+}
+
+.lights-up.score__decoration::before {
+  background-color: var(--pink-neon-on);
+  box-shadow: 0 0 30px 8px var(--pink-neon-color);
+  transition: all 1.2s;
+}
+.lights-up {
+  background-color: var(--pink-neon-on);
+  box-shadow: 0 0 30px 8px var(--pink-neon-color);
+  transition: all .8s;
+}
+.lights-up.score__decoration::after {
+  background-color: var(--pink-neon-on);
+  box-shadow: 0 0 30px 8px var(--pink-neon-color);
+  transition: all .4s;
+}
+
+
+
+.score__inner-container p {
+  flex-shrink: 0;
+  color: var(--pink-neon-on);
+  font-family: var(--alternative-font);
+  text-shadow: 0 0 9px var(--link-on-light-cast);
+  /* color: #eee; */
+  font-size: 10rem;
+    /* border: white 1px solid; */
+}
