@@ -1,0 +1,66 @@
+.room {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 7rem;
+  border: var(--link-off) 2px solid ;
+  border-radius: 10px;
+}
+
+.reverse {
+  flex-direction: row-reverse;
+}
+.room button {
+  position: relative;
+  /* opacity: 0; */
+  z-index: 1;
+  width: 84%;
+  height: 100%;
+  flex-shrink: 0;
+
+  color: var(--link-off);
+  font-size: 2rem;
+  font-family: var(--alternative-font);
+  
+  border: none;
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  background-color: transparent;
+}
+
+.room:hover {
+  border: var(--link-on) 2px solid ;
+  box-shadow: 0 0 20px 1px var(--pink-neon-color);
+  transition: all .1s ease;
+}
+.room:hover button:hover {
+  color: var(--link-on);
+  text-shadow: 0 0 9px var(--link-on-light-cast);
+}
+
+.room div {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  border-radius: 3px;
+  background-color: black;
+  border-radius: 5px;
+  border: var(--link-off) 1px solid ;
+}
+
+.room:hover div {
+  border: var(--link-on) 1px solid ;
+}
+
+.room div p {
+  color: #eee;
+  font-size: 1.7rem;
+}

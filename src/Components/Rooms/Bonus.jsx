@@ -1,7 +1,12 @@
+import style from './CSS/Room.module.css'
+
 const Bonus = () => {
   return (
-    <div>
-      
+    <div className={style['room']}>
+      <button>Bonus</button>
+      <div>
+        <p>35</p>
+      </div>
     </div>
   );
 };

@@ -1,7 +1,12 @@
+import style from './CSS/Room.module.css'
+
 const Sixes = () => {
   return (
-    <div>
-      
+    <div className={style['room']}>
+      <button>Sixes</button>
+      <div>
+        <p>30</p>
+      </div>
     </div>
   );
 };

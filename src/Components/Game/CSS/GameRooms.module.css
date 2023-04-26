@@ -3,6 +3,27 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 75vh;
-  /* border: var(--pink-neon-color) 2px solid; */
+  width: 100%;
+  border-radius: 5px;
+  /* border: white 1px solid; */
+}
+.rooms-halves-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-radius: 5px;
+  /* border: white 1px solid; */
+}
+.rooms-half {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+  border-radius: 5px;
+  /* border: white 1px solid; */
+  padding: 2rem;
 }

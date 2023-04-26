@@ -1,8 +1,13 @@
+import style from './CSS/Room.module.css'
+
 const Fives = () => {
 
   return (
-    <div>
-      
+    <div className={style['room']}>
+      <button>Fives</button>
+      <div>
+        <p>25</p>
+      </div>
     </div>
   );
 };

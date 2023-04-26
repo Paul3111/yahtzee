@@ -1,31 +1,37 @@
-import Ones from '../../Rooms/Ones'; import Twos from '../../Rooms/Ones';
-import Threes from '../../Rooms/Ones'; import Fours from '../../Rooms/Ones';
-import Fives from '../../Rooms/Ones'; import Sixes from '../../Rooms/Ones';
-import Bonus from '../../Rooms/Ones'; import ThreeOfAKind from '../../Rooms/Ones';
-import FourOfAKind from '../../Rooms/Ones'; import FullHouse from '../../Rooms/Ones';
-import Yathzee from '../../Rooms/Ones'; import Chance from '../../Rooms/Ones';
-import SmallStraight from '../../Rooms/Ones';
-import LargeStraight from '../../Rooms/Ones';
+import Ones from '../../Rooms/Ones'; import Twos from '../../Rooms/Twos';
+import Threes from '../../Rooms/Threes'; import Fours from '../../Rooms/Fours';
+import Fives from '../../Rooms/Fives'; import Sixes from '../../Rooms/Sixes';
+import Bonus from '../../Rooms/Bonus'; import ThreeOfAKind from '../../Rooms/ThreeOfAKind';
+import FourOfAKind from '../../Rooms/FourOfAKind'; import FullHouse from '../../Rooms/FullHouse';
+import Yahtzee from '../../Rooms/Yahtzee'; import Chance from '../../Rooms/Chance';
+import SmallStraight from '../../Rooms/SmallStraight';
+import LargeStraight from '../../Rooms/LargeStraight';
 
 import style from '../CSS/GameRooms.module.css'
 
 const GameRooms = () => {
   return (
     <div className={style['rooms-main-container']}>
-      <Ones />
-      <Twos />
-      <Threes />
-      <Fours />
-      <Fives />
-      <Sixes />
-      <Bonus />
-      <ThreeOfAKind />
-      <FourOfAKind />
-      <FullHouse />
-      <SmallStraight />
-      <LargeStraight />
-      <Yathzee />
-      <Chance />
+      <div className={style['rooms-halves-container']}>
+        <div className={style['rooms-half']}>
+          <Ones />
+          <Twos />
+          <Threes />
+          <Fours />
+          <Fives />
+          <Sixes />
+          <Bonus />
+        </div>
+        <div className={style['rooms-half']}>
+          <ThreeOfAKind />
+          <FourOfAKind />
+          <FullHouse />
+          <SmallStraight />
+          <LargeStraight />
+          <Yahtzee />
+          <Chance />
+        </div>
+      </div>
     </div>
   );
 };
