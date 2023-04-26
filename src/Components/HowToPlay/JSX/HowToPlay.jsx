@@ -1,6 +1,6 @@
 import {useState} from 'react'
 
-import style from './HowToPlay.module.css'
+import style from '../CSS/HowToPlay.module.css'
 import HowToPlayPopUp from './HowToPlayPopUp'
 
 const HowToPlay = () => {
