@@ -4,34 +4,8 @@ import Die from './Die/Die'
 import './DiceContainer.css'
 
 const DiceContainer = (props) => {
-  const [dice, setDice] = useState([
-    { value: 1, locked: false },
-    { value: 1, locked: false },
-    { value: 1, locked: false },
-    { value: 1, locked: false },
-    { value: 1, locked: false }
-  ]);
-
-  //console log functions ------------
-  const logRolls = (rolls) => {
-    let r = [];
-    rolls.forEach(die => {
-      r.push(die.value);
-    })
-    //console.log(r);
-    return r
-  }
-
-  const logLockedState = (rolls) => {
-    let l = [];
-    rolls.forEach(die => {
-      l.push(die.locked);
-    })
-    console.log(l)
-  }
-  // ---------------------------------
-
-
+  const { dice, setDice, counts, setCounts, diceValueSum, setDiceValueSum } = props
+  
   // toggles dice state between locked and unlocked
   const toggleLock = (index) =>  {
     const updatedDice = [...dice];
@@ -39,25 +13,38 @@ const DiceContainer = (props) => {
     setDice(updatedDice);
     //logLockedState(updatedDice);
   }
-
+  
   // rolls dice that are not locked and updates the dice values
   const rollDice = () => {
     const rolledDice = dice.map(die => (die.locked ? die : { ...die, rolling: true, value: rollDie()}));
     setDice(rolledDice);
-    console.log(logRolls(rolledDice));
-
     setTimeout(() => {
       const finishedDice = rolledDice.map(die => ({ ...die, rolling: false }));
       setDice(finishedDice);
+      generateCounts(finishedDice);
+      generateSum(finishedDice);
     }, 1000);
-
     }
-  
   // returns a random number 1 - 6
   const rollDie = () => {
     return Math.floor(Math.random() * 6) + 1;
   }
 
+  const generateCounts = (dice) => {
+    let updatedCounts = [0, 0, 0, 0, 0, 0];
+    for (let i = 0; i < 5; i++) {
+      updatedCounts[(dice[i].value ) -1 ] += 1;
+    }
+    setCounts(updatedCounts);
+  }
+  const generateSum = (dice) => {
+    let sum = 0;
+    for (let i = 0; i < 5; i++) {
+      sum += dice[i].value;
+    }
+    setDiceValueSum(sum);
+  }
+  
   return (
     <div className="wrapper">
       <div className="dice-container">
@@ -70,3 +57,11 @@ const DiceContainer = (props) => {
   )
 }
 export default DiceContainer;
+// const logLockedState = (rolls) => {
+//   let l = [];
+//   rolls.forEach(die => {
+//     l.push(die.locked);
+//   })
+//   console.log(l)
+// }
+// ---------------------------------
