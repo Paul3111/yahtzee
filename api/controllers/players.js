@@ -2,20 +2,17 @@ const Player = require('../models/player');
 const { ObjectId } = require("mongodb");
 
 const PlayersController = {
-    Index: (_req, res) => {
-        res.status(200).json({data: [
-            {username: "Paul", score: [100]},
-            {username: "Chang", score: [100]}
-        ]});
+    CreatePlayer: (req, res) => {
+        const player = new Player();
+        player.username = req.body.username
+        player.email = req.body.email
+        player.password = req.body.password
+        player.scores.score = [...player.scores.score, req.body.score]
 
-    //     Player.find(async (err, players) => {
-    //         console.log('IN THE METHOD')
-    //         if (err) {
-    //             throw err;
-    //         }
-    //         res.status(200).json({players: players});
-    //     });
-    // }
-}};
+        player.save().then(user => {
+            res.status(201).json({ message: 'OK', data: user });
+        })
+    }
+};
 
 module.exports = PlayersController;
