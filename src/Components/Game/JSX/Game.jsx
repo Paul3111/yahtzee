@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 
 import style from '../CSS/Game.module.css';
 import GameHeader from './GameHeader';
