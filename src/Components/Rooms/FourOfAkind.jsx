@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import style from './CSS/Room.module.css'
 
-const FourOfAkind = () => {
+const FourOfAKind = () => {
   const [isDisabled, setIsDisabled] = useState(false)
 
   const useRoom = () => {
@@ -19,4 +19,4 @@ const FourOfAkind = () => {
   );
 };
 
-export default FourOfAkind;
+export default FourOfAKind;
