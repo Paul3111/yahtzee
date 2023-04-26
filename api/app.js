@@ -16,8 +16,8 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use('/', players);
 
-app.listen(8080, function() {
-    console.log('Server listening on port 8080');
-});
+// app.listen(8080, function() {
+//     console.log('Server listening on port 8080');
+// });
 
 module.exports = app;

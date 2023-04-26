@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 
 import style from '../CSS/Game.module.css';
 import GameHeader from './GameHeader';
@@ -13,6 +13,17 @@ const Game = () => {
   const hoverHandler = () => {
     setIsHovered(!isHovered)
   }
+
+  const [data, setData] = useState({});
+
+
+  useEffect(() => {
+    fetch('http://localhost:8080/players')
+      .then(res => res.json())
+      .then(data => {
+        setData(data)
+      });
+  }, []);
 
   return (
     <div className={style['god-container']}>
