@@ -48,7 +48,7 @@ const DiceContainer = (props) => {
     setTimeout(() => {
       const finishedDice = rolledDice.map(die => ({ ...die, rolling: false }));
       setDice(finishedDice);
-    }, 700);
+    }, 500);
 
     }
   

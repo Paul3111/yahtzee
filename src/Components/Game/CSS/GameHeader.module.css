@@ -3,7 +3,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  height: 8vh;
+  padding: 5rem 0 2rem 0;
 }
 
 .game-header h1 {

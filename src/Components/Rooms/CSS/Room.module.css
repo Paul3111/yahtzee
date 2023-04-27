@@ -15,7 +15,6 @@
 
 .room button {
   position: relative;
-  /* opacity: 0; */
   z-index: 1;
   width: 84%;
   height: 100%;

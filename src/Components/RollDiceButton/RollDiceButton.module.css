@@ -5,8 +5,6 @@
   justify-content: center;
 
   width: 100%;
-  /* border: red 2px solid; */
-
 }
 
 .roll-dice-btn {
@@ -32,11 +30,11 @@
 }
 
 .roll-dice-btn:hover {
+  position: relative;
   border: var(--pink-neon-on) 4px solid;
   color: var(--pink-neon-on);
   box-shadow: 0 0 30px 5px var(--pink-neon-color);
   transition: all .1s ease;
-
 }
 
 .roll-dice-btn:active {

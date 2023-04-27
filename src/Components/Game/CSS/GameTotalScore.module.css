@@ -4,8 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 3rem auto;
-  /* border: white 1px solid; */
+  margin-top: 5rem;
 }
 
 .score__inner-container {
@@ -16,7 +15,6 @@
   align-items: center;
   justify-content: space-between;
   gap: 5rem;
-  border-radius: 10px;
   padding: 0 3rem;
 }
 
@@ -77,5 +75,4 @@
   font-family: var(--alternative-font);
   text-shadow: 0 0 9px var(--link-on-light-cast);
   font-size: 10rem;
-    /* border: white 1px solid; */
 }

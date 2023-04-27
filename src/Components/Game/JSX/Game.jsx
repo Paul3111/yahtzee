@@ -6,6 +6,7 @@ import GameRooms from './GameRooms';
 import HowToPlay from '../../HowToPlay/JSX/HowToPlay';
 import GameTotalScore from './GameTotalScore';
 import DiceContainer from '../../Dice/DiceContainer';
+import GameMenu from './GameMenu';
 
 const Game = () => {
   const [isHovered, setIsHovered] = useState(false) 
@@ -17,6 +18,7 @@ const Game = () => {
   return (
     <div className={style['god-container']}>
       <GameHeader />
+      <GameMenu />
       <div className={`${style['game-container']} ${isHovered && style['lights-up']}`}>
         <GameTotalScore isHovered={isHovered} />
         <GameRooms />  
