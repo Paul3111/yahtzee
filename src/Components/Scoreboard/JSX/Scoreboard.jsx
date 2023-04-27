@@ -5,13 +5,14 @@ import axios from 'axios';
 
 const Scoreboard = () => {
   const navigate = useNavigate();
+  const [players, setPlayers] = useState([]);
 
   const homeRedirect = () => {
     navigate('/home')
   }
 
 const Dashboard = () => {
-  const [players, setPlayers] = useState([]);
+  //const [players, setPlayers] = useState([]);
 
   useEffect(() => {
     axios.get('/players')
@@ -26,22 +27,26 @@ const Dashboard = () => {
 
   return (
     <div className={`${style['god-container']}`}>
-    <div>
-      <h1>Dashboard</h1>
-      <ul>
-        {players.map(player => {
-          <li key={player.username}>
-            {player.username}: {player.scores}
-          </li>
-        })}
-      </ul>
-    </div>
-        <div className={style['page-container']}>
-          <button className={style['go-to-home']} 
-          onClick={homeRedirect}>
-            Home
-          </button>
-        </div>
+      <div className={style['page-container']}>
+        <h1>Dashboard</h1>
+      <div className={style['scoreboard-container']}>
+        <ul>
+          {players.map(player => {
+            <div className={style['score-container']}>
+              <li key={player.username}>
+                {player.username}: {player.scores}
+              </li>
+            </div>
+          })}
+        </ul>
+      </div>
+
+
+        <button className={style['go-to-home']} 
+        onClick={homeRedirect}>
+          Home
+        </button>
+      </div>
     </div>
   );
 };
