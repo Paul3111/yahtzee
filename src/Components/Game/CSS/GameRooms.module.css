@@ -4,9 +4,8 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 45%;
   border-radius: 5px;
-  /* border: white 1px solid; */
+  padding: 8rem 2rem;
 }
 .rooms-halves-container {
   display: flex;
@@ -15,7 +14,6 @@
   align-items: center;
   width: 100%;
   border-radius: 5px;
-  /* border: white 1px solid; */
 }
 .rooms-half {
   display: flex;
@@ -23,8 +21,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  gap: 1rem;
+  gap: 1rem; 
   border-radius: 5px;
-  /* border: white 1px solid; */
-  padding: 2rem;
+  padding: 2rem 1rem;
 }

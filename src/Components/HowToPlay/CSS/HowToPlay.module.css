@@ -3,8 +3,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-
-  margin: 4rem 0; /* to delete if container use gap*/
+  /* to delete if container use gap*/
+  margin: 5rem 0;
   /* border: var(--pink-neon-color) 2px solid; */
 }
 

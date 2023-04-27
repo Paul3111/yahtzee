@@ -3,7 +3,12 @@ import style from './RollDiceButton.module.css'
 const RollDiceButton = (props) => {
   return (
     <div className={style['roll-dice-btn-container']}>
-          <button className={style['roll-dice-btn']} onClick={props.onRoll} onMouseEnter={props.onBtnHover} onMouseLeave={props.onBtnHover}>ROLL</button>
+      <button className={style['roll-dice-btn']}
+        onClick={props.onRoll}
+        onMouseEnter={props.onBtnHover}
+        onMouseLeave={props.onBtnHover}>
+        ROLL
+      </button>
     </div>
   );
 };

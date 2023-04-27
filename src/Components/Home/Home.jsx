@@ -1,8 +1,8 @@
 import {useState, useEffect} from 'react'
 
-import style from './MainPage.module.css';
+import style from './Home.module.css';
 
-const MainPage = () => {
+const Home = () => {
   //const [isHovered, setIsHovered] = useState(false) 
 
   //const hoverHandler = () => {
@@ -20,4 +20,4 @@ const MainPage = () => {
   );
 };
 
-export default MainPage;
+export default Home;
