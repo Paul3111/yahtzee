@@ -22,9 +22,11 @@ const Yahtzee = (props) => {
     setIsDisabled(true)
   }
 
+  const rollZero = props.rollCount === 0
+
   return (
     <div className={`${style['room']} ${style['reverse']} ${isDisabled && style['is-used']}`}>
-      <button onClick={useRoom} disabled={isDisabled}>Yahtzee</button>
+      <button onClick={useRoom} disabled={isDisabled || rollZero}>Yahtzee</button>
       <div>
         <p>{isDisabled ? props.savedScore : score}</p>
       </div>

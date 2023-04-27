@@ -23,9 +23,11 @@ const Twos = (props) => {
     setIsDisabled(true)
   }
 
+  const rollZero = props.rollCount === 0
+  
   return (
     <div className={`${style['room']} ${isDisabled && style['is-used']}`}>
-      <button onClick={useRoom} disabled={isDisabled}>Twos</button>
+      <button onClick={useRoom} disabled={isDisabled || rollZero}>Twos</button>
       <div>
         <p>{isDisabled ? props.savedScore : score}</p>
       </div>

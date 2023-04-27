@@ -9,6 +9,7 @@ const RollDiceButton = (props) => {
         onMouseLeave={props.onBtnHover}>
         ROLL
       </button>
+      {/* dots */}
     </div>
   );
 };

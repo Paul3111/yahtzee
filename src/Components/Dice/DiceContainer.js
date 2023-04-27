@@ -13,7 +13,8 @@ const DiceContainer = (props) => {
   }
   // rolls dice that are not locked and updates the dice values
   const rollDice = () => {
-    const rolledDice = dice.map(die => (die.locked ? die : { ...die, rolling: true, value: rollDie()}));
+    
+    const rolledDice = dice.map(die => (die.locked ? die : { ...die, rolling: true, value: rollDie() }));
     setDice(rolledDice);
     setTimeout(() => {
       const finishedDice = rolledDice.map(die => ({ ...die, rolling: false }));

@@ -24,9 +24,11 @@ const LargeStraight = (props) => {
     setIsDisabled(true)
   }
 
+  const rollZero = props.rollCount === 0
+
   return (
     <div className={`${style['room']} ${style['reverse']} ${isDisabled && style['is-used']}`}>
-      <button onClick={useRoom} disabled={isDisabled}>Large Straight</button>
+      <button onClick={useRoom} disabled={isDisabled || rollZero}>Large Straight</button>
       <div>
         <p>{isDisabled ? props.savedScore : score}</p>
       </div>

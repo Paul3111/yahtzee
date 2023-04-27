@@ -17,7 +17,7 @@ const Bonus = (props) => {
 
   return (
     <div className={`${style['room']}`}>
-      <button onClick={useRoom} disabled='true'>Bonus</button>
+      <button onClick={useRoom} disabled={true}>Bonus</button>
       <div>
         <p>{score}</p>
       </div>

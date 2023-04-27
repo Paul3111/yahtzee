@@ -25,6 +25,8 @@ const Game = () => {
     { value: 1, locked: false }
   ]);
 
+  const [rollCount, setRollCount] = useState(0)
+
   const [total, setTotal] = useState(0)
 
   const updateTotal = (score) => {
@@ -41,6 +43,16 @@ const Game = () => {
   //console.log("sum: ",  diceValueSum);
   //console.log("counts",  counts);
   //console.log("values", values)
+
+  // const countRolls = () => {
+
+
+  //   if (roll === 3) {
+      // 
+      // set all dice .locked false
+      // set roll number back to 0
+  //   }
+  // }
   
   return (
     <div className={`${style['god-container']} ${isYahtzee && style['yahtzee-celebration']}`}>
@@ -48,7 +60,7 @@ const Game = () => {
       <GameMenu />
       <div className={`${style['game-container']} ${isHovered && style['lights-up']}`}>
         <GameTotalScore isHovered={isHovered} total={total} />
-        <GameRooms values={values} updateTotal={updateTotal} isYahtzee={setIsYahtzee} />
+        <GameRooms rollCount={rollCount} values={values} updateTotal={updateTotal} isYahtzee={setIsYahtzee} />
         <DiceContainer onBtnHover={hoverHandler}
           isHovered={isHovered}
           dice={dice}
