@@ -8,13 +8,15 @@ import SmallStraight from '../../Rooms/SmallStraight';
 import LargeStraight from '../../Rooms/LargeStraight';
 
 import style from '../CSS/GameRooms.module.css'
+import { useState } from 'react';
 
-const GameRooms = () => {
+const GameRooms = (props) => {
+  const [oneScore, setOneScore] = useState(0)
   return (
     <div className={style['rooms-main-container']}>
       <div className={style['rooms-halves-container']}>
         <div className={style['rooms-half']}>
-          <Ones />
+          <Ones onDiceRoll={setOneScore} values = {props.values} />
           <Twos />
           <Threes />
           <Fours />

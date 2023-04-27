@@ -5,6 +5,7 @@ import GameRooms from './GameRooms';
 import HowToPlay from '../../HowToPlay/JSX/HowToPlay';
 import GameTotalScore from './GameTotalScore';
 import DiceContainer from '../../Dice/DiceContainer';
+
 const Game = () => {
   const [isHovered, setIsHovered] = useState(false)
   const [counts, setCounts] = useState([0, 0, 0, 0, 0, 0]);
@@ -29,7 +30,7 @@ const Game = () => {
       <GameHeader />
       <div className={`${style['game-container']} ${isHovered && style['lights-up']}`}>
         <GameTotalScore isHovered={isHovered} />
-        <GameRooms dice={dice}/>
+        <GameRooms values={values}/>
         <DiceContainer onBtnHover={hoverHandler}
           dice={dice}
           setDice={setDice}

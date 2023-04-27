@@ -85,6 +85,7 @@ function OneScore(roll) {
   return one_score
 }
 
+
 function TwoScore(roll) {
   let two_score = 0
   for (let dice of roll) {
@@ -98,11 +99,41 @@ function TwoScore(roll) {
 function ThreeScore(roll) {
   let three_score = 0
   for (let dice of roll) {
-    if (dice === 2) {
+    if (dice === 3) {
       three_score ++
     }
   }
   return three_score
+}
+
+function FourScore(roll) {
+  let four_score = 0
+  for (let dice of roll) {
+    if (dice === 4) {
+      four_score ++
+    }
+  }
+  return four_score
+}
+
+function FiveScore(roll) {
+  let five_score = 0
+  for (let dice of roll) {
+    if (dice === 5) {
+      five_score ++
+    }
+  }
+  return five_score
+}
+
+function SixScore(roll) {
+  let six_score = 0
+  for (let dice of roll) {
+    if (dice === 6) {
+      six_score ++
+    }
+  }
+  return six_score
 }
 
 
@@ -116,3 +147,7 @@ console.log("SMS " + SMstraightScore(dice))
 console.log("FH " + FullHouseScore(dice))
 console.log("1 " + OneScore(dice))
 console.log("2 " + TwoScore(dice))
+console.log("3 " + ThreeScore(dice))
+console.log("4 " + FourScore(dice))
+console.log("5 " + FiveScore(dice))
+console.log("6 " + SixScore(dice))
