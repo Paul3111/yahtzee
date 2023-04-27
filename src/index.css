@@ -1,13 +1,64 @@
+:root {
+  --title-color: #f9dcfe;
+
+  --pink-neon-color: #f580f8; 
+  --green-neon-color: #0dfab3;
+
+  --pink-neon-off: #2c222d;
+  --pink-neon-on: #f0befa;
+
+  --link-off: #835a8b;
+  --link-on: #f9dcfe;
+  --link-on-light-cast: white;
+
+  --alternative-font: 'Tilt Neon', cursive;
+
+  --background-overlay: rgba(17, 0, 18, 0.9);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1.8;
+}
+
+html {
+  font-size: 62.5%;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  position: relative;
+  font-size: inherit;
+  background: url(../public/background-img/background2.jpg) no-repeat center center/cover;
+  font-family: 'Press Start 2P', cursive;
+  user-select: none;
+  height: 100vh;
+  width: 100vw;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale;  
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--background-overlay);
+  z-index: -1;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#root {
+  height: 100vh;
+  width: 100vw;
+}
+
+

@@ -1,0 +1,20 @@
+.link-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  margin: 4rem 0; /* to delete if container use gap*/
+  /* border: var(--pink-neon-color) 2px solid; */
+}
+
+.link:link,
+.link:visited {
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: var(--link-off);
+}
+.link:hover{
+  color: var(--link-on);
+  text-shadow: 0 0 9px var(--link-on-light-cast);
+}
