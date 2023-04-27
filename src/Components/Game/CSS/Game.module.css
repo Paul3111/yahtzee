@@ -1,4 +1,4 @@
-.god-container {
+.god-container {  
   margin: auto;
   max-width: 900px;
   height: 100%;
@@ -10,7 +10,7 @@
 
 .game-container {
   width: 100%;
-  height: 75%;
+  height: 80%;
   position: relative;
 
   display: flex;
@@ -80,4 +80,45 @@
   border: #f0befa 5px solid;
   box-shadow: 0 0 40px 10px var(--pink-neon-color);
   transition: all .1s ease;
+}
+
+/* temporary Yahtzee celebration, not sure i like it */
+.yahtzee-celebration.god-container:after {
+  content: 'Yahtzee!';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(230, 230, 230);
+  font-size: 20rem;
+  font-style: italic;
+  z-index: 2;
+  text-shadow: 0 0 10px white;
+
+  animation-name: yahtzee-celebration;
+  animation-fill-mode: forwards;
+  animation-duration: 1.5s;
+  animation-iteration-count: 1;
+  animation-delay: 0s;
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes yahtzee-celebration {
+  0% {
+    top: 50%;
+    left: 150%;
+  }
+  30% {
+    top: 50%;
+    left: 50%;
+  }
+  70% {
+    top: 50%;
+    left: 50%;
+  }
+  100% {
+    top: 50%;
+    left: -150%;
+  }
 }

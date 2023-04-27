@@ -15,7 +15,7 @@
   line-height: 5rem;
   
   width: 50%;
-  height: 8rem;
+  height: 10rem;
   border: transparent 4px solid;
   border-radius: 20px;
  
@@ -39,6 +39,6 @@
 
 .roll-dice-btn:active {
   box-shadow: 0 0 20px 1px var(--pink-neon-color);
-  transform: translateY(3px);
+  transform: translateY(4px);
   transition: all .1s ease;
 }

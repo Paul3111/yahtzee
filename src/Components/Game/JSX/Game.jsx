@@ -9,14 +9,19 @@ import DiceContainer from '../../Dice/DiceContainer';
 import GameMenu from './GameMenu';
 
 const Game = () => {
-  const [isHovered, setIsHovered] = useState(false) 
+  const [isHovered, setIsHovered] = useState(false)
+
+  //this below is used to add class yahtzee-celebration to css
+  // it can be used for other purposes
+  // but if not, please set this to true when Yahtzee
+  const [isYahtzee, setIsYahtzee] = useState(false)
 
   const hoverHandler = () => {
     setIsHovered(!isHovered)
   }
 
   return (
-    <div className={style['god-container']}>
+    <div className={`${style['god-container']} ${isYahtzee && style['yahtzee-celebration']}`}>
       <GameHeader />
       <GameMenu />
       <div className={`${style['game-container']} ${isHovered && style['lights-up']}`}>
