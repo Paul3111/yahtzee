@@ -49,3 +49,27 @@
   position: relative;
   align-self: center;
   }
+
+  .game-header {
+    top: 60rem;
+    width: 40%;
+    height: 10%;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    font-size: 5rem;
+    font-weight: 900;
+    line-height: 5rem;
+    background-color: transparent;
+    position: relative;
+    align-self: center;
+    }
+
+    .game-header h1 {
+      color: var(--title-color);
+      font-size: 8rem;
+    }
