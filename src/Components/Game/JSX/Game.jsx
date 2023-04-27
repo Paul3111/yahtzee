@@ -38,7 +38,7 @@ const Game = () => {
       <GameMenu />
       <div className={`${style['game-container']} ${isHovered && style['lights-up']}`}>
         <GameTotalScore isHovered={isHovered} />
-        <GameRooms dice={dice} />
+        <GameRooms values={values} />
         <DiceContainer onBtnHover={hoverHandler}
           isHovered={isHovered}
           dice={dice}
