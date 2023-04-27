@@ -1,6 +1,8 @@
 import './App.css';
 import Game from './Components/Game/JSX/Game';
 import Home from './Components/Home/Home';
+import Scoreboard from './Components/Scoreboard/JSX/Scoreboard';
+
 import {
   useNavigate,
   Routes,
@@ -13,6 +15,9 @@ const App = () => {
     <Routes>
       <Route path="/home" element={<Home navigate={ useNavigate()} />} />
       <Route path="/game" element={<Game navigate={ useNavigate()} />} />
+      <Route path="/scoreboard" element={<Scoreboard navigate={ useNavigate()} />} />
+      <Route path="/settings" element={<Game navigate={ useNavigate()} />} />
+      <Route path="/signup" element={<Game navigate={ useNavigate()} />} />
     </Routes>
     );
 }
