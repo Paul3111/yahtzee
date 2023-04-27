@@ -1,8 +1,19 @@
 import './App.css';
 import Game from './Components/Game/JSX/Game';
+import {
+  useNavigate,
+  Routes,
+  Route,
+  Navigate
+} from "react-router-dom";
 
 const App = () => {
-  return <Game />;
+  return (
+    <Routes>
+      
+      <Route path="/game" element={<Game navigate={ useNavigate()} />} />
+    </Routes>
+    );
 }
 
 
