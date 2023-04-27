@@ -101,3 +101,23 @@
 .room.is-used div p {
   color: #dedede;
 }
+
+.room.is-potential {
+  border: var(--link-on) 2px solid ;
+  /* box-shadow: 0 0 20px 1px var(--pink-neon-color); */
+  transition: all .1s ease;
+}
+
+.room.is-potential button {
+  color: var(--link-on);
+  text-shadow: 0 0 9px var(--link-on-light-cast);
+  cursor: default;
+  transition: all .1s ease;
+}
+.room.is-potential div {
+  border: var(--link-on) 1px solid ;
+  transition: all .1s ease;
+}
+.room.is-potential div p {
+  color: #dedede;
+}

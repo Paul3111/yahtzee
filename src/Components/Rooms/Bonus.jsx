@@ -1,19 +1,25 @@
 import { useState } from 'react';
 import style from './CSS/Room.module.css'
 
-const Bonus = () => {
-  const [isDisabled, setIsDisabled] = useState(false)
+const Bonus = (props) => {
+
+  const bonus = () => {
+    if (props.subTotal >= 63) return 35 
+    else return 63 - props.subTotal
+  }
+
+  const score = bonus(props.values)
 
   const useRoom = () => {
-    // ...
-    setIsDisabled(true)
+    props.onRollDice(score)
+    props.updateTotal(score)
   }
 
   return (
-    <div className={`${style['room']} ${isDisabled && style['is-used']}`}>
-      <button onClick={useRoom} disabled={isDisabled}>Bonus</button>
+    <div className={`${style['room']}`}>
+      <button onClick={useRoom} disabled='true'>Bonus</button>
       <div>
-        <p>35</p>
+        <p>{score}</p>
       </div>
     </div>
   );

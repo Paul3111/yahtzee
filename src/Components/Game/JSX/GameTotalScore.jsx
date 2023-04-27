@@ -7,7 +7,7 @@ const GameTotalScore = (props) => {
     <div className={style['score__container']}>
       <div className={style['score__inner-container']}>
         <div className={`${style['score__decoration']} ${props.isHovered && style['lights-up']}`}></div>
-        <p>1357</p>
+        <p>{props.total}</p>
         <div className={`${style['score__decoration']} ${props.isHovered && style['lights-up']}`}></div>
       </div>
     </div>
