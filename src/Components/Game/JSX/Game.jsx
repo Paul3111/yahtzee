@@ -25,6 +25,16 @@ const Game = () => {
     { value: 1, locked: false }
   ]);
 
+  const [total, setTotal] = useState(0)
+
+  const updateTotal = (score) => {
+    setTotal((prevTotal) => {
+      return prevTotal += score
+    })
+  } 
+
+  console.log('TOTAL', total)
+
   const hoverHandler = () => {
     setIsHovered(!isHovered)
   }
@@ -37,8 +47,8 @@ const Game = () => {
       <GameHeader />
       <GameMenu />
       <div className={`${style['game-container']} ${isHovered && style['lights-up']}`}>
-        <GameTotalScore isHovered={isHovered} />
-        <GameRooms values={values} />
+        <GameTotalScore isHovered={isHovered} total={total} />
+        <GameRooms values={values} updateTotal={updateTotal} />
         <DiceContainer onBtnHover={hoverHandler}
           isHovered={isHovered}
           dice={dice}

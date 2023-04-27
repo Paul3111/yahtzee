@@ -3,7 +3,6 @@ import style from './CSS/Room.module.css'
 
 const Ones = (props) => {
   const [isDisabled, setIsDisabled] = useState(false)
-  console.log(props)
 
   function OneScore(roll) {
     let one_score = 0
@@ -15,18 +14,19 @@ const Ones = (props) => {
     return one_score
   }
 
+  const score = OneScore(props.values)
+
   const useRoom = () => {
     props.onRollDice(score)
+    props.updateTotal(score)
     setIsDisabled(true)
   }
 
-  const score = OneScore(props.values)
-  
   return (
     <div className={`${style['room']} ${isDisabled && style['is-used']}`}>
       <button onClick={useRoom} disabled={isDisabled}>Ones</button>
       <div>
-        <p>{`${score}`}</p>
+        <p>{isDisabled ? props.savedScore : score || ''}</p>
       </div>
     </div>
   );
