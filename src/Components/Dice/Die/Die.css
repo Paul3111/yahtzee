@@ -6,23 +6,31 @@
   cursor: pointer;
   position: relative;  
   opacity: 1;
-  transition: all .1s ease-in-out;
-
+  transform: scale(1);
+  transition: all .2s ease-in-out;
   position: relative;
 }
 
 .die:hover {
-  background-color:  #f099f1;
-  box-shadow: 0 0 30px 5px var(--pink-neon-color);
-  transform: scale(1.1);
+  /* background-color:  #f099f1;
+  box-shadow: 0 0 30px 5px var(--pink-neon-color); */
+  transform: scale(1.2);
   transition: all .2s ease-in-out;
 }
 
 .die.locked {
   background-color: #f099f1;
   box-shadow: 0 0 30px 5px var(--pink-neon-color);
+  transition: all .2s ease-in-out;
+}
+
+.die:active, 
+.die.locked:active {
+  box-shadow: 0 0 50px 15px var(--pink-neon-color);
+  transform: scale(1.3);
   transition: all .1s ease-in-out;
 }
+
 
 .die img {
   width: 105%;
