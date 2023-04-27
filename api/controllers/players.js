@@ -12,6 +12,16 @@ const PlayersController = {
         player.save().then(user => {
             res.status(201).json({ message: 'OK', data: user });
         })
+    },
+
+    GetPlayersData: (_req, res) => {
+        Player.find({}, 'username scores', (err, players) => {
+            if (err) {
+                console.log (err);
+                return res.status(500).send('An error has occured.');
+            }
+            res.json(players.username, players.scores);
+        });
     }
 };
 
