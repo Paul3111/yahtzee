@@ -12,7 +12,7 @@ const Home = () => {
    // setIsHovered(!isHovered)
   //}
 
-  const homeRedirect = () => {
+  const gameRedirect = () => {
     navigate('/game')
   }
 
@@ -23,7 +23,7 @@ const Home = () => {
         {GameHeader()}
         </div>
           <button className={style['enter-to-start']} 
-          onClick={homeRedirect}>
+          onClick={gameRedirect}>
             Enter to start
           </button>
         </div>
