@@ -16,11 +16,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 5rem;
-  /* background-color: black;
-  border: var(--link-on) 2px solid ; */
   border-radius: 10px;
-  /* box-shadow: 0 0 20px 1px var(--pink-neon-color); */
-  /* border: rgb(41, 41, 41) 3px solid; */
   padding: 0 3rem;
 }
 
@@ -75,14 +71,11 @@
   transition: all .4s;
 }
 
-
-
 .score__inner-container p {
   flex-shrink: 0;
   color: var(--pink-neon-on);
   font-family: var(--alternative-font);
   text-shadow: 0 0 9px var(--link-on-light-cast);
-  /* color: #eee; */
   font-size: 10rem;
     /* border: white 1px solid; */
 }

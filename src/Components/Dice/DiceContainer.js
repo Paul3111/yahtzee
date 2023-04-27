@@ -48,7 +48,7 @@ const DiceContainer = (props) => {
     setTimeout(() => {
       const finishedDice = rolledDice.map(die => ({ ...die, rolling: false }));
       setDice(finishedDice);
-    }, 1000);
+    }, 700);
 
     }
   
@@ -59,13 +59,13 @@ const DiceContainer = (props) => {
 
   return (
     <div className="wrapper">
-      <div className="dice-container">
+      <div className={`dice-container ${props.isHovered && 'light-up'}`}>
         { dice.map((die, index) => (
           <Die key={index} value={die.value} locked={die.locked} rolling={die.rolling} onClick={() => toggleLock(index)}/>
         ))}
       </div>
       <RollDiceButton onBtnHover={props.onBtnHover} onRoll={rollDice}/>
-      </div>
+    </div>
   )
 }
 export default DiceContainer;

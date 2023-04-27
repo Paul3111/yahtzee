@@ -20,7 +20,7 @@ const Game = () => {
       <div className={`${style['game-container']} ${isHovered && style['lights-up']}`}>
         <GameTotalScore isHovered={isHovered} />
         <GameRooms />  
-        <DiceContainer onBtnHover={hoverHandler} />
+        <DiceContainer isHovered={isHovered} onBtnHover={hoverHandler} />
       </div>
         <HowToPlay />
     </div>
