@@ -21,7 +21,7 @@ const DiceContainer = (props) => {
       generateCounts(finishedDice);
       generateSum(finishedDice);
       returnRollValues(finishedDice)
-    }, 1000);
+    }, 800);
     }
   // returns a random number 1 - 6
   const rollDie = () => {
@@ -52,13 +52,13 @@ const DiceContainer = (props) => {
 
   return (
     <div className="wrapper">
-      <div className="dice-container">
+      <div className={`dice-container ${props.isHovered && 'light-up'}`}>
         { dice.map((die, index) => (
           <Die key={index} value={die.value} locked={die.locked} rolling={die.rolling} onClick={() => toggleLock(index)}/>
         ))}
       </div>
       <RollDiceButton onBtnHover={props.onBtnHover} onRoll={rollDice}/>
-      </div>
+    </div>
   )
 }
 export default DiceContainer;

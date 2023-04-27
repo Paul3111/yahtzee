@@ -8,7 +8,7 @@ const Die = (props) => {
   // images files for dice need to be formatted to contain a number.
   return (
     <div className={`die ${locked ? "locked" : ""} ${rolling ? "rolling" : ""}`} onClick={onClick}>
-      <img src={`./assets/dice-${value}.png`} width="70" alt=""/>
+      <img src={`./assets/dice-${value}.png`} alt=""/>
     </div>
   )
 }

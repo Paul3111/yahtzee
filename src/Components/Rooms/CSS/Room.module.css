@@ -15,7 +15,6 @@
 
 .room button {
   position: relative;
-  /* opacity: 0; */
   z-index: 1;
   width: 84%;
   height: 100%;
@@ -40,6 +39,13 @@
 .room:hover {
   border: var(--link-on) 2px solid ;
   box-shadow: 0 0 20px 1px var(--pink-neon-color);
+  transform: scale(1.05);
+  transition: all .1s ease;
+}
+.room:active {
+  border: var(--link-on) 2px solid ;
+  box-shadow: 0 0 20px 10px var(--pink-neon-color);
+  transform: scale(1.1);
   transition: all .1s ease;
 }
 .room:hover button:hover {
@@ -74,6 +80,11 @@
   color: #dedede;
 }
 
+
+.is-used.room:hover {
+  transform: scale(1);
+  transition: all .1s ease;
+}
 .room.is-used {
   border: var(--link-on) 2px solid ;
   box-shadow: 0 0 20px 1px var(--pink-neon-color);
