@@ -12,6 +12,7 @@ const Chance = (props) => {
   }
 
   const score = ChanceScore(props.values)
+  
   const useRoom = () => {
     props.onRollDice(score)
     props.updateTotal(score)

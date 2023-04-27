@@ -17,6 +17,7 @@ const GameRooms = (props) => {
   const [fours, setFours] = useState(0)
   const [fives, setFives] = useState(0)
   const [sixes, setSixes] = useState(0)
+  const [bonus, setBonus] = useState(0)
 
   const [threeOfAKind, setThreeOfAKind] = useState(0)
   const [fourOfAKind, setFourOfAKind] = useState(0)
@@ -26,18 +27,25 @@ const GameRooms = (props) => {
   const [yahtzee, setYahtzee] = useState(0)
   const [chance, setChance] = useState(0)
 
+  const [subTotal, setSubtotal] = useState(0)
+
+  const updateSubTotal = (score) => {
+    setSubtotal((prevSubTotal) => {
+      return prevSubTotal += score
+    })
+  }
 
   return (
     <div className={style['rooms-main-container']}>
       <div className={style['rooms-halves-container']}>
         <div className={style['rooms-half']}>
-          <Ones onRollDice={setOnes} savedScore={ones} updateTotal={props.updateTotal} values={props.values}  />
-          <Twos onRollDice={setTwos} savedScore={twos} updateTotal={props.updateTotal} values={props.values} />
-          <Threes onRollDice={setThrees} savedScore={threes} updateTotal={props.updateTotal} values={props.values} />
-          <Fours onRollDice={setFours} savedScore={fours} updateTotal={props.updateTotal} values={props.values}/>
-          <Fives onRollDice={setFives} savedScore={fives} updateTotal={props.updateTotal} values={props.values}/>
-          <Sixes onRollDice={setSixes} savedScore={sixes} updateTotal={props.updateTotal} values={props.values}/>
-          <Bonus />
+          <Ones onRollDice={setOnes} savedScore={ones} updateTotal={props.updateTotal} updateSubTotal={updateSubTotal} values={props.values}  />
+          <Twos onRollDice={setTwos} savedScore={twos} updateTotal={props.updateTotal} updateSubTotal={updateSubTotal} values={props.values} />
+          <Threes onRollDice={setThrees} savedScore={threes} updateTotal={props.updateTotal} updateSubTotal={updateSubTotal} values={props.values} />
+          <Fours onRollDice={setFours} savedScore={fours} updateTotal={props.updateTotal} updateSubTotal={updateSubTotal} values={props.values}/>
+          <Fives onRollDice={setFives} savedScore={fives} updateTotal={props.updateTotal} updateSubTotal={updateSubTotal} values={props.values}/>
+          <Sixes onRollDice={setSixes} savedScore={sixes} updateTotal={props.updateTotal} updateSubTotal={updateSubTotal} values={props.values}/>
+          <Bonus onRollDice={setBonus} savedScore={bonus} updateTotal={props.updateTotal} subTotal={subTotal} values={props.values} />
         </div>
         <div className={style['rooms-half']}>
           <ThreeOfAKind onRollDice={setThreeOfAKind} savedScore={threeOfAKind} updateTotal={props.updateTotal} values={props.values}/>

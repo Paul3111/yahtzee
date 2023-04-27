@@ -19,6 +19,7 @@ const Sixes = (props) => {
   const useRoom = () => {
     props.onRollDice(score)
     props.updateTotal(score)
+    props.updateSubTotal(score)
     setIsDisabled(true)
   }
 
