@@ -16,7 +16,7 @@ const PlayersController = {
     },
 
     GetPlayersData: async (req, res) => {
-        let players = await Player.find({}).exec(); 
+        let players = await Player.find({}).exec();
         res.json(players);
     }
 };
