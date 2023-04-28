@@ -35,7 +35,7 @@ const Chance = (props) => {
     <div className={`${style['room']} ${style['reverse']} ${isDisabled && style['is-used']} ${rollZero && !isDisabled && style['is-disabled']}`} >
       <button onClick={useRoom} disabled={isDisabled || rollZero}>Chance</button>
       <div>
-        <p>{isDisabled ? props.savedScore : score}</p>
+        <p>{rollZero ? '0' : isDisabled ? props.savedScore : score}</p>
       </div>
     </div>
   );

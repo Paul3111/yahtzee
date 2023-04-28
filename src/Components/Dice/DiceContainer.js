@@ -14,7 +14,7 @@ const DiceContainer = (props) => {
   }
   // rolls dice that are not locked and updates the dice values
   const rollDice = () => {
-    const rolledDice = dice.map(die => (die.locked ? die : { ...die, rolling: true, value: 6 })); rollDie()
+    const rolledDice = dice.map(die => (die.locked ? die : { ...die, rolling: true, value: rollDie() }));
     setDice(rolledDice);
     incrementYahtzee()
     setTimeout(() => {

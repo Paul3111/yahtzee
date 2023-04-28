@@ -49,7 +49,7 @@ const Yahtzee = (props) => {
     <div className={`${style['room']} ${style['reverse']} ${isDisabled && style['is-used']} ${rollZero && style['is-disabled']}`}>
       <button onClick={useRoom} disabled={isDisabled || rollZero}>Yahtzee</button>
       <div>
-        <p>{isDisabled ? props.savedScore : score}</p>
+        <p>{rollZero ? '0' : isDisabled ? props.savedScore : score}</p>
       </div>
     </div>
   );

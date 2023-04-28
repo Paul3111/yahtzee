@@ -43,7 +43,7 @@ const Ones = (props) => {
     <div className={`${style['room']} ${isDisabled && style['is-used']} ${rollZero && !isDisabled && style['is-disabled']} ${score > 0 && !rollZero && style['is-potential']}`}>
       <button onClick={useRoom} disabled={isDisabled || rollZero}>Ones</button>
       <div>
-        <p>{isDisabled ? props.savedScore : score}</p>
+        <p>{rollZero ? '0' : isDisabled ? props.savedScore : score}</p>
       </div>
     </div>
   );
