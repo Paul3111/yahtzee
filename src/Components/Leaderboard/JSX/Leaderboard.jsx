@@ -17,9 +17,9 @@ const Leaderboard = () => {
   useEffect(() => {
     axios.get('/players')
       .then(response => {
-        console.log('response');
+        //console.log('response');
         setPlayers(response.data);
-        console.log(response.data)
+        //console.log(response.data)
       })
       .catch(error  => {
         console.error(error);
@@ -34,7 +34,7 @@ const Leaderboard = () => {
           <h1>LEADERBOARD</h1>
         </div>
       <div className={style['leaderboard-container']}>
-          {players.map(player => { return (
+          {players.sort((a,b) => a.scores.score < b.scores.score ? 1:-1).map(player => { return (
             <div className={style['score-container']} key={player.username}>
                 {player.username}: {player.scores.score}
             </div>  
