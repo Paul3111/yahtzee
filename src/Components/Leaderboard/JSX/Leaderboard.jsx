@@ -30,17 +30,15 @@ const Leaderboard = () => {
   return (
     <div className={`${style['god-container']}`}>
       <div className={style['page-container']}>
-        <h1>Leaderboard</h1>
+        <div className={style['game-header']}>
+          <h1>LEADERBOARD</h1>
+        </div>
       <div className={style['leaderboard-container']}>
-        <ul>
           {players.map(player => { return (
             <div className={style['score-container']} key={player.username}>
-              <li>
                 {player.username}: {player.scores.score}
-              </li>
-            </div>
+            </div>  
           )})}
-        </ul>
       </div>
 
 
