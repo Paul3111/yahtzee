@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom';
-import style from '../CSS/Scoreboard.module.css';
+import style from '../CSS/Leaderboard.module.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const Scoreboard = () => {
+const Leaderboard = () => {
   const navigate = useNavigate();
   const [players, setPlayers] = useState([]);
 
@@ -11,33 +11,35 @@ const Scoreboard = () => {
     navigate('/home')
   }
 
-const Dashboard = () => {
+
   //const [players, setPlayers] = useState([]);
 
   useEffect(() => {
     axios.get('/players')
       .then(response => {
+        console.log('response');
         setPlayers(response.data);
+        console.log(response.data)
       })
       .catch(error  => {
         console.error(error);
       });
   }, []);
-}
+
 
   return (
     <div className={`${style['god-container']}`}>
       <div className={style['page-container']}>
-        <h1>Dashboard</h1>
-      <div className={style['scoreboard-container']}>
+        <h1>Leaderboard</h1>
+      <div className={style['leaderboard-container']}>
         <ul>
-          {players.map(player => {
-            <div className={style['score-container']}>
-              <li key={player.username}>
-                {player.username}: {player.scores}
+          {players.map(player => { return (
+            <div className={style['score-container']} key={player.username}>
+              <li>
+                {player.username}: {player.scores.score}
               </li>
             </div>
-          })}
+          )})}
         </ul>
       </div>
 
@@ -51,4 +53,4 @@ const Dashboard = () => {
   );
 };
 
-export default Scoreboard;
+export default Leaderboard;
