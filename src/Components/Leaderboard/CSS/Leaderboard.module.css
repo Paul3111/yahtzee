@@ -40,11 +40,12 @@
   border: none;
   color: white;
   cursor: pointer;
-  font-size: 3rem;
+  font-size: 4rem;
   font-weight: 900;
   font-family: 'Tilt Neon', cursive;
   background-color: transparent;
   position: relative;
+  align-self: center;
   }
 
 .score-container {
