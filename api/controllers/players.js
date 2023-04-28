@@ -1,3 +1,4 @@
+const { useAsyncError } = require('react-router-dom');
 const Player = require('../models/player');
 const { ObjectId } = require("mongodb");
 
@@ -12,6 +13,11 @@ const PlayersController = {
         player.save().then(user => {
             res.status(201).json({ message: 'OK', data: user });
         })
+    },
+
+    GetPlayersData: async (req, res) => {
+        let players = await Player.find({}).exec(); 
+        res.json(players);
     }
 };
 
