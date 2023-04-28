@@ -36,10 +36,10 @@ const FourOfAKind = (props) => {
   const rollZero = props.rollCount === 0
 
   return (
-    <div className={`${style['room']} ${style['reverse']} ${isDisabled && style['is-used']} ${rollZero && !isDisabled && style['is-disabled']}`}>
+    <div className={`${style['room']} ${style['reverse']} ${isDisabled && style['is-used']} ${rollZero && !isDisabled && style['is-disabled']} ${score > 0 && !rollZero && style['is-potential']}`}>
       <button onClick={useRoom} disabled={isDisabled || rollZero}>Four of a kind</button>
       <div>
-        <p>{rollZero ? '0' : isDisabled ? props.savedScore : score}</p>
+        <p>{rollZero && props.savedScore === 0 ? '0' : isDisabled ? props.savedScore : score}</p>
       </div>
     </div>
   );

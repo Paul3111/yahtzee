@@ -7,6 +7,7 @@
   height: 7rem;
   border: var(--link-off) 2px solid ;
   border-radius: 10px;
+  transition: all .2s ease-in-out;
 }
 
 .reverse {
@@ -30,6 +31,7 @@
   cursor: pointer;
 
   background-color: transparent;
+  transition: all .2s ease-in-out;
 }
 
 .reverse button{
@@ -40,17 +42,18 @@
   border: var(--link-on) 2px solid ;
   box-shadow: 0 0 20px 1px var(--pink-neon-color);
   transform: scale(1.05);
-  transition: all .1s ease;
+  transition: all .2s ease;
 }
 .room:active {
   border: var(--link-on) 2px solid ;
   box-shadow: 0 0 20px 10px var(--pink-neon-color);
-  transform: scale(1.1);
-  transition: all .1s ease;
+  transform: scale(1.2);
+  transition: all .2s ease;
 }
 .room:hover button{
   color: var(--link-on);
   text-shadow: 0 0 9px var(--link-on-light-cast);
+  transition: all .2s ease-in-out;
 }
 
 .room div {
@@ -139,46 +142,45 @@
   color: #5e5e5e;
 }
 
-/* ROOM IS USED AND DISABLED */
-
 /* ROOM IS POTENTIAL */
 
 .room.is-potential {
-  border: var(--link-on) 2px solid ;
+  border: var(--link-on) 1.5px solid ;
   /* box-shadow: 0 0 20px 1px var(--pink-neon-color); */
-  transition: all .1s ease;
+  transition: all .2s ease-in-out;
 }
 .room.is-potential:hover {
   border: var(--link-on) 2px solid ;
-  box-shadow: 0 0 20px 1px var(--pink-neon-color);
-  transition: all .1s ease;
+  box-shadow: 0 0 20px 5px var(--pink-neon-color);
+  transition: all .2s ease-in-out;
 }
 
 .room.is-potential button {
   color: var(--link-on);
   text-shadow: 0 0 9px var(--link-on-light-cast);
   cursor: default;
-  transition: all .1s ease;
+  transition: all .2s ease-in-out;
 }
 .room.is-potential div {
-  border: var(--link-on) 1px solid ;
+  border: var(--link-on) 1px ease-in-out ;
   border-radius: 8px;
-  transition: all .1s ease;
+  transition: all .2s ease-in-out;
 }
 .room.is-potential div p {
   color: #dedede;
+  transition: all .2s ease-in-out;
 }
 
 /* ROOM IS USED */
 
 .room.is-used {
   border: var(--link-on) 2px solid ;
-  box-shadow: 0 0 20px 1px var(--pink-neon-color);
+  box-shadow: 0 0 20px 10px var(--pink-neon-color);
 }
 
 .room.is-used:hover {
   transform: scale(1);
-  transition: all .1s ease;
+  transition: all .2s ease;
 }
 
 .room.is-used button,

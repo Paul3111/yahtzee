@@ -13,7 +13,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   gap: 5rem;
   padding: 0 3rem;
 }
@@ -75,4 +75,5 @@
   font-family: var(--alternative-font);
   text-shadow: 0 0 9px var(--link-on-light-cast);
   font-size: 10rem;
+  text-align: center;
 }

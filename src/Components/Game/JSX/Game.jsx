@@ -54,7 +54,10 @@ const Game = () => {
   const countRolls = () => {
     if (cheatMode) setRollCount(1)
     else if (rollCount < 3) {
-      setRollCount((prevRollCount) => prevRollCount += 1)
+      setTimeout(() => {
+        setRollCount((prevRollCount) => prevRollCount += 1)
+      }, 800)
+      
     }
   }
 
