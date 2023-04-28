@@ -48,7 +48,7 @@
   transform: scale(1.1);
   transition: all .1s ease;
 }
-.room:hover button:hover {
+.room:hover button{
   color: var(--link-on);
   text-shadow: 0 0 9px var(--link-on-light-cast);
 }
@@ -61,9 +61,8 @@
   width: 100%;
   height: 100%;
   text-align: center;
-  border-radius: 3px;
   background-color: black;
-  border-radius: 5px;
+  border-radius: 8px;
   border: var(--link-off) 1px solid ;
 }
 
@@ -81,30 +80,77 @@
 }
 
 
-.is-used.room:hover {
-  transform: scale(1);
-  transition: all .1s ease;
-}
-.room.is-used {
+/* ROOM IS GRANTED */
+
+.room.is-granted {
   border: var(--link-on) 2px solid ;
-  box-shadow: 0 0 20px 1px var(--pink-neon-color);
+  transform: scale(1);
+  box-shadow: 0 0 20px 2px var(--pink-neon-color);
+  overflow: hidden;
+  
+  animation-name: granting-bonus;
+  animation-fill-mode: backwards;
+  animation-duration: .2s;
+  animation-iteration-count: 1;
+  animation-delay: 0s;
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
 }
 
-.room.is-used button{
-  color: var(--link-on);
-  text-shadow: 0 0 9px var(--link-on-light-cast);
-  cursor: default;
+@keyframes granting-bonus {
+  0% {
+    border: var(--link-on) 2px solid ;
+    box-shadow: 0 0 20px 1px var(--pink-neon-color);
+    transform: scale(1);
+  }
+  50% {
+    border: var(--link-on) 2px solid ;
+    box-shadow: 0 0 20px 20px var(--pink-neon-color);
+    transform: scale(1.2);
+  }
+  100% {
+    border: var(--link-on) 2px solid ;
+    box-shadow: 0 0 20px 1px var(--pink-neon-color);
+    transform: scale(1);
+  }
 }
-.room.is-used div {
-  border: var(--link-on) 1px solid ;
+
+/* ROOM IS DISABLED  */
+
+.room.is-disabled:hover,
+.room.is-disabled:hover button {
+  box-shadow: unset;
+  transform: unset;
+  color: var(--link-off);
+  border: var(--link-off) 2px solid ;
+  text-shadow: unset;
+  cursor: unset;
 }
-.room.is-used div p {
-  color: #dedede;
+
+.room.is-disabled:hover button {
+  border: none;
 }
+
+.room.is-disabled:hover div {
+  border: var(--link-off) 1px solid ;
+}
+
+.room.is-disabled:hover div p {
+  color: #5e5e5e;
+}
+
+/* ROOM IS USED AND DISABLED */
+
+/* ROOM IS POTENTIAL */
 
 .room.is-potential {
   border: var(--link-on) 2px solid ;
   /* box-shadow: 0 0 20px 1px var(--pink-neon-color); */
+  transition: all .1s ease;
+}
+.room.is-potential:hover {
+  border: var(--link-on) 2px solid ;
+  box-shadow: 0 0 20px 1px var(--pink-neon-color);
   transition: all .1s ease;
 }
 
@@ -116,8 +162,36 @@
 }
 .room.is-potential div {
   border: var(--link-on) 1px solid ;
+  border-radius: 8px;
   transition: all .1s ease;
 }
 .room.is-potential div p {
+  color: #dedede;
+}
+
+/* ROOM IS USED */
+
+.room.is-used {
+  border: var(--link-on) 2px solid ;
+  box-shadow: 0 0 20px 1px var(--pink-neon-color);
+}
+
+.room.is-used:hover {
+  transform: scale(1);
+  transition: all .1s ease;
+}
+
+.room.is-used button,
+.room.is-granted button {
+  color: var(--link-on);
+  text-shadow: 0 0 9px var(--link-on-light-cast);
+  cursor: default;
+}
+.room.is-used div,
+.room.is-granted div {
+  border: var(--link-on) 1px solid ;
+}
+.room.is-used div p,
+.room.is-granted div p {
   color: #dedede;
 }
