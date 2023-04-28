@@ -48,6 +48,8 @@
   }
 
 .score-container {
+  display: flex;
+  align-items: center;
   height: 10%;
   color: white;
   cursor: pointer;
