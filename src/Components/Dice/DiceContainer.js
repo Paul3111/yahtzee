@@ -3,8 +3,7 @@ import RollDiceButton from '../RollDiceButton/RollDiceButton'
 import Die from './Die/Die'
 import './DiceContainer.css'
 const DiceContainer = (props) => {
-  const { dice, setDice, counts, setCounts, diceValueSum, setDiceValueSum, values, setValues, incrementYahtzee } = props
-
+  const { dice, setDice, counts, setCounts, diceValueSum, setDiceValueSum, values, setValues } = props
   // toggles dice state between locked and unlocked
   const toggleLock = (index) => {
     if (props.rollCount === 0) return

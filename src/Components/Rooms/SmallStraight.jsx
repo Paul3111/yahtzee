@@ -12,7 +12,7 @@ const SmallStraight = (props) => {
           smStraight.push(sorted[i])
         } 
       }
-      return smStraight.length === 3 ? 30 : 0
+      return smStraight.length >= 3 ? 30 : 0
   };
 
   const score = SMstraightScore(props.values)

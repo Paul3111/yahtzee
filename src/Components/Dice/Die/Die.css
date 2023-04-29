@@ -48,23 +48,23 @@
 
 .die.is-inactive:active {
   box-shadow: unset;
-  /* transition: all .1s ease-in-out; */
+  transition: all .1s ease-in-out;
 }
 
 /* .die.is-inactive img {
-  opacity: .3;
+  opacity: .5;
   transform: opacity .2s ease;
 } */
-.die.is-inactive.is-hovered img {
+/* .die.is-inactive.is-hovered img {
   opacity: .9;
   transform: opacity .2s ease;
-}
+} */
 
 
 /* ANIMATION 1 setTimeout 800*/
 
 .die.rolling {
-  background-color: #ed9fee;  
+  background-color:  var(--pink-neon-off);  
   filter: blur(15px);
 
   animation-name: rolling-dice-animation;
