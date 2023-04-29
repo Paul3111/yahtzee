@@ -34,7 +34,7 @@ const Leaderboard = () => {
           <h1>LEADERBOARD</h1>
         </div>
       <div className={style['leaderboard-container']}>
-          {players.sort((a,b) => a.scores.score < b.scores.score ? 1:-1).map(player => { return (
+          {players.sort((a,b) => parseInt(a.scores.score) < parseInt(b.scores.score) ? 1:-1).map(player => { return (
             <div className={style['score-container']} key={player.username}>
                 {player.username}: {player.scores.score}
             </div>  
