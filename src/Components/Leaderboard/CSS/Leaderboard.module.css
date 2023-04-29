@@ -32,6 +32,7 @@
   background-color: #111;
   box-shadow: 0 0 30px 1px var(--pink-neon-color);
   transition: all .1s ease;
+  overflow-y: scroll;
 }
   
 .go-to-home {
@@ -51,7 +52,8 @@
 .score-container {
   display: flex;
   align-items: center;
-  height: 10%;
+  min-height: 10%;
+  max-height: 10%;
   color: white;
   cursor: pointer;
   font-size: 3rem;
@@ -62,6 +64,7 @@
   border: var(--pink-neon-color) 5px solid;
   text-align: left;
   padding-left: 20px;
+  
   }
 
 .game-header {
