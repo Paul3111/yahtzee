@@ -28,15 +28,15 @@
   box-shadow: 0 0 0 0 var(--pink-neon-color);
   transition: all .1s ease;
 
-  animation-name: heartbeat-animation;
+  /* animation-name: heartbeat-animation;
   animation-duration: 1.5s;
   animation-iteration-count: infinite;
   animation-delay: 0s;
   animation-direction: normal;
-  animation-timing-function: linear;
+  animation-timing-function: linear; */
 }
 
-@keyframes heartbeat-animation {
+/* @keyframes heartbeat-animation {
   0% {
     border: var(--pink-neon-on) 5px solid;
     color: var(--pink-neon-on);
@@ -54,7 +54,7 @@
     background-color: var(--pink-neon-color);
     box-shadow: 0 0 40px 1px var(--pink-neon-color);
   }
-}
+} */
 
 .roll-dice-btn:hover {
   position: relative;

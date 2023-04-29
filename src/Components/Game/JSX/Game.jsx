@@ -1,11 +1,12 @@
 import {useEffect, useState} from 'react'
 import style from '../CSS/Game.module.css';
 import GameHeader from './GameHeader';
+import GameMenu from './GameMenu';
 import GameRooms from './GameRooms';
-import HowToPlay from '../../HowToPlay/JSX/HowToPlay';
 import GameTotalScore from './GameTotalScore';
 import DiceContainer from '../../Dice/DiceContainer';
-import GameMenu from './GameMenu';
+import Dots from './GameDots';
+import HowToPlay from '../../HowToPlay/JSX/HowToPlay';
 
 const Game = () => {
   const [cheatMode, setCheatMode] = useState(false)
@@ -101,6 +102,8 @@ const Game = () => {
           countRolls={countRolls}
           rollCount={rollCount}
         />
+
+        <Dots rollCount={rollCount} />
         
       </div>
       <HowToPlay />
