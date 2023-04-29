@@ -37,14 +37,6 @@ const Game = () => {
       }
     }
   }, [values])
-  // const triggerYatzee = () => { 
-  //   for (let i = 1; i <= 6; i++) {
-  //     if (values.filter(x => x === i).length === 5) {
-  //       setIsYahtzee(true)
-  //     }
-  //   }
-  // }
-  console.log('ISYAHTZEE', isYahtzee)
     
   const updateTotal = (score) => {
     setTotal((prevTotal) => {
