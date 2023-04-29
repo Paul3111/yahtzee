@@ -51,10 +51,10 @@
   /* transition: all .1s ease-in-out; */
 }
 
-.die.is-inactive img {
+/* .die.is-inactive img {
   opacity: .3;
   transform: opacity .2s ease;
-}
+} */
 .die.is-inactive.is-hovered img {
   opacity: .9;
   transform: opacity .2s ease;

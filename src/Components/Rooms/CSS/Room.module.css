@@ -7,7 +7,7 @@
   height: 7rem;
   border: var(--link-off) 2px solid ;
   border-radius: 10px;
-  transition: all .2s ease-in-out;
+  transition: all .1s ease-in-out;
 }
 
 .reverse {
@@ -31,7 +31,7 @@
   cursor: pointer;
 
   background-color: transparent;
-  transition: all .2s ease-in-out;
+  transition: all .1s ease-in-out;
 }
 
 .reverse button{
@@ -42,18 +42,18 @@
   border: var(--link-on) 2px solid ;
   box-shadow: 0 0 20px 1px var(--pink-neon-color);
   transform: scale(1.05);
-  transition: all .2s ease;
+  transition: all .1s ease;
 }
 .room:active {
   border: var(--link-on) 2px solid ;
   box-shadow: 0 0 20px 10px var(--pink-neon-color);
   transform: scale(1.2);
-  transition: all .2s ease;
+  transition: all .1s ease;
 }
 .room:hover button{
   color: var(--link-on);
   text-shadow: 0 0 9px var(--link-on-light-cast);
-  transition: all .2s ease-in-out;
+  transition: all .1s ease-in-out;
 }
 
 .room div {
@@ -144,38 +144,37 @@
 
 /* ROOM IS POTENTIAL */
 
-.room.is-potential {
+/* .room.is-potential {
   border: var(--link-on) 1.5px solid ;
-  /* box-shadow: 0 0 20px 1px var(--pink-neon-color); */
-  transition: all .2s ease-in-out;
+  box-shadow: 0 0 20px 1px var(--pink-neon-color);
+  transition: all .1s ease-in-out;
 }
 .room.is-potential:hover {
   border: var(--link-on) 2px solid ;
   box-shadow: 0 0 20px 5px var(--pink-neon-color);
-  transition: all .2s ease-in-out;
-}
+  transition: all .1s ease-in-out;
+} */
 
 .room.is-potential button {
   color: var(--link-on);
   text-shadow: 0 0 9px var(--link-on-light-cast);
-  cursor: default;
-  transition: all .2s ease-in-out;
+  transition: all .1s ease-in-out;
 }
-.room.is-potential div {
-  border: var(--link-on) 1px ease-in-out ;
+/* .room.is-potential div {
+  border: var(--link-on) 1px solid;
   border-radius: 8px;
-  transition: all .2s ease-in-out;
-}
+  transition: all .1s ease-in-out;
+} */
 .room.is-potential div p {
   color: #dedede;
-  transition: all .2s ease-in-out;
+  transition: all .1s ease-in-out;
 }
 
 /* ROOM IS USED */
 
 .room.is-used {
   border: var(--link-on) 2px solid ;
-  box-shadow: 0 0 20px 10px var(--pink-neon-color);
+  box-shadow: 0 0 20px 7px var(--pink-neon-color);
 }
 
 .room.is-used:hover {

@@ -10,8 +10,7 @@ import GameMenu from './GameMenu';
 const Game = () => {
   const [cheatMode, setCheatMode] = useState(false)
 
-  const [isYahtzee, setIsYahtzee] = useState(false) // for animation
-  const [yahtzeeCount, setYahtzeeCount] = useState(0)
+  const [isYahtzee, setIsYahtzee] = useState(false)
   
   const [isHovered, setIsHovered] = useState(false)
 
@@ -30,15 +29,22 @@ const Game = () => {
     { value: 1, locked: false }
   ]);
 
-  const YahtzeeScore = () => { 
+  useEffect(() => {
     for (let i = 1; i <= 6; i++) {
       if (values.filter(x => x === i).length === 5) {
-        setYahtzeeCount((prevCount) => {
-          return prevCount += 1
-        })
+        setIsYahtzee(true)
+        setTimeout(() => setIsYahtzee(false), 1000)
       }
     }
-  }
+  }, [values])
+  // const triggerYatzee = () => { 
+  //   for (let i = 1; i <= 6; i++) {
+  //     if (values.filter(x => x === i).length === 5) {
+  //       setIsYahtzee(true)
+  //     }
+  //   }
+  // }
+  console.log('ISYAHTZEE', isYahtzee)
     
   const updateTotal = (score) => {
     setTotal((prevTotal) => {
@@ -46,9 +52,17 @@ const Game = () => {
     })
   }
 
+  useEffect(() => {
+    setIsHovered(false)
+  }, [values])
   const hoverHandler = () => {
-    if (rollCount === 3) setIsHovered(false)
-    else setIsHovered(!isHovered)
+    setIsHovered(!isHovered)
+  }
+  const isHoveredTrue = () => {
+    setIsHovered(true)
+  }
+  const isHoveredFalse = () => {
+    setIsHovered(false)
   }
 
   const countRolls = () => {
@@ -57,11 +71,8 @@ const Game = () => {
       setTimeout(() => {
         setRollCount((prevRollCount) => prevRollCount += 1)
       }, 800)
-      
     }
   }
-
-  console.log('YAHTZEECOUNT', yahtzeeCount);
 
   return (
     <div className={`${style['god-container']} ${isYahtzee && style['yahtzee-celebration']}`}>
@@ -81,11 +92,11 @@ const Game = () => {
           resetRollCount={setRollCount}
           values={values} updateTotal={updateTotal}
           triggerYahtzee={setIsYahtzee}
-          yahtzeeCount={yahtzeeCount}
         />
       
         <DiceContainer
-          onBtnHover={hoverHandler}
+          isHoveredTrue={isHoveredTrue}
+          isHoveredFalse={isHoveredFalse}
           isHovered={isHovered}
           dice={dice}
           setDice={setDice}
@@ -97,7 +108,6 @@ const Game = () => {
           setValues={setValues}
           countRolls={countRolls}
           rollCount={rollCount}
-          incrementYahtzee={YahtzeeScore}
         />
         
       </div>

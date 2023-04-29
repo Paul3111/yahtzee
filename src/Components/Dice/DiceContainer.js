@@ -4,6 +4,7 @@ import Die from './Die/Die'
 import './DiceContainer.css'
 const DiceContainer = (props) => {
   const { dice, setDice, counts, setCounts, diceValueSum, setDiceValueSum, values, setValues, incrementYahtzee } = props
+
   // toggles dice state between locked and unlocked
   const toggleLock = (index) => {
     if (props.rollCount === 0) return
@@ -12,11 +13,12 @@ const DiceContainer = (props) => {
     setDice(updatedDice);
     //logLockedState(updatedDice);
   }
+
   // rolls dice that are not locked and updates the dice values
   const rollDice = () => {
-    const rolledDice = dice.map(die => (die.locked ? die : { ...die, rolling: true, value: rollDie() }));
+    const rolledDice = dice.map(die => (die.locked ? die : { ...die, rolling: true, value: 6 })); //rollDie()
     setDice(rolledDice);
-    incrementYahtzee()
+
     setTimeout(() => {
       const finishedDice = rolledDice.map(die => ({ ...die, rolling: false }));
       setDice(finishedDice);
@@ -64,7 +66,11 @@ const DiceContainer = (props) => {
           <Die key={index} value={die.value} locked={die.locked} rolling={die.rolling} onClick={() => toggleLock(index)} rollCount={props.rollCount} isHovered={props.isHovered} />
         ))}
       </div>
-      <RollDiceButton onBtnHover={props.onBtnHover} onRoll={rollDice} countRolls={props.countRolls} rollCount={props.rollCount} />
+      <RollDiceButton
+        isHoveredTrue={props.isHoveredTrue}
+        isHoveredFalse={props.isHoveredFalse}
+        onRoll={rollDice}
+        rollCount={props.rollCount} />
     </div>
   )
 }
