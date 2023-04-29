@@ -3,6 +3,12 @@ const path = require("path");
 const app = express();
 const cors = require('cors');
 
+//multiplayer
+const server = require('http').createServer(app);
+
+
+
+
 const players = require('./routes/players.js')
 
 app.use(cors());
