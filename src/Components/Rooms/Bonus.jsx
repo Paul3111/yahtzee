@@ -4,7 +4,7 @@ import style from './CSS/Room.module.css'
 const Bonus = (props) => {
 
   const bonus = () => {
-    if (props.subTotal >= 63) return 35 
+    if (props.subTotal >= 63) return 35
     else return 63 - props.subTotal
   }
 
@@ -16,8 +16,8 @@ const Bonus = (props) => {
   }
 
   return (
-    <div className={`${style['room']}`}>
-      <button onClick={useRoom} disabled='true'>Bonus</button>
+    <div className={`${style['room']} ${props.subTotal >= 63 ? style['is-granted'] : style['is-disabled']}`}>
+      <button onClick={useRoom} disabled={true}>Bonus</button>
       <div>
         <p>{score}</p>
       </div>

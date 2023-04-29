@@ -35,27 +35,165 @@ const GameRooms = (props) => {
     })
   }
 
+  const updateYahtzeeScore = (score) => {
+    setYahtzee((prevTotal) => {
+      return prevTotal += score
+    })
+  }
+
   return (
     <div className={style['rooms-main-container']}>
       <div className={style['rooms-halves-container']}>
+
         <div className={style['rooms-half']}>
-          <Ones onRollDice={setOnes} savedScore={ones} updateTotal={props.updateTotal} updateSubTotal={updateSubTotal} values={props.values}  />
-          <Twos onRollDice={setTwos} savedScore={twos} updateTotal={props.updateTotal} updateSubTotal={updateSubTotal} values={props.values} />
-          <Threes onRollDice={setThrees} savedScore={threes} updateTotal={props.updateTotal} updateSubTotal={updateSubTotal} values={props.values} />
-          <Fours onRollDice={setFours} savedScore={fours} updateTotal={props.updateTotal} updateSubTotal={updateSubTotal} values={props.values}/>
-          <Fives onRollDice={setFives} savedScore={fives} updateTotal={props.updateTotal} updateSubTotal={updateSubTotal} values={props.values}/>
-          <Sixes onRollDice={setSixes} savedScore={sixes} updateTotal={props.updateTotal} updateSubTotal={updateSubTotal} values={props.values}/>
-          <Bonus onRollDice={setBonus} savedScore={bonus} updateTotal={props.updateTotal} subTotal={subTotal} values={props.values} />
+          <Ones
+            disableLights={props.disableLights}
+            resetDice={props.resetDice}
+            rollCount={props.rollCount}
+            resetRollCount={props.resetRollCount}
+            onRollDice={setOnes} savedScore={ones}
+            updateTotal={props.updateTotal}
+            updateSubTotal={updateSubTotal}
+            values={props.values} />
+          
+          <Twos
+            disableLights={props.disableLights}
+            resetDice={props.resetDice}
+            rollCount={props.rollCount}
+            resetRollCount={props.resetRollCount}
+            onRollDice={setTwos}
+            savedScore={twos}
+            updateTotal={props.updateTotal}
+            updateSubTotal={updateSubTotal}
+            values={props.values} />
+          
+          <Threes
+            disableLights={props.disableLights}
+            resetDice={props.resetDice}
+            rollCount={props.rollCount}
+            resetRollCount={props.resetRollCount}
+            onRollDice={setThrees}
+            savedScore={threes}
+            updateTotal={props.updateTotal}
+            updateSubTotal={updateSubTotal}
+            values={props.values} />
+          
+          <Fours
+            disableLights={props.disableLights}
+            resetDice={props.resetDice}
+            rollCount={props.rollCount}
+            resetRollCount={props.resetRollCount}
+            onRollDice={setFours}
+            savedScore={fours}
+            updateTotal={props.updateTotal}
+            updateSubTotal={updateSubTotal}
+            values={props.values} />
+          
+          <Fives
+            disableLights={props.disableLights}
+            resetDice={props.resetDice}
+            rollCount={props.rollCount}
+            resetRollCount={props.resetRollCount}
+            onRollDice={setFives}
+            savedScore={fives}
+            updateTotal={props.updateTotal}
+            updateSubTotal={updateSubTotal}
+            values={props.values} />
+          
+          <Sixes
+            disableLights={props.disableLights}
+            resetDice={props.resetDice}
+            rollCount={props.rollCount}
+            resetRollCount={props.resetRollCount}
+            onRollDice={setSixes}
+            savedScore={sixes}
+            updateTotal={props.updateTotal}
+            updateSubTotal={updateSubTotal}
+            values={props.values} />
+          
+          <Bonus
+            onRollDice={setBonus}
+            savedScore={bonus}
+            updateTotal={props.updateTotal}
+            subTotal={subTotal}
+            values={props.values} />
         </div>
+
         <div className={style['rooms-half']}>
-          <ThreeOfAKind onRollDice={setThreeOfAKind} savedScore={threeOfAKind} updateTotal={props.updateTotal} values={props.values}/>
-          <FourOfAKind onRollDice={setFourOfAKind} savedScore={fourOfAKind} updateTotal={props.updateTotal} values={props.values}/>
-          <FullHouse onRollDice={setfullHouse} savedScore={fullHouse} updateTotal={props.updateTotal} values={props.values} />
-          <SmallStraight onRollDice={setSMstraight} savedScore={SMstraight} updateTotal={props.updateTotal} values={props.values}/>
-          <LargeStraight onRollDice={setLGstraight} savedScore={LGstraight} updateTotal={props.updateTotal} values={props.values}/>
-          <Yahtzee onRollDice={setYahtzee} savedScore={yahtzee} updateTotal={props.updateTotal} values={props.values} isYahtzee={props.isYahtzee}/>
-          <Chance onRollDice={setChance} savedScore={chance} updateTotal={props.updateTotal} values={props.values}/>
+          <ThreeOfAKind
+            disableLights={props.disableLights}
+            resetDice={props.resetDice}
+            rollCount={props.rollCount}
+            resetRollCount={props.resetRollCount}
+            onRollDice={setThreeOfAKind}
+            savedScore={threeOfAKind}
+            updateTotal={props.updateTotal}
+            values={props.values} />
+          
+          <FourOfAKind
+            disableLights={props.disableLights}
+            resetDice={props.resetDice}
+            rollCount={props.rollCount}
+            resetRollCount={props.resetRollCount}
+            onRollDice={setFourOfAKind}
+            savedScore={fourOfAKind}
+            updateTotal={props.updateTotal}
+            values={props.values} />
+          
+          <FullHouse
+            disableLights={props.disableLights}
+            resetDice={props.resetDice}
+            rollCount={props.rollCount}
+            resetRollCount={props.resetRollCount}
+            onRollDice={setfullHouse}
+            savedScore={fullHouse}
+            updateTotal={props.updateTotal}
+            values={props.values} />
+          
+          <SmallStraight
+            disableLights={props.disableLights}
+            resetDice={props.resetDice}
+            rollCount={props.rollCount}
+            resetRollCount={props.resetRollCount}
+            onRollDice={setSMstraight}
+            savedScore={SMstraight}
+            updateTotal={props.updateTotal}
+            values={props.values} />
+          
+          <LargeStraight
+            disableLights={props.disableLights}
+            resetDice={props.resetDice}
+            rollCount={props.rollCount}
+            resetRollCount={props.resetRollCount}
+            onRollDice={setLGstraight}
+            savedScore={LGstraight}
+            updateTotal={props.updateTotal}
+            values={props.values} />
+          
+          <Yahtzee
+            disableLights={props.disableLights}
+            resetDice={props.resetDice}
+            rollCount={props.rollCount}
+            resetRollCount={props.resetRollCount}
+            onRollDice={setYahtzee}
+            savedScore={yahtzee}
+            updateTotal={props.updateTotal}
+            values={props.values}
+            triggerYahtzee={props.triggerYahtzee}
+            updateYahtzeeScore={updateYahtzeeScore}
+          />
+          
+          <Chance
+            disableLights={props.disableLights}
+            resetDice={props.resetDice}
+            rollCount={props.rollCount}
+            resetRollCount={props.resetRollCount}
+            onRollDice={setChance}
+            savedScore={chance}
+            updateTotal={props.updateTotal}
+            values={props.values} />
         </div>
+
       </div>
     </div>
   );

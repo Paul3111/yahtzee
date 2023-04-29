@@ -19,7 +19,7 @@
   border: transparent 4px solid;
   border-radius: 20px;
  
-  border: var(--pink-neon-off) 3px solid;
+  border: var(--pink-neon-off) 5px solid;
   color: var(--pink-neon-off);
   background-color: var(--pink-neon-color);
 
@@ -27,18 +27,64 @@
 
   box-shadow: 0 0 0 0 var(--pink-neon-color);
   transition: all .1s ease;
+
+  animation-name: heartbeat-animation;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-delay: 0s;
+  animation-direction: normal;
+  animation-timing-function: linear;
+}
+
+@keyframes heartbeat-animation {
+  0% {
+    border: var(--pink-neon-on) 5px solid;
+    color: var(--pink-neon-on);
+    background-color: var(--pink-neon-color);
+    box-shadow: 0 0 40px 1px var(--pink-neon-color);
+  }
+  50% {
+    border: var(--link-on) 5px solid;
+    color: var(--link-on);
+    box-shadow: 0 0 40px 15px var(--pink-neon-color);
+  }
+  100% {
+    border: var(--pink-neon-on) 5px solid;
+    color: var(--pink-neon-on);
+    background-color: var(--pink-neon-color);
+    box-shadow: 0 0 40px 1px var(--pink-neon-color);
+  }
 }
 
 .roll-dice-btn:hover {
   position: relative;
-  border: var(--pink-neon-on) 4px solid;
+  border: var(--pink-neon-on) 5px solid;
   color: var(--pink-neon-on);
-  box-shadow: 0 0 30px 5px var(--pink-neon-color);
+  box-shadow: 0 0 40px 10px var(--pink-neon-color);
   transition: all .1s ease;
 }
 
 .roll-dice-btn:active {
   box-shadow: 0 0 20px 1px var(--pink-neon-color);
   transform: translateY(4px);
+  transition: all .1s ease;
+}
+
+.roll-dice-btn.is-disabled {
+  transform: unset;
+  cursor: default;
+  background-color: #a149a2; 
+  transition: all .1s ease;
+}
+.roll-dice-btn.is-disabled:hover,
+.roll-dice-btn.is-disabled:active {
+  position: relative;
+  border: var(--pink-neon-off) 5px solid;
+  color: var(--pink-neon-off);
+  box-shadow: unset;
+  transition: all .1s ease;
+}
+.roll-dice-btn.is-disabled:active {
+  transform: unset;
   transition: all .1s ease;
 }

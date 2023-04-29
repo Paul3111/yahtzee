@@ -3,18 +3,22 @@ import RollDiceButton from '../RollDiceButton/RollDiceButton'
 import Die from './Die/Die'
 import './DiceContainer.css'
 const DiceContainer = (props) => {
-  const { dice, setDice, counts, setCounts, diceValueSum, setDiceValueSum, values, setValues } = props
+  const { dice, setDice, counts, setCounts, diceValueSum, setDiceValueSum, values, setValues, incrementYahtzee } = props
+
   // toggles dice state between locked and unlocked
-  const toggleLock = (index) =>  {
+  const toggleLock = (index) => {
+    if (props.rollCount === 0) return
     const updatedDice = [...dice];
     updatedDice[index].locked = !updatedDice[index].locked;
     setDice(updatedDice);
     //logLockedState(updatedDice);
   }
+
   // rolls dice that are not locked and updates the dice values
   const rollDice = () => {
-    const rolledDice = dice.map(die => (die.locked ? die : { ...die, rolling: true, value: rollDie()}));
+    const rolledDice = dice.map(die => (die.locked ? die : { ...die, rolling: true, value: rollDie() })); //rollDie()
     setDice(rolledDice);
+
     setTimeout(() => {
       const finishedDice = rolledDice.map(die => ({ ...die, rolling: false }));
       setDice(finishedDice);
@@ -22,11 +26,15 @@ const DiceContainer = (props) => {
       generateSum(finishedDice);
       returnRollValues(finishedDice)
     }, 800);
-    }
+
+    props.countRolls()
+  }
+  
   // returns a random number 1 - 6
   const rollDie = () => {
     return Math.floor(Math.random() * 6) + 1;
   }
+
   const generateCounts = (dice) => {
     let updatedCounts = [0, 0, 0, 0, 0, 0];
     for (let i = 0; i < 5; i++) {
@@ -34,6 +42,7 @@ const DiceContainer = (props) => {
     }
     setCounts(updatedCounts);
   }
+
   const generateSum = (dice) => {
     let sum = 0;
     for (let i = 0; i < 5; i++) {
@@ -54,12 +63,15 @@ const DiceContainer = (props) => {
     <div className="wrapper">
       <div className={`dice-container ${props.isHovered && 'light-up'}`}>
         { dice.map((die, index) => (
-          <Die key={index} value={die.value} locked={die.locked} rolling={die.rolling} onClick={() => toggleLock(index)}/>
+          <Die key={index} value={die.value} locked={die.locked} rolling={die.rolling} onClick={() => toggleLock(index)} rollCount={props.rollCount} isHovered={props.isHovered} />
         ))}
       </div>
-      <RollDiceButton onBtnHover={props.onBtnHover} onRoll={rollDice}/>
+      <RollDiceButton
+        isHoveredTrue={props.isHoveredTrue}
+        isHoveredFalse={props.isHoveredFalse}
+        onRoll={rollDice}
+        rollCount={props.rollCount} />
     </div>
   )
 }
 export default DiceContainer;
-
