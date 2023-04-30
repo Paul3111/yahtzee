@@ -100,6 +100,7 @@ const Game = () => {
           resetRollCount={setRollCount}
           values={values} updateTotal={updateTotal}
           triggerYahtzee={setIsYahtzee}
+          audioEnabled={audioEnabled}
         />
       
         <DiceContainer

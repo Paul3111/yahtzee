@@ -1,8 +1,20 @@
 import { useState } from 'react';
 import style from './CSS/Room.module.css'
 
+import scoreSelect from './audio/miniRetro-yahtzeeScoreSelect2.mp3'
+
 const SmallStraight = (props) => {
   const [isDisabled, setIsDisabled] = useState(false)
+  const [scoreSelect2] = useState(new Audio(scoreSelect))
+
+  const clickAudio = () => {
+    scoreSelect2.currentTime = 0;
+    if(props.audioEnabled) {
+      scoreSelect2.play()
+    } else {
+      scoreSelect2.pause()
+    }
+  }
   
     function SMstraightScore(roll) {
       const sorted = roll.sort()
@@ -21,6 +33,9 @@ const SmallStraight = (props) => {
     props.onRollDice(score)
     props.updateTotal(score)
     props.resetRollCount(0)
+
+    clickAudio()
+    
     props.resetDice((prevDiceSet) => {
       return [
         { value: prevDiceSet[0].value, locked: false },
