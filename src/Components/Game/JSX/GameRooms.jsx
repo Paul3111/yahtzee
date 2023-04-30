@@ -54,7 +54,8 @@ const GameRooms = (props) => {
             onRollDice={setOnes} savedScore={ones}
             updateTotal={props.updateTotal}
             updateSubTotal={updateSubTotal}
-            values={props.values} />
+            values={props.values} 
+            audioEnabled={props.audioEnabled}/>
           
           <Twos
             disableLights={props.disableLights}
@@ -65,7 +66,8 @@ const GameRooms = (props) => {
             savedScore={twos}
             updateTotal={props.updateTotal}
             updateSubTotal={updateSubTotal}
-            values={props.values} />
+            values={props.values} 
+            audioEnabled={props.audioEnabled}/>
           
           <Threes
             disableLights={props.disableLights}
@@ -76,7 +78,8 @@ const GameRooms = (props) => {
             savedScore={threes}
             updateTotal={props.updateTotal}
             updateSubTotal={updateSubTotal}
-            values={props.values} />
+            values={props.values} 
+            audioEnabled={props.audioEnabled}/>
           
           <Fours
             disableLights={props.disableLights}
@@ -87,7 +90,8 @@ const GameRooms = (props) => {
             savedScore={fours}
             updateTotal={props.updateTotal}
             updateSubTotal={updateSubTotal}
-            values={props.values} />
+            values={props.values} 
+            audioEnabled={props.audioEnabled}/>
           
           <Fives
             disableLights={props.disableLights}
@@ -98,7 +102,8 @@ const GameRooms = (props) => {
             savedScore={fives}
             updateTotal={props.updateTotal}
             updateSubTotal={updateSubTotal}
-            values={props.values} />
+            values={props.values} 
+            audioEnabled={props.audioEnabled}/>
           
           <Sixes
             disableLights={props.disableLights}
@@ -109,7 +114,8 @@ const GameRooms = (props) => {
             savedScore={sixes}
             updateTotal={props.updateTotal}
             updateSubTotal={updateSubTotal}
-            values={props.values} />
+            values={props.values}
+            audioEnabled={props.audioEnabled} />
           
           <Bonus
             onRollDice={setBonus}
@@ -128,7 +134,8 @@ const GameRooms = (props) => {
             onRollDice={setThreeOfAKind}
             savedScore={threeOfAKind}
             updateTotal={props.updateTotal}
-            values={props.values} />
+            values={props.values} 
+            audioEnabled={props.audioEnabled}/>
           
           <FourOfAKind
             disableLights={props.disableLights}
@@ -138,7 +145,8 @@ const GameRooms = (props) => {
             onRollDice={setFourOfAKind}
             savedScore={fourOfAKind}
             updateTotal={props.updateTotal}
-            values={props.values} />
+            values={props.values} 
+            audioEnabled={props.audioEnabled}/>
           
           <FullHouse
             disableLights={props.disableLights}
@@ -148,7 +156,8 @@ const GameRooms = (props) => {
             onRollDice={setfullHouse}
             savedScore={fullHouse}
             updateTotal={props.updateTotal}
-            values={props.values} />
+            values={props.values} 
+            audioEnabled={props.audioEnabled}/>
           
           <SmallStraight
             disableLights={props.disableLights}
@@ -158,7 +167,8 @@ const GameRooms = (props) => {
             onRollDice={setSMstraight}
             savedScore={SMstraight}
             updateTotal={props.updateTotal}
-            values={props.values} />
+            values={props.values}
+            audioEnabled={props.audioEnabled}/>
           
           <LargeStraight
             disableLights={props.disableLights}
@@ -168,7 +178,8 @@ const GameRooms = (props) => {
             onRollDice={setLGstraight}
             savedScore={LGstraight}
             updateTotal={props.updateTotal}
-            values={props.values} />
+            values={props.values} 
+            audioEnabled={props.audioEnabled}/>
           
           <Yahtzee
             disableLights={props.disableLights}
@@ -181,6 +192,7 @@ const GameRooms = (props) => {
             values={props.values}
             triggerYahtzee={props.triggerYahtzee}
             updateYahtzeeScore={updateYahtzeeScore}
+            audioEnabled={props.audioEnabled}
           />
           
           <Chance
@@ -191,7 +203,8 @@ const GameRooms = (props) => {
             onRollDice={setChance}
             savedScore={chance}
             updateTotal={props.updateTotal}
-            values={props.values} />
+            values={props.values} 
+            audioEnabled={props.audioEnabled}/>
         </div>
 
       </div>

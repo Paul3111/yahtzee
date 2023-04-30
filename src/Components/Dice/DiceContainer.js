@@ -2,16 +2,28 @@ import React, { useState } from 'react'
 import RollDiceButton from '../RollDiceButton/RollDiceButton'
 import Die from './Die/Die'
 import './DiceContainer.css'
+import lockDie from './audio/miniRetro-yahtzeeLockDie.mp3'
 const DiceContainer = (props) => {
-  const { dice, setDice, counts, setCounts, diceValueSum, setDiceValueSum, values, setValues } = props
-  
+
+  const { dice, setDice, counts, setCounts, diceValueSum, setDiceValueSum, values, setValues, audioEnabled } = props
+  const [lockDieSound] = useState(new Audio(lockDie))
+
+  const lockDieAudio = () => {
+    lockDieSound.currentTime = 0;
+    if(props.audioEnabled) {
+      lockDieSound.play()
+    } else {
+      lockDieSound.pause()
+    }
+  }
+
   // toggles dice state between locked and unlocked
   const toggleLock = (index) => {
     if (props.rollCount === 0) return
     const updatedDice = [...dice];
     updatedDice[index].locked = !updatedDice[index].locked;
     setDice(updatedDice);
-    //logLockedState(updatedDice);
+    lockDieAudio()
   }
 
   // rolls dice that are not locked and updates the dice values

@@ -1,8 +1,20 @@
 import { useEffect, useState } from 'react';
 import style from './CSS/Room.module.css'
 
+import scoreSelect from './audio/miniRetro-yahtzeeScoreSelect3.mp3'
+
 const Yahtzee = (props) => {
   const [isDisabled, setIsDisabled] = useState(false)
+  const [scoreSelect3] = useState(new Audio(scoreSelect))
+
+  const clickAudio = () => {
+    scoreSelect3.currentTime = 0;
+    if(props.audioEnabled) {
+      scoreSelect3.play()
+    } else {
+      scoreSelect3.pause()
+    }
+  }
 
   // Algorithm to identify Yahtzee
   // Used in YahtzeeScore() and useEffect
@@ -33,6 +45,9 @@ const Yahtzee = (props) => {
     props.onRollDice(score)
     props.updateTotal(score)
     props.resetRollCount(0)
+
+    clickAudio();
+
     props.resetDice((prevDiceSet) => {
       return prevDiceSet.map((object) => {
         return {value: object.value, locked: false}

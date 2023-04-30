@@ -1,8 +1,20 @@
 import { useState } from 'react';
 import style from './CSS/Room.module.css'
 
+import scoreSelect from './audio/miniRetro-yahtzeeScoreSelect1.mp3'
+
 const Fives = (props) => {
   const [isDisabled, setIsDisabled] = useState(false)
+  const [scoreSelect1] = useState(new Audio(scoreSelect))
+
+  const clickAudio = () => {
+    scoreSelect1.currentTime = 0;
+    if(props.audioEnabled) {
+      scoreSelect1.play()
+    } else {
+      scoreSelect1.pause()
+    }
+  }
 
   function fiveScore(roll) {
     let five_score = 0
@@ -21,6 +33,9 @@ const Fives = (props) => {
     props.updateTotal(score)
     props.updateSubTotal(score)
     props.resetRollCount(0)
+
+    clickAudio();
+    
     props.resetDice((prevDiceSet) => {
       return [
         { value: prevDiceSet[0].value, locked: false },
