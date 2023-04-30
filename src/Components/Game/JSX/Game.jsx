@@ -8,7 +8,6 @@ import DiceContainer from '../../Dice/DiceContainer';
 import Dots from './GameDots';
 import HowToPlay from '../../HowToPlay/JSX/HowToPlay';
 import StartPopup from '../../StartPopup/JSX/StartPopup';
-
 import backgroundMusic from '../audio/miniRetro-yahtzeeMusic1.mp3'
 import EndGame from '../../EndGame/JSX/EndGame';
 
@@ -40,10 +39,9 @@ const Game = () => {
     { value: 1, locked: false }
   ]);
 
-const start = () => {
-  setStartGame(true)
-}
-
+  const start = () => {
+    setStartGame(true)
+  }
 
   // -- AUDIO -------
   useEffect(() => {
