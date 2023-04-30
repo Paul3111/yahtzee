@@ -4,7 +4,8 @@ import Die from './Die/Die'
 import './DiceContainer.css'
 import lockDie from './audio/miniRetro-yahtzeeLockDie.mp3'
 const DiceContainer = (props) => {
-  const { dice, setDice, counts, setCounts, diceValueSum, setDiceValueSum, values, setValues, audioEnabled} = props
+
+  const { dice, setDice, counts, setCounts, diceValueSum, setDiceValueSum, values, setValues, audioEnabled } = props
   const [lockDieSound] = useState(new Audio(lockDie))
 
   const lockDieAudio = () => {
@@ -15,6 +16,7 @@ const DiceContainer = (props) => {
       lockDieSound.pause()
     }
   }
+
   // toggles dice state between locked and unlocked
   const toggleLock = (index) => {
     if (props.rollCount === 0) return
@@ -26,7 +28,7 @@ const DiceContainer = (props) => {
 
   // rolls dice that are not locked and updates the dice values
   const rollDice = () => {
-    const rolledDice = dice.map(die => (die.locked ? die : { ...die, rolling: true, value: rollDie() })); //rollDie()
+    const rolledDice = dice.map(die => (die.locked ? die : { ...die, rolling: true, value: rollDie()})); //rollDie()
     setDice(rolledDice);
 
     setTimeout(() => {
