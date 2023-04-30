@@ -1,0 +1,126 @@
+.end-game-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--background-overlay);
+}
+
+.end-game-container__inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  width: 50vw;
+  height: 80vh;
+
+  z-index: 5;
+}
+
+.end-game-popup {
+  position: relative;
+  height: 70%;
+  width: 100%;
+  
+  border-radius: 20px;
+  border: var(--pink-neon-color) 5px solid ;
+  
+  background-color: #111;
+  box-shadow: 0 0 30px 1px var(--pink-neon-color);
+}
+
+.end-game-popup__header {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  padding: 3rem;
+}
+.end-game-popup__header div {
+  cursor: default;
+  font-family: inherit;
+  font-size: 3rem;
+  opacity: 0;
+}
+
+.game-end-popup__header h2 {
+  background-color: transparent;
+  color: var(--title-color);
+  border: none;
+  font-size: 4rem;
+  letter-spacing: 1rem;
+  text-shadow: 0 0 9px var(--pink-neon-color);
+
+  /* ALTERNATIVE: UNCOMMENT TO SEE */
+  font-family: var(--alternative-font);
+}
+
+.end-game-popup__home-btn {
+  background-color: transparent;
+  color: var(--link-off);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: none;
+  font-size: 10rem;
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
+  left: 30rem;
+
+  /* ALTERNATIVES: UNCOMMENT ONE IN AND THE OTHER OUT TO SEE */
+  /* font-family: inherit; */
+  font-family: var(--alternative-font);
+}
+  /* ALTERNATIVES: UNCOMMENT ONE IN AND THE OTHER OUT TO SEE */
+  /* font-family: inherit; */
+.end-game-popup__home-btn:hover {
+  color: var(--link-on);
+  text-shadow: 0 0 9px var(--link-on-light-cast);
+  transition: all .1s ease;
+}
+
+.end-game-popup__replay-btn {
+  background-color: transparent;
+  color: var(--link-off);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: none;
+  font-size: 10rem;
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
+  right: 30rem;
+
+  /* ALTERNATIVES: UNCOMMENT ONE IN AND THE OTHER OUT TO SEE */
+  /* font-family: inherit; */
+  font-family: var(--alternative-font);
+}
+  /* ALTERNATIVES: UNCOMMENT ONE IN AND THE OTHER OUT TO SEE */
+  /* font-family: inherit; */
+.end-game-popup__replay-btn:hover {
+  color: var(--link-on);
+  text-shadow: 0 0 9px var(--link-on-light-cast);
+  transition: all .1s ease;
+}
+
+.end-game-popup__summary {
+  color: var(--title-color);
+  font-size: 12rem;
+  padding: 12rem 10rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.end-game-popup__score {
+  color: white;
+  font-size: 22rem;
+  padding: 2rem 5rem;
+  text-align: center;
+  overflow: hidden;
+}

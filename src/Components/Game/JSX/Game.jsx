@@ -9,6 +9,7 @@ import Dots from './GameDots';
 import HowToPlay from '../../HowToPlay/JSX/HowToPlay';
 
 import backgroundMusic from '../audio/miniRetro-yahtzeeMusic1.mp3'
+import EndGame from '../../EndGame/JSX/EndGame';
 
 const Game = () => {
   const [isPlaying, setIsPlaying] = useState(false)
@@ -20,6 +21,7 @@ const Game = () => {
   
   const [isHovered, setIsHovered] = useState(false)
 
+  const [gameRound, setGameRound] = useState(12)
   const [counts, setCounts] = useState([0, 0, 0, 0, 0, 0]);
   const [diceValueSum, setDiceValueSum] = useState(0);
   const [values, setValues] = useState([])
@@ -55,10 +57,15 @@ const Game = () => {
   }, [values])
     
   const updateTotal = (score) => {
+    setGameRound((prevRound) => {
+      return prevRound += 1;
+    })
     setTotal((prevTotal) => {
       return prevTotal += score
     })
   }
+
+  console.log(gameRound)
 
   useEffect(() => {
     setIsHovered(false)
@@ -101,6 +108,7 @@ const Game = () => {
           values={values} updateTotal={updateTotal}
           triggerYahtzee={setIsYahtzee}
           audioEnabled={audioEnabled}
+          setGameRound={setGameRound}
         />
       
         <DiceContainer
@@ -129,6 +137,7 @@ const Game = () => {
       </div>
       <HowToPlay />
       <button onClick={() => setCheatMode(!cheatMode)}>Cheat Mode</button>
+      <EndGame gameRound={gameRound} total={total}/>
     </div>
   );
 };
