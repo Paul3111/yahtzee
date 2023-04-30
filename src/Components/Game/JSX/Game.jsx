@@ -8,7 +8,12 @@ import DiceContainer from '../../Dice/DiceContainer';
 import Dots from './GameDots';
 import HowToPlay from '../../HowToPlay/JSX/HowToPlay';
 
+import backgroundMusic from '../audio/miniRetro-yahtzeeMusic1.mp3'
+
 const Game = () => {
+  const [isPlaying, setIsPlaying] = useState(false)
+  const [audioEnabled, setAudioEnabled] = useState(true)
+  const [music] = useState(new Audio(backgroundMusic))
   const [cheatMode, setCheatMode] = useState(false)
 
   const [isYahtzee, setIsYahtzee] = useState(false)
@@ -29,6 +34,16 @@ const Game = () => {
     { value: 1, locked: false },
     { value: 1, locked: false }
   ]);
+
+  // -- AUDIO -------
+  useEffect(() => {
+    if(isPlaying) {
+      music.play();
+    }else {
+      music.pause();
+    }
+  }, [isPlaying])
+  // ---------------
 
   useEffect(() => {
     for (let i = 1; i <= 6; i++) {
@@ -101,9 +116,14 @@ const Game = () => {
           setValues={setValues}
           countRolls={countRolls}
           rollCount={rollCount}
+          audioEnabled={audioEnabled}
         />
 
         <Dots rollCount={rollCount} />
+
+        <audio src={backgroundMusic} loop/>
+        <button onClick={() => setIsPlaying(!isPlaying)}>Toggle Music</button>
+        <button onClick={() => setAudioEnabled(!audioEnabled)}>Toggle Sounds</button>
         
       </div>
       <HowToPlay />
