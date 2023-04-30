@@ -70,7 +70,8 @@ const DiceContainer = (props) => {
         isHoveredTrue={props.isHoveredTrue}
         isHoveredFalse={props.isHoveredFalse}
         onRoll={rollDice}
-        rollCount={props.rollCount} />
+        rollCount={props.rollCount} 
+        audioEnabled={props.audioEnabled}/>
     </div>
   )
 }
