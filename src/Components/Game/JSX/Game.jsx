@@ -127,7 +127,7 @@ const Game = () => {
         
       </div>
       <HowToPlay />
-      <button onClick={isPlaying ? 'Pause music' : 'Play music'}>Cheat Mode</button>
+      <button onClick={() => setCheatMode(!cheatMode)}>Cheat Mode</button>
     </div>
   );
 };
