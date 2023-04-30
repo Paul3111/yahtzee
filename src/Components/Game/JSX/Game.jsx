@@ -49,7 +49,7 @@ const Game = () => {
     for (let i = 1; i <= 6; i++) {
       if (values.filter(x => x === i).length === 5) {
         setIsYahtzee(true)
-        setTimeout(() => setIsYahtzee(false), 1000)
+        setTimeout(() => setIsYahtzee(false), 2000)
       }
     }
   }, [values])
