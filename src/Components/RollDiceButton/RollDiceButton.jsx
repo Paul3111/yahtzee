@@ -18,7 +18,7 @@ const RollDiceButton = (props) => {
     let rollSounds = [rollSound1, rollSound2, rollSound3]
     for (let i = 0; i < rollSounds.length; i++) {
       rollSounds[i].currentTime = 0
-      if (props.rollCount === i) {
+      if (props.rollCount === i && props.audioEnabled) {
         rollSounds[i].play()
       } else {
         rollSounds[i].pause();
@@ -45,9 +45,9 @@ const RollDiceButton = (props) => {
   return (
     <div className={style['roll-dice-btn-container']}>
 
-    <audio src={roll1}/>
-    <audio src={roll2}/>
-    <audio src={roll3}/>
+      <audio src={roll1}/>
+      <audio src={roll2}/>
+      <audio src={roll3}/>
 
       <button className={`${style['roll-dice-btn']} ${(isDisabled || isWaiting) && style['is-disabled']}`}
         disabled={isDisabled || isWaiting}

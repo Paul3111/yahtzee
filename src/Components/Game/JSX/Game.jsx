@@ -12,6 +12,7 @@ import backgroundMusic from '../audio/miniRetro-yahtzeeMusic1.mp3'
 
 const Game = () => {
   const [isPlaying, setIsPlaying] = useState(false)
+  const [audioEnabled, setAudioEnabled] = useState(true)
   const [music] = useState(new Audio(backgroundMusic))
   const [cheatMode, setCheatMode] = useState(false)
 
@@ -115,12 +116,14 @@ const Game = () => {
           setValues={setValues}
           countRolls={countRolls}
           rollCount={rollCount}
+          audioEnabled={audioEnabled}
         />
 
         <Dots rollCount={rollCount} />
 
         <audio src={backgroundMusic} loop/>
         <button onClick={() => setIsPlaying(!isPlaying)}>Toggle Music</button>
+        <button onClick={() => setAudioEnabled(!audioEnabled)}>Toggle Sounds</button>
         
       </div>
       <HowToPlay />
