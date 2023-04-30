@@ -7,6 +7,7 @@ import GameTotalScore from './GameTotalScore';
 import DiceContainer from '../../Dice/DiceContainer';
 import Dots from './GameDots';
 import HowToPlay from '../../HowToPlay/JSX/HowToPlay';
+import StartPopup from '../../StartPopup/JSX/StartPopup';
 
 import backgroundMusic from '../audio/miniRetro-yahtzeeMusic1.mp3'
 import EndGame from '../../EndGame/JSX/EndGame';
@@ -29,6 +30,8 @@ const Game = () => {
   const [rollCount, setRollCount] = useState(0)
   const [total, setTotal] = useState(0)
 
+  const [startGame, setStartGame] = useState(false)
+
   const [dice, setDice] = useState([
     { value: 1, locked: false },
     { value: 1, locked: false },
@@ -36,6 +39,11 @@ const Game = () => {
     { value: 1, locked: false },
     { value: 1, locked: false }
   ]);
+
+const start = () => {
+  setStartGame(true)
+}
+
 
   // -- AUDIO -------
   useEffect(() => {
@@ -136,9 +144,11 @@ const Game = () => {
         
       </div>
       <HowToPlay />
+      { !startGame && <StartPopup start={start} /> }
       <button onClick={() => setCheatMode(!cheatMode)}>Cheat Mode</button>
       <EndGame gameRound={gameRound} total={total}/>
     </div>
+    
   );
 };
   

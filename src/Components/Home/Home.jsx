@@ -24,7 +24,7 @@ const Home = () => {
         </div>
           <button className={style['enter-to-start']} 
           onClick={gameRedirect}>
-            Enter to start
+            PLAY
           </button>
         </div>
     </div>
