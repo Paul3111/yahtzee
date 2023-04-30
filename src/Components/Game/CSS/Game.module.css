@@ -82,7 +82,6 @@
   transition: all .1s ease;
 }
 
-/* temporary Yahtzee celebration, not sure i like it */
 .yahtzee-celebration.god-container:after {
   content: 'Yahtzee!';
   position: absolute;
