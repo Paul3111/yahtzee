@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import style from './CSS/Room.module.css'
 
 import scoreSelect from './audio/miniRetro-yahtzeeScoreSelect3.mp3'
@@ -6,6 +6,13 @@ import scoreSelect from './audio/miniRetro-yahtzeeScoreSelect3.mp3'
 const LargeStraight = (props) => {
   const [isDisabled, setIsDisabled] = useState(false)
   const [scoreSelect3] = useState(new Audio(scoreSelect))
+  const [gameOn, setGameOn] = useState(false)
+
+  useEffect(() => {
+    if (props.startEffect) {
+      setTimeout(() => setGameOn(true), 550)
+    }
+  }, [props.startEffect])
 
   const clickAudio = () => {
     scoreSelect3.currentTime = 0;
@@ -52,7 +59,7 @@ const LargeStraight = (props) => {
   const rollZero = props.rollCount === 0
 
   return (
-    <div className={`${style['room']} ${style['reverse']} ${isDisabled && style['is-used']} ${rollZero && !isDisabled && style['is-disabled']} ${score > 0 && !rollZero && style['is-potential']}`}>
+    <div className={`${style['room']} ${gameOn && style['game-on']} ${style['reverse']} ${isDisabled && style['is-used']} ${rollZero && !isDisabled && style['is-disabled']} ${score > 0 && !rollZero && style['is-potential']}`}>
       <button onClick={useRoom} disabled={isDisabled || rollZero}>Large Straight</button>
       <div>
         <p>{rollZero && props.savedScore === 0 ? '0' : isDisabled ? props.savedScore : score}</p>

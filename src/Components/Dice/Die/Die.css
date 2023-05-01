@@ -4,8 +4,7 @@
   height: 12rem;
   border-radius: 10px;
   cursor: pointer;
-  position: relative;  
-  opacity: 1;
+  position: relative;
   transform: scale(1);
   transition: all .1s ease-in-out;
   position: relative;
@@ -33,12 +32,35 @@
   width: 105%;
   height: 105%;
   object-fit: contain;
-
+  opacity: 0;
   position: absolute;
   top: -3px;
   left: -3px;
+  transform: opacity .2s ease;
+}
+
+.die img.game-on {
   opacity: .9;
   transform: opacity .2s ease;
+
+  animation-name: get-dice;
+  animation-fill-mode: backwards;
+  animation-duration: .2s;
+  animation-iteration-count: 1;
+  animation-delay: 0s;
+  animation-direction: normal;
+  animation-timing-function: linear;
+}
+
+@keyframes get-dice {
+  0% {
+    opacity: 0;
+    transform: translateY(-15rem);
+  }
+  100% {
+    opacity: .9;
+    transform: translateY(0);
+  }
 }
 
 .die.is-inactive:hover {
@@ -82,9 +104,11 @@
 
 @keyframes rolling-dice-animation {
   0% {
+    filter: blur(15px);
     transform: translateY(15rem);
   }
   100% {
+    filter: blur(15px);
     transform: translateY(-15rem);
   }
 }

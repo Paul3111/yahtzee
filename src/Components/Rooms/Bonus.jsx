@@ -1,7 +1,14 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import style from './CSS/Room.module.css'
 
 const Bonus = (props) => {
+  const [gameOn, setGameOn] = useState(false)
+
+  useEffect(() => {
+    if (props.startEffect) {
+      setTimeout(() => setGameOn(true), 250)
+    }
+  }, [props.startEffect])
 
   const bonus = () => {
     if (props.subTotal >= 63) return 35
@@ -16,7 +23,7 @@ const Bonus = (props) => {
   }
 
   return (
-    <div className={`${style['room']} ${props.subTotal >= 63 ? style['is-granted'] : style['is-disabled']}`}>
+    <div className={`${style['room']} ${gameOn && style['game-on']} ${props.subTotal >= 63 ? style['is-granted'] : style['is-disabled']}`}>
       <button onClick={useRoom} disabled={true}>Bonus</button>
       <div>
         <p>{score}</p>

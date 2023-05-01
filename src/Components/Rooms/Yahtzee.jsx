@@ -6,6 +6,13 @@ import scoreSelect from './audio/miniRetro-yahtzeeScoreSelect3.mp3'
 const Yahtzee = (props) => {
   const [isDisabled, setIsDisabled] = useState(false)
   const [scoreSelect3] = useState(new Audio(scoreSelect))
+  const [gameOn, setGameOn] = useState(false)
+
+  useEffect(() => {
+    if (props.startEffect) {
+      setTimeout(() => setGameOn(true), 900)
+    }
+  }, [props.startEffect])
 
   const clickAudio = () => {
     scoreSelect3.currentTime = 0;
@@ -60,7 +67,8 @@ const Yahtzee = (props) => {
 
   return (
     <div className={
-      `${style['room']} 
+      `${style['room']}
+      ${gameOn && style['game-on']} 
       ${style['reverse']} 
       ${isDisabled && style['is-used']} 
       ${rollZero && !isDisabled && style['is-disabled']} 
