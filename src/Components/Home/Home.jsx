@@ -20,7 +20,7 @@ const Home = () => {
     <div className={`${style['god-container']}`}>
         <div className={style['page-container']}>
         <div className={style['game-header']}>
-        {GameHeader()}
+        <GameHeader />
         </div>
           <button className={style['enter-to-start']} 
           onClick={gameRedirect}>

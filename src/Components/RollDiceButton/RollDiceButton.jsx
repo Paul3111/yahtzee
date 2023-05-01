@@ -9,6 +9,8 @@ const RollDiceButton = (props) => {
   const [isWaiting, setIsWaiting] = useState(false)
   const [isDisabled, setIsDisabled] = useState(false)
 
+  const [gameOn, setGameOn] = useState(false)
+
   // -- AUDIO-----
   const [rollSound1] = useState(new Audio(roll1));
   const [rollSound2] = useState(new Audio(roll2));
@@ -26,6 +28,14 @@ const RollDiceButton = (props) => {
     }
   }
   // ----------------
+
+  useEffect(() => {
+    if (props.startEffect) {
+      setTimeout(() => { 
+        setGameOn(true)
+      }, 1200)
+    }
+  }, [props.startEffect])
 
   useEffect(() => {
     if (props.rollCount === 3) setIsDisabled(true)
@@ -49,8 +59,8 @@ const RollDiceButton = (props) => {
       <audio src={roll2}/>
       <audio src={roll3}/>
 
-      <button className={`${style['roll-dice-btn']} ${(isDisabled || isWaiting) && style['is-disabled']}`}
-        disabled={isDisabled || isWaiting}
+      <button className={`${style['roll-dice-btn']} ${gameOn && style['game-on']} ${(!gameOn || isDisabled || isWaiting) && style['is-disabled']}`}
+        disabled={!gameOn || isDisabled || isWaiting}
         onClick={() => {clickHandler(); rollAudio()}}
         onMouseEnter={props.isHoveredTrue}
         onMouseLeave={props.isHoveredFalse}

@@ -31,6 +31,7 @@ const Game = () => {
   const [total, setTotal] = useState(0)
 
   const [startGame, setStartGame] = useState(false)
+  const [startEffect, setStartEffect] = useState(false)
 
   const [dice, setDice] = useState([
     { value: 1, locked: false },
@@ -40,9 +41,17 @@ const Game = () => {
     { value: 1, locked: false }
   ]);
 
-const start = () => {
-  setStartGame(true)
-}
+  const start = () => {
+    setStartGame(true)
+  }
+
+  useEffect(() => {
+    if (startGame) {
+      setTimeout(() => {
+        setStartEffect(true)
+      }, 1200)
+    }
+  }, [startGame])
 
 
   // -- AUDIO -------
@@ -99,15 +108,17 @@ const start = () => {
 
   return (
     <div className={`${style['god-container']} ${isYahtzee && style['yahtzee-celebration']}`}>
-      <GameHeader />
+      <GameHeader startEffect={startGame} />
       <GameMenu />
-      <div className={`${style['game-container']} ${isHovered && style['lights-up']}`}>
+      <div className={`${style['game-container']} ${startEffect && style['game-on']} ${isHovered && style['lights-up']}`}>
       
         <GameTotalScore
+          startEffect={startGame}
           isHovered={isHovered}
           total={total} />
 
         <GameRooms
+          startEffect={startGame}
           disableLights={hoverHandler}
           isHovered={isHovered}
           resetDice={setDice}
@@ -120,6 +131,7 @@ const start = () => {
         />
       
         <DiceContainer
+          startEffect={startGame}
           isHoveredTrue={isHoveredTrue}
           isHoveredFalse={isHoveredFalse}
           isHovered={isHovered}
