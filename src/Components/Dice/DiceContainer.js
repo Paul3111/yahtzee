@@ -52,6 +52,7 @@ const DiceContainer = (props) => {
   
   // returns a random number 1 - 6
   const rollDie = () => {
+    if(props.onlyYahtzees) return 6
     return Math.floor(Math.random() * 6) + 1;
   }
 

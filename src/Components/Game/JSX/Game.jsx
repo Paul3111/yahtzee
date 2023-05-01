@@ -11,12 +11,15 @@ import StartPopup from '../../StartPopup/JSX/StartPopup';
 
 import backgroundMusic from '../audio/miniRetro-yahtzeeMusic1.mp3'
 import EndGame from '../../EndGame/JSX/EndGame';
+import GameToggleBtns from './GameToggleBtns';
 
 const Game = () => {
   const [isPlaying, setIsPlaying] = useState(false)
-  const [audioEnabled, setAudioEnabled] = useState(true)
+  const [audioEnabled, setAudioEnabled] = useState(false)
   const [music] = useState(new Audio(backgroundMusic))
+
   const [cheatMode, setCheatMode] = useState(false)
+  const [onlyYahtzees, setOnlyYahtzees] = useState(false)
 
   const [isYahtzee, setIsYahtzee] = useState(false)
   
@@ -56,12 +59,36 @@ const Game = () => {
 
   // -- AUDIO -------
   useEffect(() => {
+    if (startGame) {
+      setIsPlaying(true)
+      setAudioEnabled(true)
+    }
+  },[startGame])
+  
+  useEffect(() => {
     if(isPlaying) {
       music.play();
     }else {
       music.pause();
     }
   }, [isPlaying])
+
+  const toggleMusic = () => {
+    setIsPlaying(!isPlaying)
+  }
+  const toggleSFX = () => {
+    setAudioEnabled(!audioEnabled)
+  }
+  // ---------------
+  
+
+  // -- CHEAT MODE and ONLY YAHTZEE MODE
+  const toggleCheatMode = () => {
+    setCheatMode(!cheatMode)
+  }
+  const toggleOnlyYahtzees = () => {
+    setOnlyYahtzees(!onlyYahtzees)
+  }
   // ---------------
 
   useEffect(() => {
@@ -82,8 +109,6 @@ const Game = () => {
       return prevTotal += score
     })
   }
-
-  console.log(gameRound)
 
   useEffect(() => {
     setIsHovered(false)
@@ -132,6 +157,7 @@ const Game = () => {
         />
       
         <DiceContainer
+          onlyYahtzees={onlyYahtzees}
           startEffect={startGame}
           isHoveredTrue={isHoveredTrue}
           isHoveredFalse={isHoveredFalse}
@@ -152,13 +178,21 @@ const Game = () => {
         <Dots rollCount={rollCount} />
 
         <audio src={backgroundMusic} loop/>
-        <button onClick={() => setIsPlaying(!isPlaying)}>Toggle Music</button>
-        <button onClick={() => setAudioEnabled(!audioEnabled)}>Toggle Sounds</button>
         
       </div>
+      <GameToggleBtns
+        isPlaying={isPlaying}
+        audioEnabled={audioEnabled}
+        cheatMode={cheatMode}
+        onlyYahtzees={onlyYahtzees}
+        toggleMusic={toggleMusic}
+        toggleSFX={toggleSFX}
+        toggleCheatMode={toggleCheatMode}
+        toggleOnlyYahtzees={toggleOnlyYahtzees}
+      />
       <HowToPlay />
+
       { !startGame && <StartPopup start={start} /> }
-      <button onClick={() => setCheatMode(!cheatMode)}>Cheat Mode</button>
       <EndGame gameRound={gameRound} total={total}/>
     </div>
     
