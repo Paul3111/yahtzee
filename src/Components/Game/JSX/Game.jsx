@@ -11,11 +11,13 @@ import StartPopup from '../../StartPopup/JSX/StartPopup';
 
 import backgroundMusic from '../audio/miniRetro-yahtzeeMusic1.mp3'
 import EndGame from '../../EndGame/JSX/EndGame';
+import GameToggleBtns from './GameToggleBtns';
 
 const Game = () => {
   const [isPlaying, setIsPlaying] = useState(false)
-  const [audioEnabled, setAudioEnabled] = useState(true)
+  const [audioEnabled, setAudioEnabled] = useState(false)
   const [music] = useState(new Audio(backgroundMusic))
+
   const [cheatMode, setCheatMode] = useState(false)
 
   const [isYahtzee, setIsYahtzee] = useState(false)
@@ -56,14 +58,31 @@ const Game = () => {
 
   // -- AUDIO -------
   useEffect(() => {
+    if (startGame) {
+      setIsPlaying(true)
+      setAudioEnabled(true)
+    }
+  },[startGame])
+  
+  useEffect(() => {
     if(isPlaying) {
       music.play();
     }else {
       music.pause();
     }
   }, [isPlaying])
+
+  const toggleMusic = () => {
+    setIsPlaying(!isPlaying)
+  }
+  const toggleSFX = () => {
+    setAudioEnabled(!audioEnabled)
+  }
   // ---------------
 
+  const toggleCheatMode = () => {
+    setCheatMode(!cheatMode)
+  }
   useEffect(() => {
     for (let i = 1; i <= 6; i++) {
       if (values.filter(x => x === i).length === 5) {
@@ -151,13 +170,19 @@ const Game = () => {
         <Dots rollCount={rollCount} />
 
         <audio src={backgroundMusic} loop/>
-        <button onClick={() => setIsPlaying(!isPlaying)}>Toggle Music</button>
-        <button onClick={() => setAudioEnabled(!audioEnabled)}>Toggle Sounds</button>
         
       </div>
+      <GameToggleBtns
+        isPlaying={isPlaying}
+        audioEnabled={audioEnabled}
+        cheatMode={cheatMode}
+        toggleMusic={toggleMusic}
+        toggleSFX={toggleSFX}
+        toggleCheatMode={toggleCheatMode}
+      />
       <HowToPlay />
+
       { !startGame && <StartPopup start={start} /> }
-      <button onClick={() => setCheatMode(!cheatMode)}>Cheat Mode</button>
       <EndGame gameRound={gameRound} total={total}/>
     </div>
     
