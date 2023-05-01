@@ -17,24 +17,19 @@ const Leaderboard = (props) => {
     navigate('/game')
   }
 
-  // const saveScore = () => {
-  //   setSaveGame(true)
-  // }
-
   const saveScore = (name) => {
     props.savingData();
     setSaveGame(true);
-    axios.post('/players', {
-      name: name,
-      score: props.total,
-    })
-    .then((response) => {
-      console.log(response);
-      // setPlayers([...players, response.data]);
-    })
-    .catch((error) => {
-      console.error(error);
-    })
+    
+    fetch('http://localhost:8080/players', {
+          method: 'post',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({username: name, score: props.endScore})
+        }).then(res => {
+          console.log(res)
+        })
   }
 
   const skipSave = () => {

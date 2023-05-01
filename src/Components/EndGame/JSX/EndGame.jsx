@@ -12,7 +12,7 @@ const EndGame = (props) => {
 
   return (
     <div>
-      {gameEnd && <EndGamePopUp savingData={props.savingData} total={props.total}/>}
+      {gameEnd && <EndGamePopUp totalScore={props.totalScore} getEndScore={props.getEndScore} savingData={props.savingData} total={props.total}/>}
     </div>
   );
 };
