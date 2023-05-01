@@ -34,7 +34,7 @@ const GameToggleBtns = (props) => {
           <input checked={props.onlyYahtzees} className={style['audio-checkbox-btn']} type="checkbox" value="ToggleCheatMode" onChange={props.toggleOnlyYahtzees}></input>
           <div className={style['audio-checkbox-btn-filled']}></div>
         </div>
-        <label htmlFor="ToggleCheatMode">Only Yahtzee</label>
+        <label htmlFor="ToggleCheatMode">Only Yahtzees</label>
       </div>
 
     </div>
