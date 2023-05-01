@@ -17,8 +17,24 @@ const Leaderboard = (props) => {
     navigate('/game')
   }
 
-  const saveScore = () => {
-    setSaveGame(true)
+  // const saveScore = () => {
+  //   setSaveGame(true)
+  // }
+
+  const saveScore = (name) => {
+    props.savingData();
+    setSaveGame(true);
+    axios.post('/players', {
+      name: name,
+      score: props.total,
+    })
+    .then((response) => {
+      console.log(response);
+      // setPlayers([...players, response.data]);
+    })
+    .catch((error) => {
+      console.error(error);
+    })
   }
 
   const skipSave = () => {

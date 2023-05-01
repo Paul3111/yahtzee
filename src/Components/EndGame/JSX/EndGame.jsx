@@ -1,5 +1,4 @@
 import {useState, useEffect} from 'react'
-
 import EndGamePopUp from './EndGamePopUp';
 
 const EndGame = (props) => {
