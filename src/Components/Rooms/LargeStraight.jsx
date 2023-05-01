@@ -10,7 +10,7 @@ const LargeStraight = (props) => {
 
   useEffect(() => {
     if (props.startEffect) {
-      setTimeout(() => setGameOn(true), 550)
+      setTimeout(() => setGameOn(true), 850)
     }
   }, [props.startEffect])
 

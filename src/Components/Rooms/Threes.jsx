@@ -10,7 +10,7 @@ const Threes = (props) => {
 
   useEffect(() => {
     if (props.startEffect) {
-      setTimeout(() => setGameOn(true), 800)
+      setTimeout(() => setGameOn(true), 1100)
     }
   }, [props.startEffect])
 

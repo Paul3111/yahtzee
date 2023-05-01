@@ -10,7 +10,7 @@ const FourOfAKind = (props) => {
 
   useEffect(() => {
     if (props.startEffect) {
-      setTimeout(() => setGameOn(true), 400)
+      setTimeout(() => setGameOn(true), 700)
     }
   }, [props.startEffect])
 

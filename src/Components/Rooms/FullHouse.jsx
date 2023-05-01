@@ -10,7 +10,7 @@ const FullHouse = (props) => {
 
   useEffect(() => {
     if (props.startEffect) {
-      setTimeout(() => setGameOn(true), 500)
+      setTimeout(() => setGameOn(true), 800)
     }
   }, [props.startEffect])
 

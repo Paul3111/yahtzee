@@ -10,7 +10,7 @@ const Chance = (props) => {
 
   useEffect(() => {
     if (props.startEffect) {
-      setTimeout(() => setGameOn(true), 300)
+      setTimeout(() => setGameOn(true), 600)
     }
   }, [props.startEffect])
 

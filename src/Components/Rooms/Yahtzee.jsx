@@ -10,7 +10,7 @@ const Yahtzee = (props) => {
 
   useEffect(() => {
     if (props.startEffect) {
-      setTimeout(() => setGameOn(true), 900)
+      setTimeout(() => setGameOn(true), 1200)
     }
   }, [props.startEffect])
 

@@ -10,7 +10,7 @@ const SmallStraight = (props) => {
 
   useEffect(() => {
     if (props.startEffect) {
-      setTimeout(() => setGameOn(true), 700)
+      setTimeout(() => setGameOn(true), 1000)
     }
   }, [props.startEffect])
 

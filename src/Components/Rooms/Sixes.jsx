@@ -10,7 +10,7 @@ const Sixes = (props) => {
 
   useEffect(() => {
     if (props.startEffect) {
-      setTimeout(() => setGameOn(true), 650)
+      setTimeout(() => setGameOn(true), 950)
     }
   }, [props.startEffect])
 

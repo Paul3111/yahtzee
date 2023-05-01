@@ -10,7 +10,7 @@ const ThreeOfAKind = (props) => {
 
   useEffect(() => {
     if (props.startEffect) {
-      setTimeout(() => setGameOn(true), 750)
+      setTimeout(() => setGameOn(true), 1050)
     }
   }, [props.startEffect])
 
