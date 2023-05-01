@@ -74,9 +74,10 @@ const Game = () => {
   }, [values])
     
   const updateTotal = (score) => {
-    setGameRound((prevRound) => {
-      return prevRound += 1;
-    })
+    if (score !== 100)
+      {setGameRound((prevRound) => {
+        return prevRound += 1;
+      })};
     setTotal((prevTotal) => {
       return prevTotal += score
     })
