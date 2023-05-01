@@ -1,0 +1,121 @@
+.leaderboard-first-popup-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(17, 0, 18, 0.9);
+    z-index: 2;
+}
+  
+.leaderboard-first-popup-container__inner {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 50vw;
+    height: 30vh;
+
+    z-index: 5;
+    justify-content: center;
+    align-items: center;
+}
+  
+.leaderboard-first-popup {
+    display: flex;
+    position: relative;
+    height: 80%;
+    width: 50%;
+
+    border-radius: 20px;
+    border: var(--pink-neon-color) 5px solid ;
+
+    background-color: #111;
+    box-shadow: 0 0 30px 1px var(--pink-neon-color);
+
+    justify-content: center;
+    flex-direction: column;
+
+}
+  
+.leaderboard-first-popup__header {
+    color: var(--title-color);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+}
+
+.leaderboard-first-popup__header h2 {
+    background-color: transparent;
+    color: var(--title-color);
+    border: none;
+    font-size: 4rem;
+    letter-spacing: 1rem;
+    text-shadow: 0 0 9px var(--pink-neon-color);
+
+    /* ALTERNATIVE: UNCOMMENT TO SEE */
+    font-family: var(--alternative-font);
+}
+
+.leaderboard-first-popup-btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.leaderboard-first-popup__btn {
+    width: 20%;
+    border: none;
+    background-color: transparent;
+    font-size: 2rem;
+    cursor: pointer;
+
+    color: white;
+    font-family: inherit;
+}
+
+.leaderboard-first-popup__btn:hover {
+    color: var(--pink-neon-color);
+    transition: all 0.2s ease-in-out;
+}
+
+.leaderboard-first-popup__input-container {
+    display: flex;
+    background-color: transparent;
+    width: 30rem;
+    height: 7rem;
+    margin-bottom: 3rem;
+    align-self: center;
+    border: var(--pink-neon-color) 5px solid;
+}
+
+.leaderboard-first-popup__input-container input {
+    display: flex;
+    background-color: #111;
+    color:white;
+    font-size: 4rem;
+    font-family: inherit;
+    width: 100%;
+    height: 100%;
+    align-self: center;
+    justify-content: center;
+    border: var(--pink-neon-color) 5px solid;
+}
+
+.leaderboard-first-popup__input-container input::placeholder {
+    display: flex;
+    font-size: 1.7rem;    
+    font-family: inherit;
+    color: var(--pink-neon-color);
+    position: absolute;
+    top: 30%;
+  }
+
+  .leaderboard-first-popup__input-container input:focus {
+    outline: none;
+  }

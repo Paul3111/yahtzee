@@ -91,3 +91,11 @@
   position: relative;
   flex-direction: row;
 }
+
+.save-popup {
+  display: flex;
+  justify-content: space-evenly;
+  height: 40%;
+  position: absolute;
+  flex-direction: row;
+}

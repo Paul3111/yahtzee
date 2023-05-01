@@ -8,12 +8,11 @@ import DiceContainer from '../../Dice/DiceContainer';
 import Dots from './GameDots';
 import HowToPlay from '../../HowToPlay/JSX/HowToPlay';
 import StartPopup from '../../StartPopup/JSX/StartPopup';
-
 import backgroundMusic from '../audio/miniRetro-yahtzeeMusic1.mp3'
 import EndGame from '../../EndGame/JSX/EndGame';
 import GameToggleBtns from './GameToggleBtns';
 
-const Game = () => {
+const Game = (props) => {
   const [isPlaying, setIsPlaying] = useState(false)
   const [audioEnabled, setAudioEnabled] = useState(false)
   const [music] = useState(new Audio(backgroundMusic))
@@ -25,7 +24,7 @@ const Game = () => {
   
   const [isHovered, setIsHovered] = useState(false)
 
-  const [gameRound, setGameRound] = useState(0)
+  const [gameRound, setGameRound] = useState(12)
   const [counts, setCounts] = useState([0, 0, 0, 0, 0, 0]);
   const [diceValueSum, setDiceValueSum] = useState(0);
   const [values, setValues] = useState([])
@@ -55,7 +54,6 @@ const Game = () => {
       }, 1200)
     }
   }, [startGame])
-
 
   // -- AUDIO -------
   useEffect(() => {
@@ -193,7 +191,8 @@ const Game = () => {
       <HowToPlay />
 
       { !startGame && <StartPopup start={start} /> }
-      <EndGame gameRound={gameRound} total={total}/>
+      <button onClick={() => setCheatMode(!cheatMode)}>Cheat Mode</button>
+      <EndGame totalScore={total} getEndScore={props.getEndScore} savingData={props.savingData} gameRound={gameRound} total={total}/>
     </div>
     
   );

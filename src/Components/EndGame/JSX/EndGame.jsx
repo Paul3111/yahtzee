@@ -1,5 +1,4 @@
 import {useState, useEffect} from 'react'
-
 import EndGamePopUp from './EndGamePopUp';
 
 const EndGame = (props) => {
@@ -13,7 +12,7 @@ const EndGame = (props) => {
 
   return (
     <div>
-      {gameEnd && <EndGamePopUp total={props.total}/>}
+      {gameEnd && <EndGamePopUp totalScore={props.totalScore} getEndScore={props.getEndScore} savingData={props.savingData} total={props.total}/>}
     </div>
   );
 };

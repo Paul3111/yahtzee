@@ -21,7 +21,7 @@
 
 .end-game-popup {
   position: relative;
-  height: 70%;
+  height: 80%;
   width: 100%;
   
   border-radius: 20px;
@@ -120,7 +120,7 @@
 .end-game-popup__score {
   color: white;
   font-size: 22rem;
-  padding: 2rem 5rem;
+  padding: 3rem 5rem;
   text-align: center;
   overflow: hidden;
 }

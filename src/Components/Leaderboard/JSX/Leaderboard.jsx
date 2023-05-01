@@ -2,10 +2,12 @@ import { useNavigate } from 'react-router-dom';
 import style from '../CSS/Leaderboard.module.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import FirstPopUp from '../../FirstPopUp/JSX/FirstPopUp';
 
-const Leaderboard = () => {
+const Leaderboard = (props) => {
   const navigate = useNavigate();
   const [players, setPlayers] = useState([]);
+  const [saveGame, setSaveGame] = useState(false)
 
   const homeRedirect = () => {
     navigate('/home')
@@ -15,14 +17,29 @@ const Leaderboard = () => {
     navigate('/game')
   }
 
-  //const [players, setPlayers] = useState([]);
+  const saveScore = (name) => {
+    props.savingData();
+    setSaveGame(true);
+    
+    fetch('http://localhost:8080/players', {
+          method: 'post',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({username: name, score: props.endScore})
+        }).then(res => {
+          console.log(res)
+        })
+  }
+
+  const skipSave = () => {
+    setSaveGame(false)
+  }
 
   useEffect(() => {
     axios.get('/players')
       .then(response => {
-        //console.log('response');
         setPlayers(response.data);
-        //console.log(response.data)
       })
       .catch(error  => {
         console.error(error);
@@ -55,7 +72,11 @@ const Leaderboard = () => {
           Play again
         </button>
       </div>
+      
     </div>
+      <div className={style['save-popup']}>
+          {props.showSavePopUp && <FirstPopUp saveScore={saveScore} skipSave={skipSave} savingData={props.savingData}/>}
+      </div>
   </div>
   );
 };

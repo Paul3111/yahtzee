@@ -9,6 +9,8 @@ const EndGamePopUp = (props) => {
   }
 
   const leaderboardRedirect = () => {
+    props.getEndScore(props.totalScore)
+    props.savingData()
     navigate('/leaderboard')
   }
 
@@ -18,7 +20,7 @@ const EndGamePopUp = (props) => {
         <div className={style['end-game-popup']}>
           <div className={style['end-game-popup__header']}>
             <h2>CONGRATULATIONS!</h2>
-          </div>                                            {/* uncomment below to display */}
+          </div>
           <div className={style['end-game-popup__summary']}>
             Your score:
           </div>
