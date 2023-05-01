@@ -10,7 +10,7 @@ const Fours = (props) => {
 
   useEffect(() => {
     if (props.startEffect) {
-      setTimeout(() => setGameOn(true), 750)
+      setTimeout(() => setGameOn(true), 350)
     }
   }, [props.startEffect])
 

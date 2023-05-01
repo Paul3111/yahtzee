@@ -6,7 +6,7 @@ const Bonus = (props) => {
 
   useEffect(() => {
     if (props.startEffect) {
-      setTimeout(() => setGameOn(true), 550)
+      setTimeout(() => setGameOn(true), 200)
     }
   }, [props.startEffect])
 
