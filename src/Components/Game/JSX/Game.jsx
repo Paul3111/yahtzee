@@ -11,7 +11,7 @@ import StartPopup from '../../StartPopup/JSX/StartPopup';
 import backgroundMusic from '../audio/miniRetro-yahtzeeMusic1.mp3'
 import EndGame from '../../EndGame/JSX/EndGame';
 
-const Game = () => {
+const Game = (props) => {
   const [isPlaying, setIsPlaying] = useState(false)
   const [audioEnabled, setAudioEnabled] = useState(true)
   const [music] = useState(new Audio(backgroundMusic))
@@ -144,7 +144,7 @@ const Game = () => {
       <HowToPlay />
       { !startGame && <StartPopup start={start} /> }
       <button onClick={() => setCheatMode(!cheatMode)}>Cheat Mode</button>
-      <EndGame gameRound={gameRound} total={total}/>
+      <EndGame savingData={props.savingData} gameRound={gameRound} total={total}/>
     </div>
     
   );

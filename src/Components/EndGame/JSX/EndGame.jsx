@@ -13,7 +13,7 @@ const EndGame = (props) => {
 
   return (
     <div>
-      {gameEnd && <EndGamePopUp total={props.total}/>}
+      {gameEnd && <EndGamePopUp savingData={props.savingData} total={props.total}/>}
     </div>
   );
 };

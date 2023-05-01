@@ -2,9 +2,9 @@ import { useNavigate } from 'react-router-dom';
 import style from '../CSS/Leaderboard.module.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import LeaderboardPopUp from '../../LeaderboardPopUp/JSX/LeaderboardPopUp';
+import FirstPopUp from '../../FirstPopUp/JSX/FirstPopUp';
 
-const Leaderboard = () => {
+const Leaderboard = (props) => {
   const navigate = useNavigate();
   const [players, setPlayers] = useState([]);
   const [saveGame, setSaveGame] = useState(false)
@@ -19,6 +19,10 @@ const Leaderboard = () => {
 
   const saveScore = () => {
     setSaveGame(true)
+  }
+
+  const skipSave = () => {
+    setSaveGame(false)
   }
 
   useEffect(() => {
@@ -60,7 +64,7 @@ const Leaderboard = () => {
       
     </div>
       <div className={style['save-popup']}>
-          { saveScore && <LeaderboardPopUp saveScore={saveScore} /> }    
+          {props.showSavePopUp && <FirstPopUp saveScore={saveScore} skipSave={skipSave} savingData={props.savingData}/>}
       </div>
   </div>
   );
