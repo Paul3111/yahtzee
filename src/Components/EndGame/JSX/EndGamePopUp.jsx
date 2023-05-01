@@ -1,7 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import style from '../CSS/EndGamePopUp.module.css';
-import FirstPopUp from '../../FirstPopUp/JSX/FirstPopUp';
-import { useState } from 'react';
 
 const EndGamePopUp = (props) => {
   const navigate = useNavigate();

@@ -1,5 +1,4 @@
 import './App.css';
-// import FirstPopUp from './Components/FirstPopUp/JSX/FirstPopUp';
 import Game from './Components/Game/JSX/Game';
 import Home from './Components/Home/Home';
 import Leaderboard from './Components/Leaderboard/JSX/Leaderboard';
@@ -20,10 +19,6 @@ const App = () => {
   const savingData = () => {
     setShowSavePopUp(!showSavePopUp)
   }
-
-  useEffect(() => {
-    console.log('SAVING', showSavePopUp)
-  }, [showSavePopUp])
 
   return (
     <Routes>
