@@ -9,7 +9,7 @@ const Die = (props) => {
 
   useEffect(() => {
     if (props.startEffect) {
-      setTimeout(() => setGameOn(true), 1200)
+      setTimeout(() => setGameOn(true), 800)
     }
   }, [props.startEffect])
 

@@ -12,7 +12,7 @@ const DiceContainer = (props) => {
 
   useEffect(() => {
     if (props.startEffect) {
-      setTimeout(() => setGameOn(true), 1000)
+      setTimeout(() => setGameOn(true), 600)
     }
   }, [props.startEffect])
 

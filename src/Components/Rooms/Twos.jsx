@@ -10,7 +10,7 @@ const Twos = (props) => {
 
   useEffect(() => {
     if (props.startEffect) {
-      setTimeout(() => setGameOn(true), 1150)
+      setTimeout(() => setGameOn(true), 450)
     }
   }, [props.startEffect])
 

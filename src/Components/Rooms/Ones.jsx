@@ -10,7 +10,7 @@ const Ones = (props) => {
 
   useEffect(() => {
     if (props.startEffect) {
-      setTimeout(() => setGameOn(true), 900)
+      setTimeout(() => setGameOn(true), 500)
     }
   }, [props.startEffect])
 
