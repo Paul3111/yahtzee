@@ -7,7 +7,33 @@
 }
 
 .game-header h1 {
-  color: var(--title-color);
+  color: var(--pink-neon-off);
   font-size: 4rem;
 }
 
+.game-header.game-on h1 {
+  color: var(--title-color);
+  font-size: 4rem;
+
+  animation-name: boot-up-effect;
+  animation-duration: .4s;
+  animation-iteration-count: 1;
+  animation-delay: 0s;
+  animation-direction: normal;
+  animation-timing-function: linear;
+}
+
+@keyframes boot-up-effect {
+  0% {
+    color: var(--pink-neon-off);
+    transform: scale(1);
+    }
+  50% {
+    transform: scale(2);
+    color: var(--pink-neon-color);
+  }
+  100% { 
+    transform: scale(1);
+    color: var(--pink-neon-on);
+   }
+}

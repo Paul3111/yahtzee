@@ -47,6 +47,7 @@ const GameRooms = (props) => {
 
         <div className={style['rooms-half']}>
           <Ones
+            startEffect={props.startEffect}
             disableLights={props.disableLights}
             resetDice={props.resetDice}
             rollCount={props.rollCount}
@@ -58,6 +59,7 @@ const GameRooms = (props) => {
             audioEnabled={props.audioEnabled}/>
           
           <Twos
+            startEffect={props.startEffect}
             disableLights={props.disableLights}
             resetDice={props.resetDice}
             rollCount={props.rollCount}
@@ -70,6 +72,7 @@ const GameRooms = (props) => {
             audioEnabled={props.audioEnabled}/>
           
           <Threes
+            startEffect={props.startEffect}
             disableLights={props.disableLights}
             resetDice={props.resetDice}
             rollCount={props.rollCount}
@@ -82,6 +85,7 @@ const GameRooms = (props) => {
             audioEnabled={props.audioEnabled}/>
           
           <Fours
+            startEffect={props.startEffect}
             disableLights={props.disableLights}
             resetDice={props.resetDice}
             rollCount={props.rollCount}
@@ -94,6 +98,7 @@ const GameRooms = (props) => {
             audioEnabled={props.audioEnabled}/>
           
           <Fives
+            startEffect={props.startEffect}
             disableLights={props.disableLights}
             resetDice={props.resetDice}
             rollCount={props.rollCount}
@@ -106,6 +111,7 @@ const GameRooms = (props) => {
             audioEnabled={props.audioEnabled}/>
           
           <Sixes
+            startEffect={props.startEffect}
             disableLights={props.disableLights}
             resetDice={props.resetDice}
             rollCount={props.rollCount}
@@ -118,6 +124,7 @@ const GameRooms = (props) => {
             audioEnabled={props.audioEnabled} />
           
           <Bonus
+            startEffect={props.startEffect}
             onRollDice={setBonus}
             savedScore={bonus}
             updateTotal={props.updateTotal}
@@ -127,6 +134,7 @@ const GameRooms = (props) => {
 
         <div className={style['rooms-half']}>
           <ThreeOfAKind
+            startEffect={props.startEffect}
             disableLights={props.disableLights}
             resetDice={props.resetDice}
             rollCount={props.rollCount}
@@ -138,6 +146,7 @@ const GameRooms = (props) => {
             audioEnabled={props.audioEnabled}/>
           
           <FourOfAKind
+            startEffect={props.startEffect}
             disableLights={props.disableLights}
             resetDice={props.resetDice}
             rollCount={props.rollCount}
@@ -149,6 +158,7 @@ const GameRooms = (props) => {
             audioEnabled={props.audioEnabled}/>
           
           <FullHouse
+            startEffect={props.startEffect}
             disableLights={props.disableLights}
             resetDice={props.resetDice}
             rollCount={props.rollCount}
@@ -160,6 +170,7 @@ const GameRooms = (props) => {
             audioEnabled={props.audioEnabled}/>
           
           <SmallStraight
+            startEffect={props.startEffect}
             disableLights={props.disableLights}
             resetDice={props.resetDice}
             rollCount={props.rollCount}
@@ -171,6 +182,7 @@ const GameRooms = (props) => {
             audioEnabled={props.audioEnabled}/>
           
           <LargeStraight
+            startEffect={props.startEffect}
             disableLights={props.disableLights}
             resetDice={props.resetDice}
             rollCount={props.rollCount}
@@ -182,6 +194,7 @@ const GameRooms = (props) => {
             audioEnabled={props.audioEnabled}/>
           
           <Yahtzee
+            startEffect={props.startEffect}
             disableLights={props.disableLights}
             resetDice={props.resetDice}
             rollCount={props.rollCount}
@@ -196,6 +209,7 @@ const GameRooms = (props) => {
           />
           
           <Chance
+            startEffect={props.startEffect}
             disableLights={props.disableLights}
             resetDice={props.resetDice}
             rollCount={props.rollCount}

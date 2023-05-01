@@ -19,15 +19,42 @@
   justify-content: flex-start;
   
   border-radius: 20px;
+  border: var(--pink-neon-off) 5px solid;
+
+  background-color: #111;
+
+  transition: all .1s ease;
+}
+
+.game-container.game-on {
   border: var(--pink-neon-color) 5px solid;
 
   background-color: #111;
   box-shadow: 0 0 30px 1px var(--pink-neon-color);
 
-  transition: all .1s ease;
+  transition: all .2s ease;
+
+  animation-name: boot-up-effect;
+  animation-duration: .5s;
+  animation-iteration-count: 1;
+  animation-delay: 0s;
+  animation-direction: normal;
+  animation-timing-function: linear;
 }
 
-.lights-up.game-container::after {
+@keyframes boot-up-effect {
+  0% { 
+    box-shadow: 0 0 30px 1px var(--pink-neon-color);
+   }
+  50% { 
+    box-shadow: 0 0 30px 15px var(--pink-neon-color);
+   }
+  100% { 
+    box-shadow: 0 0 30px 1px var(--pink-neon-color);
+   }
+}
+
+.game-container.game-on.lights-up::after {
   content: '';
   position: absolute;
   top: 5px;
@@ -76,7 +103,7 @@
          top: 0%; left: 0%; }
 }
 
-.lights-up {
+.game-container.game-on.lights-up {
   border: #f0befa 5px solid;
   box-shadow: 0 0 40px 10px var(--pink-neon-color);
   transition: all .1s ease;

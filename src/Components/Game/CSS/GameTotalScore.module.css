@@ -90,13 +90,43 @@
 
 .score__inner-container p {
   flex-shrink: 0;
-  color: var(--pink-neon-on);
-  font-family: var(--alternative-font);
+  color: var(--pink-neon-off);
   text-shadow: 0 0 9px var(--link-on-light-cast);
+  font-family: var(--alternative-font);
+
   font-size: 10rem;
   text-align: center;
   transition: all .2s;
 }
+
+.score__inner-container p.score-on{
+  color: var(--pink-neon-on);
+  text-shadow: 0 0 9px var(--link-on-light-cast);
+  transition: all .5s ease-in;
+
+  animation-name: boot-up-effect;
+  animation-duration: .4s;
+  animation-iteration-count: 1;
+  animation-delay: 0s;
+  animation-direction: normal;
+  animation-timing-function: linear;
+}
+
+@keyframes boot-up-effect {
+  0% {
+    color: var(--pink-neon-off);
+    transform: scale(1);
+    }
+  50% {
+    transform: scale(1.8);
+    color: var(--pink-neon-color);
+  }
+  100% { 
+    transform: scale(1);
+    color: var(--pink-neon-on);
+   }
+}
+
 p.is-incremented {
   transform: scale(1.6);
   color: var(--title-color);

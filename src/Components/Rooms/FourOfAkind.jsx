@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import style from './CSS/Room.module.css'
 
 import scoreSelect from './audio/miniRetro-yahtzeeScoreSelect2.mp3'
@@ -6,6 +6,13 @@ import scoreSelect from './audio/miniRetro-yahtzeeScoreSelect2.mp3'
 const FourOfAKind = (props) => {
   const [isDisabled, setIsDisabled] = useState(false)
   const [scoreSelect2] = useState(new Audio(scoreSelect))
+  const [gameOn, setGameOn] = useState(false)
+
+  useEffect(() => {
+    if (props.startEffect) {
+      setTimeout(() => setGameOn(true), 350)
+    }
+  }, [props.startEffect])
 
   const clickAudio = () => {
     scoreSelect2.currentTime = 0;
@@ -51,7 +58,7 @@ const FourOfAKind = (props) => {
   const rollZero = props.rollCount === 0
 
   return (
-    <div className={`${style['room']} ${style['reverse']} ${isDisabled && style['is-used']} ${rollZero && !isDisabled && style['is-disabled']} ${score > 0 && !rollZero && style['is-potential']}`}>
+    <div className={`${style['room']} ${gameOn && style['game-on']} ${style['reverse']} ${isDisabled && style['is-used']} ${rollZero && !isDisabled && style['is-disabled']} ${score > 0 && !rollZero && style['is-potential']}`}>
       <button onClick={useRoom} disabled={isDisabled || rollZero}>Four of a kind</button>
       <div>
         <p>{rollZero && props.savedScore === 0 ? '0' : isDisabled ? props.savedScore : score}</p>

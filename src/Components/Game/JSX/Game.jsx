@@ -10,12 +10,15 @@ import HowToPlay from '../../HowToPlay/JSX/HowToPlay';
 import StartPopup from '../../StartPopup/JSX/StartPopup';
 import backgroundMusic from '../audio/miniRetro-yahtzeeMusic1.mp3'
 import EndGame from '../../EndGame/JSX/EndGame';
+import GameToggleBtns from './GameToggleBtns';
 
 const Game = (props) => {
   const [isPlaying, setIsPlaying] = useState(false)
-  const [audioEnabled, setAudioEnabled] = useState(true)
+  const [audioEnabled, setAudioEnabled] = useState(false)
   const [music] = useState(new Audio(backgroundMusic))
+
   const [cheatMode, setCheatMode] = useState(false)
+  const [onlyYahtzees, setOnlyYahtzees] = useState(false)
 
   const [isYahtzee, setIsYahtzee] = useState(false)
   
@@ -30,6 +33,7 @@ const Game = (props) => {
   const [total, setTotal] = useState(0)
 
   const [startGame, setStartGame] = useState(false)
+  const [startEffect, setStartEffect] = useState(false)
 
   const [dice, setDice] = useState([
     { value: 1, locked: false },
@@ -43,7 +47,22 @@ const Game = (props) => {
     setStartGame(true)
   }
 
+  useEffect(() => {
+    if (startGame) {
+      setTimeout(() => {
+        setStartEffect(true)
+      }, 1200)
+    }
+  }, [startGame])
+
   // -- AUDIO -------
+  useEffect(() => {
+    if (startGame) {
+      setIsPlaying(true)
+      setAudioEnabled(true)
+    }
+  },[startGame])
+  
   useEffect(() => {
     if(isPlaying) {
       music.play();
@@ -51,6 +70,23 @@ const Game = (props) => {
       music.pause();
     }
   }, [isPlaying])
+
+  const toggleMusic = () => {
+    setIsPlaying(!isPlaying)
+  }
+  const toggleSFX = () => {
+    setAudioEnabled(!audioEnabled)
+  }
+  // ---------------
+  
+
+  // -- CHEAT MODE and ONLY YAHTZEE MODE
+  const toggleCheatMode = () => {
+    setCheatMode(!cheatMode)
+  }
+  const toggleOnlyYahtzees = () => {
+    setOnlyYahtzees(!onlyYahtzees)
+  }
   // ---------------
 
   useEffect(() => {
@@ -63,15 +99,14 @@ const Game = (props) => {
   }, [values])
     
   const updateTotal = (score) => {
-    setGameRound((prevRound) => {
-      return prevRound += 1;
-    })
+    if (score !== 100)
+      {setGameRound((prevRound) => {
+        return prevRound += 1;
+      })};
     setTotal((prevTotal) => {
       return prevTotal += score
     })
   }
-
-  console.log(gameRound)
 
   useEffect(() => {
     setIsHovered(false)
@@ -97,15 +132,17 @@ const Game = (props) => {
 
   return (
     <div className={`${style['god-container']} ${isYahtzee && style['yahtzee-celebration']}`}>
-      <GameHeader />
+      <GameHeader startEffect={startGame} />
       <GameMenu />
-      <div className={`${style['game-container']} ${isHovered && style['lights-up']}`}>
+      <div className={`${style['game-container']} ${startEffect && style['game-on']} ${isHovered && style['lights-up']}`}>
       
         <GameTotalScore
+          startEffect={startGame}
           isHovered={isHovered}
           total={total} />
 
         <GameRooms
+          startEffect={startGame}
           disableLights={hoverHandler}
           isHovered={isHovered}
           resetDice={setDice}
@@ -118,6 +155,8 @@ const Game = (props) => {
         />
       
         <DiceContainer
+          onlyYahtzees={onlyYahtzees}
+          startEffect={startGame}
           isHoveredTrue={isHoveredTrue}
           isHoveredFalse={isHoveredFalse}
           isHovered={isHovered}
@@ -137,11 +176,20 @@ const Game = (props) => {
         <Dots rollCount={rollCount} />
 
         <audio src={backgroundMusic} loop/>
-        <button onClick={() => setIsPlaying(!isPlaying)}>Toggle Music</button>
-        <button onClick={() => setAudioEnabled(!audioEnabled)}>Toggle Sounds</button>
         
       </div>
+      <GameToggleBtns
+        isPlaying={isPlaying}
+        audioEnabled={audioEnabled}
+        cheatMode={cheatMode}
+        onlyYahtzees={onlyYahtzees}
+        toggleMusic={toggleMusic}
+        toggleSFX={toggleSFX}
+        toggleCheatMode={toggleCheatMode}
+        toggleOnlyYahtzees={toggleOnlyYahtzees}
+      />
       <HowToPlay />
+
       { !startGame && <StartPopup start={start} /> }
       <button onClick={() => setCheatMode(!cheatMode)}>Cheat Mode</button>
       <EndGame totalScore={total} getEndScore={props.getEndScore} savingData={props.savingData} gameRound={gameRound} total={total}/>
