@@ -7,7 +7,7 @@ const GameToggleBtns = (props) => {
 
       <div className={style['audio-checkbox']}>
         <div className={style['audio-checkbox-btn-container']}>
-          <input checked={props.isPlaying} className={style['audio-checkbox-btn']} type="checkbox" value="ToggleMusic" onChange={() => props.toggleMusic()}></input>
+          <input checked={props.isPlaying} className={style['audio-checkbox-btn']} type="checkbox" value="ToggleMusic" onChange={props.toggleMusic}></input>
           <div className={style['audio-checkbox-btn-filled']}></div>
         </div>
         <label htmlFor="ToggleMusic">Music</label>
@@ -15,7 +15,7 @@ const GameToggleBtns = (props) => {
 
       <div className={style['audio-checkbox']}>
         <div className={style['audio-checkbox-btn-container']}>
-          <input checked={props.audioEnabled} className={style['audio-checkbox-btn']} type="checkbox" value="ToggleSFX" onChange={() => props.toggleSFX()}></input>
+          <input checked={props.audioEnabled} className={style['audio-checkbox-btn']} type="checkbox" value="ToggleSFX" onChange={props.toggleSFX}></input>
           <div className={style['audio-checkbox-btn-filled']}></div>
         </div>
         <label htmlFor="ToggleSFX">SFX</label>
@@ -26,7 +26,15 @@ const GameToggleBtns = (props) => {
           <input checked={props.cheatMode} className={style['audio-checkbox-btn']} type="checkbox" value="ToggleCheatMode" onChange={props.toggleCheatMode}></input>
           <div className={style['audio-checkbox-btn-filled']}></div>
         </div>
-        <label htmlFor="ToggleCheatMode">Cheat Mode</label>
+        <label htmlFor="ToggleCheatMode">Demo Mode</label>
+      </div>
+
+      <div className={style['audio-checkbox']}>
+        <div className={style['audio-checkbox-btn-container']}>
+          <input checked={props.onlyYahtzees} className={style['audio-checkbox-btn']} type="checkbox" value="ToggleCheatMode" onChange={props.toggleOnlyYahtzees}></input>
+          <div className={style['audio-checkbox-btn-filled']}></div>
+        </div>
+        <label htmlFor="ToggleCheatMode">Only Yahtzee</label>
       </div>
 
     </div>

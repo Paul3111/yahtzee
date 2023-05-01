@@ -19,6 +19,7 @@ const Game = () => {
   const [music] = useState(new Audio(backgroundMusic))
 
   const [cheatMode, setCheatMode] = useState(false)
+  const [onlyYahtzees, setOnlyYahtzees] = useState(false)
 
   const [isYahtzee, setIsYahtzee] = useState(false)
   
@@ -79,10 +80,17 @@ const Game = () => {
     setAudioEnabled(!audioEnabled)
   }
   // ---------------
+  
 
+  // -- CHEAT MODE and ONLY YAHTZEE MODE
   const toggleCheatMode = () => {
     setCheatMode(!cheatMode)
   }
+  const toggleOnlyYahtzees = () => {
+    setOnlyYahtzees(!onlyYahtzees)
+  }
+  // ---------------
+
   useEffect(() => {
     for (let i = 1; i <= 6; i++) {
       if (values.filter(x => x === i).length === 5) {
@@ -100,8 +108,6 @@ const Game = () => {
       return prevTotal += score
     })
   }
-
-  console.log(gameRound)
 
   useEffect(() => {
     setIsHovered(false)
@@ -150,6 +156,7 @@ const Game = () => {
         />
       
         <DiceContainer
+          onlyYahtzees={onlyYahtzees}
           startEffect={startGame}
           isHoveredTrue={isHoveredTrue}
           isHoveredFalse={isHoveredFalse}
@@ -176,9 +183,11 @@ const Game = () => {
         isPlaying={isPlaying}
         audioEnabled={audioEnabled}
         cheatMode={cheatMode}
+        onlyYahtzees={onlyYahtzees}
         toggleMusic={toggleMusic}
         toggleSFX={toggleSFX}
         toggleCheatMode={toggleCheatMode}
+        toggleOnlyYahtzees={toggleOnlyYahtzees}
       />
       <HowToPlay />
 
