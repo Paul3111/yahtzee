@@ -108,7 +108,7 @@ const Game = () => {
 
   return (
     <div className={`${style['god-container']} ${isYahtzee && style['yahtzee-celebration']}`}>
-      <GameHeader />
+      <GameHeader startEffect={startGame} />
       <GameMenu />
       <div className={`${style['game-container']} ${startEffect && style['game-on']} ${isHovered && style['lights-up']}`}>
       

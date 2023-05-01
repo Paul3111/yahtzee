@@ -12,7 +12,7 @@ const DiceContainer = (props) => {
 
   useEffect(() => {
     if (props.startEffect) {
-      setTimeout(() => setGameOn(true), 1200)
+      setTimeout(() => setGameOn(true), 950)
     }
   }, [props.startEffect])
 
@@ -83,10 +83,18 @@ const DiceContainer = (props) => {
     <div className="wrapper">
       <div className={`dice-container ${props.isHovered && 'light-up'} ${gameOn && 'gameOn'}`}>
         { dice.map((die, index) => (
-          <Die key={index} startEffect={props.startEffect} value={die.value} locked={die.locked} rolling={die.rolling} onClick={() => toggleLock(index)} rollCount={props.rollCount} isHovered={props.isHovered} />
+          <Die key={index}
+            startEffect={props.startEffect}
+            value={die.value} locked={die.locked}
+            rolling={die.rolling}
+            onClick={() => toggleLock(index)}
+            rollCount={props.rollCount}
+            isHovered={props.isHovered}
+          />
         ))}
       </div>
       <RollDiceButton
+        startEffect={props.startEffect}
         isHoveredTrue={props.isHoveredTrue}
         isHoveredFalse={props.isHoveredFalse}
         onRoll={rollDice}

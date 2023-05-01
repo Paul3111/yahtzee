@@ -12,7 +12,7 @@ const GameTotalScore = (props) => {
       setGameOn(true)
       setTimeout(() => { 
         setGameOn(false)
-      }, 1200)
+      }, 1400)
       setTimeout(() => { 
         setScoreOn(true)
       }, 1200)

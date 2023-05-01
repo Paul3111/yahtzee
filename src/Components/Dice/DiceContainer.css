@@ -27,15 +27,15 @@
   border: var(--link-off) 4px solid;
   transition: all .2s ease;
 
-  animation-name: booting-up;
+  /* animation-name: booting-up;
   animation-duration: .5s;
   animation-iteration-count: 1;
   animation-delay: 0s;
   animation-direction: normal;
-  animation-timing-function: linear;
+  animation-timing-function: linear; */
 }
 
-@keyframes booting-up {
+/* @keyframes booting-up {
   0% { 
     box-shadow: 0 0 20px 0px var(--pink-neon-color);
    }
@@ -46,7 +46,7 @@
   100% { 
     box-shadow: 0 0 20px 0px var(--pink-neon-color);
    }
-}
+} */
 
 .dice-container.light-up {
   border: #f0befa 4px solid;
