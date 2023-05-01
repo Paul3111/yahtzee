@@ -24,7 +24,7 @@
   width: 2.6rem;
   height: 2.6rem;
   border-radius: 50%;
-  border: var(--pink-neon-on) 3px solid;
+  border: var(--link-off) 1px solid;
   background-color: var(--pink-neon-off);
   transition: all .1s ease-in-out;
 }
