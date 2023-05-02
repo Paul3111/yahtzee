@@ -1,8 +1,8 @@
 import style from '../CSS/HowToPlayPopUp.module.css';
 
 const HowToPlayPopUp = (props) => {
-  const yahtzeeRules = `
-  Yahtzee is a popular dice game that is played with five dice. 
+  const yahtzeeRules = 
+  <p className={style}>Yahtzee is a popular dice game that is played with five dice. 
   The goal of the game is to score as many points as possible by 
   rolling specific combinations of numbers over the course of 13 rounds. 
   On each turn, a player is allowed up to three rolls to try and 
@@ -33,8 +33,8 @@ const HowToPlayPopUp = (props) => {
 
   Overall, Yahtzee is a fun and exciting game that requires both luck and strategy. 
   With its simple rules and fast-paced gameplay, 
-  it's no wonder that it has remained a popular game for generations.
-  `
+  it's no wonder that it has remained a popular game for generations.</p>
+  
   return (
     <section className={style['how-to-play-container']}>
       <div className={style['how-to-play-container__inner']}>
@@ -43,8 +43,8 @@ const HowToPlayPopUp = (props) => {
           <div className={style['how-to-play-popup__header']}>
             <h2>HOW TO PLAY</h2>
           </div>
-                                                            {/* uncomment below to display */}
-          <article className={style['how-to-play-popup__rules']}>{ /*yahtzeeRules */}</article> 
+          
+          <article className={style['how-to-play-popup__rules']}>{ yahtzeeRules }</article> 
         </div>     
       </div>
 
