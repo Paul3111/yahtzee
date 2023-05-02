@@ -70,7 +70,7 @@
     height: 40%;
 }
 
-.leaderboard-first-popup__input-container form{
+.leaderboard-first-popup__input-container form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -96,11 +96,6 @@
     font-family: inherit;
     line-height: 1.5;
     color: var(--link-off);
-    transition: all .1s ease-in-out;
-  }
-
-.leaderboard-first-popup__input-container form input:focus::placeholder {
-    color: var(--link-on);
     transition: all .1s ease-in-out;
   }
 
