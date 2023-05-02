@@ -53,7 +53,7 @@ const Leaderboard = (props) => {
         <h1>LEADERBOARD</h1>
         <ul className={style['navbar-container']}>
           <li><a onClick={homeRedirect} className={style['navbar-link']}>Home</a></li>
-          <li><a onClick={playRedirect} className={style['navbar-link']}>Play Again</a></li>
+          <li><a onClick={playRedirect} className={style['navbar-link']}>Play</a></li>
         </ul>
       </div>
     <div className={style['page-container']}>

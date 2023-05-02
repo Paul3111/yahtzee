@@ -39,11 +39,13 @@
   cursor: pointer;
   color: var(--link-off);
   text-decoration: none;
+  transition: all .2s ease;
 }
 
 .navbar-container li a:hover {
   color: var(--link-on);
   text-decoration: none;
+  transition: all .2s ease;
 }
   
 .page-container {
