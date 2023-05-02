@@ -77,20 +77,19 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 0 6rem;
+  padding: 0 5rem;
 
   position: sticky;
   top: 0;
 
   color:var(--title-color);
-  font-family: 'Tilt Neon', cursive;
   background-color: #111;
 
   border-bottom: var(--pink-neon-color) 1px solid;
 }
 .leaderboard-header h1 {
   color: var(--pink-neon-on);
-  font-size: 3rem;
+  font-size: 2rem;
 }
 .leaderboard-header-left-side {
   display: flex;
@@ -115,7 +114,7 @@
   font-size: 1.8rem;
 }
 .score-container h2 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   text-shadow: 0 0 5px var(--link-off);
 }
 
