@@ -18,10 +18,10 @@ const Leaderboard = (props) => {
   }
 
   const markAsSaved = () => {
-    setPlayerHasSaved(!playerHasSaved)
+    setPlayerHasSaved(true)
   }
 
-  const saveScore = (name) => {
+  const saveScore = (name, avatar) => {
     props.savingData();
     
     fetch('http://localhost:8080/players', {
@@ -29,7 +29,7 @@ const Leaderboard = (props) => {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({username: name, score: props.endScore})
+          body: JSON.stringify({username: name, avatar: avatar, score: props.endScore})
         }).then(res => {
           console.log(res)
         })
@@ -39,11 +39,12 @@ const Leaderboard = (props) => {
     axios.get('/players')
     .then(response => {
       setPlayers(response.data);
+      setPlayerHasSaved(false)
     })
     .catch(error  => {
       console.error(error);
     });
-
+    
   }, [playerHasSaved]);
 
   return (
@@ -77,7 +78,7 @@ const Leaderboard = (props) => {
       </div>
     </div>
       <div className={style['save-popup']}>
-        {props.showSavePopUp && <FirstPopUp markAsSaved={markAsSaved} saveScore={saveScore} savingData={props.savingData}/>}
+        {props.showSavePopUp && <FirstPopUp markAsSaved={markAsSaved} endScore={props.endScore} saveScore={saveScore} savingData={props.savingData}/>}
       </div>
   </div>
   );

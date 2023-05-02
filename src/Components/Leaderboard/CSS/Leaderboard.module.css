@@ -88,8 +88,9 @@
   border-bottom: var(--pink-neon-color) 1px solid;
 }
 .leaderboard-header h1 {
+  font-family: 'Tilt Neon';
   color: var(--pink-neon-on);
-  font-size: 2rem;
+  font-size: 3.5rem;
 }
 .leaderboard-header-left-side {
   display: flex;
