@@ -4,7 +4,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(17, 0, 18, 0.9);
+    background-color: var(--background-overlay);
     z-index: 2;
 }
   
@@ -54,6 +54,7 @@
     color: var(--title-color);
     font-size: 6rem;
     font-family: 'Tilt Neon';
+    text-shadow: 0 0 9px var(--pink-neon-color);
 }
 
 .leaderboard-first-popup__input-container {
@@ -189,5 +190,6 @@
 
 .leaderboard-first-popup__btn:hover {
     color: var(--link-on);
+    text-shadow: 0 0 9px var(--link-on-light-cast);
     transition: all 0.2s ease-in-out;
 }

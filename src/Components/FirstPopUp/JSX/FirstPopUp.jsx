@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 const FirstPopUp = (props) => {
     const [name, setName] = useState('');
-    const [isChecked, setIsChecked] = useState("/avatar_1.jpeg");
+    const [isChecked, setIsChecked] = useState("/avatar_3.jpeg");
   
     const handleNameInput = (event) => {
       setName(event.target.value);
@@ -31,7 +31,7 @@ const FirstPopUp = (props) => {
             <form onSubmit={handleSave}>
               <div className={style['name-prompt-container']}>
                 <h2>Enter your name</h2>
-                <input type="text" placeholder="Your gamertag" value={name} onChange={handleNameInput} required /> 
+                <input type="text" placeholder="username" value={name} onChange={handleNameInput} required /> 
               </div>
 
               
@@ -62,8 +62,8 @@ const FirstPopUp = (props) => {
 
               </div>
               <div className={style['leaderboard-first-popup-btn-container']}>
-                <button type='submit' className={style['leaderboard-first-popup__btn']}>Save</button> 
                 <button onClick={props.savingData} className={style['leaderboard-first-popup__btn']}>Cancel</button>
+                <button type='submit' className={style['leaderboard-first-popup__btn']}>Save</button> 
               </div>
             </form>
           </div>

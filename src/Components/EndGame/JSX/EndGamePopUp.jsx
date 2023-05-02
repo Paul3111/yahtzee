@@ -19,25 +19,18 @@ const EndGamePopUp = (props) => {
       <div className={style['end-game-container__inner']}>
         <div className={style['end-game-popup']}>
           <div className={style['end-game-popup__header']}>
-            <h2>CONGRATULATIONS!</h2>
+            <h1>CONGRATULATIONS!</h1>
           </div>
-          <div className={style['end-game-popup__summary']}>
-            Your score:
+          <div className={style['end-game-popup__score-container']}>      
+            <h2 className={style['summary']}>Your score:</h2>
+            <h2 className={style['score']}>{props.total}</h2>
           </div>
-          <div className={style['end-game-popup__score']}>      
-              {props.total}
+          <div className={style['end-game-popup__btns']}>
+            <button className={style['end-game-popup__btn']} onClick={homeRedirect}>Home</button>
+            <button className={style['end-game-popup__btn']} onClick={leaderboardRedirect}>Save</button>
           </div>
-            <button className={style['end-game-popup__home-btn']} onClick={homeRedirect}>
-              Home
-            </button>
-            <button className={style['end-game-popup__replay-btn']} onClick={leaderboardRedirect}>
-              Save Score
-            </button>
         </div>     
       </div>
-
-
-      
     </section>
   );
 };
