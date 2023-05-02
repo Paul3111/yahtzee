@@ -195,7 +195,6 @@ const Game = (props) => {
       <HowToPlay />
 
       { !startGame && <StartPopup start={start} /> }
-      <button onClick={() => setCheatMode(!cheatMode)}>Cheat Mode</button>
       <EndGame totalScore={total} getEndScore={props.getEndScore} savingData={props.savingData} gameRound={gameRound} total={total}/>
     </div>
     
