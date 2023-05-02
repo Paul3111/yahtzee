@@ -1,6 +1,5 @@
 .multiplayer-game-container {
   width: 22%;
-
 }
 
 .multiplayer-game-container.inactive-player {
@@ -8,7 +7,6 @@
   overflow: hidden;
   border: var(--pink-neon-off) 5px solid;
   box-shadow: unset;
-  transition: all .2s ease-in-out;
 }
 
 .inactive-player:after {
@@ -21,4 +19,6 @@
   background-color: rgba(17, 0, 18, 0.6);
   z-index: 2;
   border-radius: 4px;
+  border: unset;
+  transition: all .2s ease-in-out;
 }

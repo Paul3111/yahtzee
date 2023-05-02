@@ -37,13 +37,13 @@ const Multiplayer = () => {
       })
     }
   }
-  console.log('active player after', activePlayer)
-  console.log('key after', key)
+
   return (
     <div className={`${style['multiplayer-god-container']}`}>
-      <GameHeader />
-      <GameMenu />
-
+      <div className={style['multiplayer-header']}>
+        <GameHeader />
+        <GameMenu />
+      </div>
       <div className={style['players-container']}>
         {players.map( key => {
           return (
@@ -53,12 +53,9 @@ const Multiplayer = () => {
               activePlayer={activePlayer}
               nextPlayer={nextPlayer}
             />
-              
           )
         })}
       </div>
-
-      
         {/* <audio src={backgroundMusic} loop/> */}
       {/* <GameToggleBtns
         isPlaying={isPlaying}
@@ -75,7 +72,9 @@ const Multiplayer = () => {
       { !startGame && <StartPopup start={start} /> }
       <button onClick={() => setCheatMode(!cheatMode)}>Cheat Mode</button>
       <EndGame totalScore={total} getEndScore={props.getEndScore} savingData={props.savingData} gameRound={gameRound} total={total}/> */}
-      <button onClick={addKey}>Add player</button>
+      <div className={style['multiplayer-add-player-btn-container']}>
+        <button onClick={addKey}>Add player</button>
+      </div>
     </div>
   );
 };

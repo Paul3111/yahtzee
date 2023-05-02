@@ -2,8 +2,6 @@
   margin: auto;
   width: 100vw;
   height: 100vh;
-
-  /* border: red 5px solid; */
 }
 
 .players-container {
@@ -12,6 +10,55 @@
   align-items: center;
   justify-content: center;
   gap: 10rem;
+}
 
-  /* border: blue 5px solid; */
+.multiplayer-header {
+  margin: auto;
+  max-width: 900px ;
+
+}
+
+.multiplayer-header h1 {
+  margin: auto;
+  max-width: 900px ;
+  color: var(--title-color);
+}
+
+.multiplayer-add-player-btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  /* border: red 1px solid; */
+  margin: 10rem 0;
+}
+.multiplayer-add-player-btn-container button{
+  cursor: pointer;
+  font-size: 3rem;
+  font-family: inherit;
+  
+  width: 10%;
+  height: 10rem;
+  border: transparent 4px solid;
+  border-radius: 20px;
+ 
+  border: none;
+  color: var(--link-off);
+  background-color: transparent;
+
+  flex-grow: 0;
+
+  box-shadow: 0 0 0 0 var(--pink-neon-color);
+  transition: all .1s ease;
+}
+
+.multiplayer-add-player-btn-container button:hover {
+  color: var(--link-on);
+  transition: all .1s ease;
+}
+
+.multiplayer-add-player-btn-container button:active {
+  transform: translateY(4px);
+  transition: all .1s ease;
 }
