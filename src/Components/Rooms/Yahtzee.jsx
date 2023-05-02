@@ -2,11 +2,23 @@ import { useEffect, useState } from 'react';
 import style from './CSS/Room.module.css'
 
 import scoreSelect from './audio/miniRetro-yahtzeeScoreSelect3.mp3'
+import celebrationVoice from './audio/miniRetro-yahtzeeCelebration.mp3'
+import niceVoice from './audio/miniRetro-yahtzeeNice.mp3'
+import bonusVoice from './audio/miniRetro-yahtzeeBonus.mp3'
+import { set } from 'mongoose';
 
 const Yahtzee = (props) => {
   const [isDisabled, setIsDisabled] = useState(false)
   const [scoreSelect3] = useState(new Audio(scoreSelect))
   const [gameOn, setGameOn] = useState(false)
+
+  const [celebrationPlayed, setCelebrationPlayed] = useState(false)
+  const [nicePlayed, setNicePlayed] = useState(false)
+  const [bonusPlayed, setBonusPlayed] = useState(false)
+
+  const [celebration] = useState(new Audio(celebrationVoice))
+  const [nice] = useState(new Audio(niceVoice))
+  const [bonus] = useState(new Audio(bonusVoice))
 
   useEffect(() => {
     if (props.startEffect) {
@@ -27,13 +39,17 @@ const Yahtzee = (props) => {
   // Used in YahtzeeScore() and useEffect
   const isYahtzee = (roll) => {
     for (let i = 1; i <= 6; i++) {
-      if (roll.filter(x => x === i).length === 5) return true    
+      if (roll.filter(x => x === i).length === 5) return true   
     }
     return false 
   }
 
   function YahtzeeScore(roll) {
     if (isYahtzee(roll)) { 
+      if(!celebrationPlayed) {
+        celebration.play()
+        return setCelebrationPlayed(true)
+      } 
       return 50
     } 
     else return 0
@@ -41,8 +57,11 @@ const Yahtzee = (props) => {
 
   useEffect(() => {
     if (isDisabled && isYahtzee(props.values)) {
+      bonus.play()
+
       props.updateYahtzeeScore(100)
       props.updateTotal(100)
+
     }
   }, [props.values])
 
@@ -54,6 +73,7 @@ const Yahtzee = (props) => {
     props.resetRollCount(0)
 
     clickAudio();
+    nice.play();
 
     props.resetDice((prevDiceSet) => {
       return prevDiceSet.map((object) => {
