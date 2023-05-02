@@ -85,3 +85,13 @@
   text-align: justify;
   overflow: hidden;
 }
+
+h3 {
+  
+}
+
+.how-to-play-popup__rules .all {
+  font-size: 1.7rem;
+  line-height: 1.6;
+  overflow: auto;
+}
