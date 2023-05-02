@@ -9,13 +9,16 @@ import Dots from './GameDots';
 import HowToPlay from '../../HowToPlay/JSX/HowToPlay';
 import StartPopup from '../../StartPopup/JSX/StartPopup';
 import backgroundMusic from '../audio/miniRetro-yahtzeeMusic1.mp3'
+import startSFX from '../audio/miniRetro-yahtzeeStartGame.mp3'
 import EndGame from '../../EndGame/JSX/EndGame';
 import GameToggleBtns from './GameToggleBtns';
 
 const Game = (props) => {
   const [isPlaying, setIsPlaying] = useState(false)
   const [audioEnabled, setAudioEnabled] = useState(false)
+
   const [music] = useState(new Audio(backgroundMusic))
+  const [startSound] = useState(new Audio(startSFX))
 
   const [cheatMode, setCheatMode] = useState(false)
   const [onlyYahtzees, setOnlyYahtzees] = useState(false)
@@ -60,6 +63,7 @@ const Game = (props) => {
     if (startGame) {
       setIsPlaying(true)
       setAudioEnabled(true)
+      startSound.play();
     }
   },[startGame])
   
