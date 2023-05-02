@@ -15,7 +15,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
 
-    width: 50vw;
+    width: 25vw;
     height: 30vh;
 
     z-index: 5;
@@ -26,8 +26,9 @@
 .start-game-popup {
     display: flex;
     position: relative;
-    height: 80%;
-    width: 50%;
+    height: 100%;
+    width: 100%;
+    gap: 3rem;
 
     border-radius: 20px;
     border: var(--pink-neon-color) 5px solid ;
@@ -53,7 +54,7 @@
     background-color: transparent;
     color: var(--title-color);
     border: none;
-    font-size: 4rem;
+    font-size: 6rem;
     letter-spacing: 1rem;
     text-shadow: 0 0 9px var(--pink-neon-color);
 
@@ -61,31 +62,32 @@
     font-family: var(--alternative-font);
 }
 
-/* .start-game-popup__btn:hover {
+.start-game-popup__btn:hover {
     color: var(--link-on);
     text-shadow: 0 0 9px var(--link-on-light-cast);
     transition: all .1s ease;
-} */
+}
 
 .start-game-btn-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+    width: 100%;
+
 }
 
 .start-game-popup__btn {
     width: 20%;
     border: none;
     background-color: transparent;
-    font-size: 2rem;
+    font-size: 2.5rem;
     cursor: pointer;
 
-    color: white;
+    color: var(--link-off);
     font-family: inherit;
 }
 
 .start-game-popup__btn:hover {
-    color: var(--pink-neon-color);
+    color: var(--link-on);
     transition: all 0.2s ease-in-out;
 }

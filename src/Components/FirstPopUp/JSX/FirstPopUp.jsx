@@ -23,7 +23,7 @@ const FirstPopUp = (props) => {
           </div>
           <div className={style['leaderboard-first-popup__input-container']}>
             <form onSubmit={handleSave}>
-              <input type="text" placeholder="Your gamertag" value={name} onChange={handleNameInput} /> 
+              <input type="text" placeholder="Your gamertag" value={name} onChange={handleNameInput} required/> 
               <div className={style['leaderboard-first-popup-btn-container']}>
                 <button type='submit' className={style['leaderboard-first-popup__btn']}>Save</button> 
                 <button onClick={props.savingData} className={style['leaderboard-first-popup__btn']}>Cancel</button>

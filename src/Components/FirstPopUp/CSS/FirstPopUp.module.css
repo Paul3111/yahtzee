@@ -82,7 +82,7 @@
 .leaderboard-first-popup__input-container form input {
     background-color: #111;
     color:var(--title-color);
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-family: inherit;
     width: 70%;
     height: 8rem;
