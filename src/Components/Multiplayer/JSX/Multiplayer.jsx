@@ -6,12 +6,12 @@ import GameMenu from '../../Game/JSX/GameMenu'
 
 import style from '../CSS/Multiplayer.module.css'
 
-
 const Multiplayer = () => {
   const [players, setPlayers] = useState([1, 2])
   const [activePlayer, setActivePlayer] = useState(1)
   const [key, setKey] = useState(2)
-  
+  const [isBot, setIsBot] = useState(false)
+
   // ADD PLAYER LOGIC
   const addKey = async () => {
     setKey((prevKey) => {
@@ -46,12 +46,15 @@ const Multiplayer = () => {
       </div>
       <div className={style['players-container']}>
         {players.map( key => {
+          const isBotPlayer = key > 1 ? true : false // all players past 1 are bots by default
           return (
             <Player
               key={key}
               playerNumber={key}
               activePlayer={activePlayer}
               nextPlayer={nextPlayer}
+              isBot={isBotPlayer}
+              setIsBot={setIsBot}
             />
           )
         })}
