@@ -25,13 +25,17 @@ const SmallStraight = (props) => {
   
     function SMstraightScore(roll) {
       const sorted = roll.sort()
-      const smStraight = []
-      for (let i = 0; i < 5; i++) {
-        if (sorted[i] === sorted[i + 1] - 1) { 
-          smStraight.push(sorted[i])
-        } 
+
+      let potentialSMS = sorted.filter((element, index, array) => {
+        return element + 1 === array[index + 1]
+      })
+
+      if (potentialSMS.length < 3) return 0
+
+      for (let i = 0; i < potentialSMS.length - 1; i++) {
+        if (potentialSMS[i] + 1 !== potentialSMS[i + 1]) return 0
       }
-      return smStraight.length >= 3 ? 30 : 0
+      return 30
   };
 
   const score = SMstraightScore(props.values)
