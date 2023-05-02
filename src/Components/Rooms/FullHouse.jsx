@@ -24,14 +24,17 @@ const FullHouse = (props) => {
   }
 
   function fullHouseScore(roll) {
-    roll.sort()
-      if (roll[0] === roll[1] && roll[4] === roll[3] && roll[0] !== roll[4]) {
-        if (roll[0] === roll[2] || roll[4] === roll[2]) {
-          return 25
-        }
-      } else {
-        return 0
-      }
+    const uniqDice = [...new Set(roll)] // returns an array of unique dice
+    if (uniqDice.length !== 2) return 0
+
+    const countDice = [0, 0]
+    roll.forEach((die) => { 
+      if (die === uniqDice[0]) {countDice[0] += 1 }
+      if (die === uniqDice[1]) {countDice[1] += 1 }
+    })
+
+    if (countDice.includes(3 || 2)) return 25
+    else return 0
   }
 
   const score = fullHouseScore(props.values)
