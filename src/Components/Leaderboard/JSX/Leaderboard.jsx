@@ -60,8 +60,7 @@ const Leaderboard = (props) => {
         <div className={style['leaderboard-container']}>
           <article className={style['leaderboard-header']}>
             <div className={style['leaderboard-header-left-side']}>
-              <h1>Avatar</h1>
-              <h1>Player's name</h1>
+              <h1>Player</h1>
             </div>
             <h1>Score</h1>
           </article>
