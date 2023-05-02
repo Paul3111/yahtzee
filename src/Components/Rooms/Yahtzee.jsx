@@ -39,9 +39,7 @@ const Yahtzee = (props) => {
   // Used in YahtzeeScore() and useEffect
   const isYahtzee = (roll) => {
     for (let i = 1; i <= 6; i++) {
-      if (roll.filter(x => x === i).length === 5) {
-        return true   
-      } 
+      if (roll.filter(x => x === i).length === 5) return true   
     }
     return false 
   }
