@@ -43,6 +43,7 @@ const Leaderboard = (props) => {
     .catch(error  => {
       console.error(error);
     });
+
   }, [playerHasSaved]);
 
   return (
@@ -56,15 +57,23 @@ const Leaderboard = (props) => {
       </div>
     <div className={style['page-container']}>
         <div className={style['leaderboard-container']}>
-          
+          <article className={style['leaderboard-header']}>
+            <div className={style['leaderboard-header-left-side']}>
+              <h1>Avatar</h1>
+              <h1>Player's name</h1>
+            </div>
+            <h1>Score</h1>
+          </article>
           {players.sort((a, b) => parseInt(a.scores.score) < parseInt(b.scores.score) ? 1 : -1).map(player => {
             return (
-            
-            <div className={style['score-container']} key={player._id}>
-              {player.username}: {player.scores.score}
-            </div>
-            
-          )})}
+              <article className={style['score-container']} key={player._id}>
+                <div className={style['score-container-left-side']}>
+                  <div><img src={player.avatar} alt="" /></div>
+                  <h2>{player.username}</h2>
+                </div>
+                <h2>{player.scores.score}</h2>
+              </article>
+            )})}
       </div>
     </div>
       <div className={style['save-popup']}>
