@@ -6,8 +6,7 @@ const PlayersController = {
     CreatePlayer: (req, res) => {
         const player = new Player();
         player.username = req.body.username
-        // player.email = req.body.email
-        // player.password = req.body.password
+        player.avatar = req.body.avatar
         player.scores.score = [...player.scores.score, req.body.score]
 
         player.save().then(user => {

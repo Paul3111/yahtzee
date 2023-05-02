@@ -6,11 +6,51 @@
   flex-direction: column;
   align-items: center;
 }
+
+.game-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.game-header h1 {
+  color: var(--title-color);
+  font-size: 4rem;
+  padding: 5rem 0 3rem 0;
+}
+
+.navbar-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  padding-bottom: 7rem;
+}
+
+.navbar-container li {
+  list-style: none;
+  font-size: 1.9rem;
+}
+
+.navbar-container li a {
+  cursor: pointer;
+  color: var(--link-off);
+  text-decoration: none;
+  transition: all .2s ease;
+}
+
+.navbar-container li a:hover {
+  color: var(--link-on);
+  text-decoration: none;
+  transition: all .2s ease;
+}
   
 .page-container {
-  top: 15rem;
   width: 100%;
-  height: 85%;
+  height: 80%;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -19,7 +59,6 @@
   background-color: #111;
   box-shadow: 0 0 30px 1px var(--pink-neon-color);
   transition: all .1s ease;
-  padding: 0 1rem;
 }
 
 .leaderboard-container {
@@ -28,74 +67,86 @@
   display: flex;
   flex-direction: column;
   border-radius: 20px;
-  border: var(--pink-neon-color) 5px solid;
   background-color: #111;
-  box-shadow: 0 0 30px 1px var(--pink-neon-color);
-  overflow-y: scroll;
+  overflow: scroll;
 }
-  
-.go-to-home, .go-to-play {
-  height: 5rem;
-  border: none;
-  color: white;
-  cursor: pointer;
-  font-size: 2rem;
-  font-weight: 900;
-  font-family: inherit;
-  background-color: transparent;
-  align-self: center;
-  }
+.leaderboard-container::-webkit-scrollbar {
+  display: none;
+}
+
+.leaderboard-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5rem;
+
+  position: sticky;
+  top: 0;
+
+  color:var(--title-color);
+  background-color: #111;
+
+  border-bottom: var(--pink-neon-color) 1px solid;
+}
+.leaderboard-header h1 {
+  font-family: 'Tilt Neon';
+  color: var(--pink-neon-on);
+  font-size: 3.5rem;
+}
+.leaderboard-header-left-side {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 12rem;
+  gap: 4rem;
+}
 
 .score-container {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  min-height: 10%;
-  max-height: 10%;
-  color: white;
-  cursor: pointer;
-  font-size: 3rem;
-  font-weight: 900;
-  font-family: 'Tilt Neon', cursive;
-  background-color: transparent;
-  position: relative;
-  border: var(--pink-neon-color) 1px solid;
-  text-align: left;
-  padding-left: 20px;
-  
-  }
+  justify-content: space-between;
+  color:var(--title-color);
+  border: var(--pink-neon-off) 1px solid;
+  padding: 0 6rem;
+}
+.score-container h1 {
+  color: var(--link-off);
+  font-size: 1.8rem;
+}
+.score-container h2 {
+  font-size: 1.8rem;
+  text-shadow: 0 0 5px var(--link-off);
+}
 
-.game-header {
-  color: white;
+.score-container-left-side {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 5rem 0 3rem 0;
-  font-size: 3rem;
+  height: 14rem;
+  gap: 4rem;
 }
-
-.player-container {
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  justify-content: center;
-  padding: 1rem 0 1rem 0;
+.score-container-left-side div {
+  height: 10rem;
+  width: 10rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: var(--link-off) 1px solid;
 }
-
-.footer-container {
-  display: flex;
-  justify-content: space-evenly;
-  margin-top: 2rem;
-  height: 10%;
-  position: relative;
-  flex-direction: row;
+.score-container-left-side div img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .save-popup {
-  display: flex;
-  justify-content: space-evenly;
-  height: 40%;
   position: absolute;
+  display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
+  height: 90%;
 }

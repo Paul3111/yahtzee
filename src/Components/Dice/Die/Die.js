@@ -18,7 +18,7 @@ const Die = (props) => {
   // images files for dice need to be formatted to contain a number.
   return (
     <div className={`die ${locked ? "locked" : ""} ${rolling ? "rolling" : ""} ${rollZero && 'is-inactive'} ${props.isHovered && 'is-hovered'} `} onClick={onClick}>
-      <img className={gameOn && 'game-on'} src={`./assets/dice-${value}.png`} alt=""/>
+      <img className={gameOn ? 'game-on' : ''} src={`./assets/dice-${value}.png`} alt=""/>
     </div>
   )
 }

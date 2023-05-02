@@ -15,7 +15,7 @@ const PlayerSchema = new mongoose.Schema({
   },
   avatar: {
     type: String,
-    default: '/default_avatar.png'
+    default: '/avatar_1.jpeg'
   },
   ngames: {
     type: Number,
