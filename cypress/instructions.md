@@ -13,6 +13,6 @@ npm install --save-dev istanbul <!-- install istanbul -->
 "test": "cypress run",
 "coverage": "istanbul cover node_modules/.bin/cypress run"
 
-<!-- calculate coverage and run all tests -->
+<!-- calculate coverage AND run all tests -->
 
 npm run coverage <!-- run the coverage -->
