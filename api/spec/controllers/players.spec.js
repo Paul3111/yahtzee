@@ -109,110 +109,19 @@ describe('PlayersController', () => {
       parseSpy.mockRestore();
     });
   });
-//   describe('GetPlayersData', () => {
-//     it('should return all players', async () => {
-//       const req2 = {
-//         body: {
-//           username: 'testuser',
-//           avatar: 'testavatar',
-//           score: 15
-//         }
-//       };
-//       const res2 = {
-//         status: jest.fn().mockReturnThis(),
-//         json: jest.fn()
-//       };
-//       const players = jest.fn().mockReturnValue( [
-//       {
-//         username: 'testuser',
-//         avatar: 'testavatar',
-//         scores: { score: [10] },
-//         save: jest.fn().mockResolvedValue(),
-//       },
-//       {
-//         username: 'testuser1683068400000',
-//         avatar: 'testavatar',
-//         scores: { score: [15] },
-//         save: jest.fn().mockResolvedValue(),
-//       }
-//     ]); 
-//       const parseSpy = jest.spyOn(Date, 'parse');
-//       parseSpy.mockImplementation(() => 1683068400000);
 
-//       const dateString = '2023-05-02T23:00:00.000Z';
-//       const expectedDate = new Date(1683068400000);
-//       // console.log('players', players);
-//       players.findMany();
-//       Player.mockReturnValue();
+  describe('GetPlayersData', () => {
+    it('should return all players', async () => {
+      const player1 = new Player({username: 'test', avatar: 'avatar.jpeg', scores: {score: [100]}})
 
-//       PlayersController.CreatePlayer(players);
-//       //PlayersController.CreatePlayer(player2);
+      await player1.save()
 
-//       //await PlayersController.GetPlayer(req2, res2);
-//       jest.spyOn(Player, 'find').mockResolvedValueOnce(players);
-      
-//       // Act
-//       await PlayersController.GetPlayersData(req2, res2);
-//       // Assert
-//       expect(res2.json).toHaveBeenCalledWith(players);
-//     });
-//   });
+      const req = {};
+      const res = { json: jest.fn() }
 
-describe('GetPlayersData', () => {
-  it('should return all players', async () => {
-    //first player
-    const req = {
-      body: {
-        username: 'testuser',
-        avatar: 'testavatar',
-        score: 10
-      }
-    };
-    const res = {
-      status: jest.fn().mockReturnThis(),
-      json: jest.fn()
-    };
+      await PlayersController.GetPlayersData(req, res)
 
-    const player = {
-      username: 'testuser',
-      avatar: 'testavatar',
-      scores: { score: [10] },
-      save: jest.fn().mockResolvedValue(),
-    };
-
-    Player.findOne.mockResolvedValue(null);
-    Player.mockReturnValue(player);
-
-    await PlayersController.CreatePlayer(req, res);
-
-    //second player
-    const req2 = {
-      body: {
-        username: 'testuser2',
-        avatar: 'testavatar2',
-        score: 15
-      }
-    };
-    const res2 = {
-      status: jest.fn().mockReturnThis(),
-      json: jest.fn()
-    };
-
-    const player2 = {
-      username: 'testuser2',
-      avatar: 'testavatar2',
-      scores: { score: [15] },
-      save: jest.fn().mockResolvedValue(),
-    };
-
-    Player.findOne.mockResolvedValue(null);
-    Player.mockReturnValue(player2);
-
-    await PlayersController.CreatePlayer(req2, res2);
-
-    expect(res2.status).toHaveBeenCalledWith(201);
-    expect(res2.json).toHaveBeenCalledWith({ message: 'OK'});
+      expect(res.json).toHaveBeenCalled()
+    })
   });
-  });
-
 })
