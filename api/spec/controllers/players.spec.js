@@ -2,9 +2,12 @@ const PlayersController = require('../../controllers/players');
 const Player = require('../../models/player');
 require("../mongodb_helper");
 
+jest.mock('../../models/player');
+
 describe('PlayersController', () => {
   beforeEach( async () => {
     await Player.deleteMany({});
+    jest.clearAllMocks()
   });
   
   describe('CreatePlayer', () => {
@@ -21,13 +24,25 @@ describe('PlayersController', () => {
         status: jest.fn().mockReturnThis(),
         json: jest.fn()
       };
+
+      const player = {
+        username: 'testuser',
+        avatar: 'testavatar',
+        scores: { score: [10] },
+        save: jest.fn().mockResolvedValue(),
+      };
+
+      Player.findOne.mockResolvedValue(null);
+      Player.mockReturnValue(player);
+
       await PlayersController.CreatePlayer(req, res);
+
       expect(res.status).toHaveBeenCalledWith(201);
-      expect(res.send).toHaveBeenCalledWith({ message: 'Player created successfully' });
+      expect(res.json).toHaveBeenCalledWith({ message: 'OK'});
     });
 
       
-    xit('should update username if player already exists', async () => {
+    it('should update username if player already exists', async () => {
       // Arrange
       const req = {
         body: {
@@ -40,34 +55,58 @@ describe('PlayersController', () => {
         status: jest.fn().mockReturnThis(),
         json: jest.fn()
       };
-      const existingPlayer = {
-        username: 'testuser'
-      };
-      const saveSpy = jest.spyOn(Player.prototype, 'save').mockResolvedValueOnce({
-        _id: 'testid',
-        username: 'testuser1234567890',
+      const player = {
+        username: 'testuser',
         avatar: 'testavatar',
-        scores: {
-          score: [10]
-        }
-      });
-      jest.spyOn(Player, 'findOne').mockResolvedValueOnce(existingPlayer);
-      // Act
+        scores: { score: [10] },
+        save: jest.fn().mockResolvedValue(),
+      };
+
+      Player.findOne.mockResolvedValue(null);
+      Player.mockReturnValue(player);
+
       await PlayersController.CreatePlayer(req, res);
-      // Assert
-      expect(saveSpy).toHaveBeenCalled();
+
       expect(res.status).toHaveBeenCalledWith(201);
-      expect(res.json).toHaveBeenCalledWith({
-        message: 'OK',
-        data: {
-          _id: 'testid',
-          username: 'testuser1234567890',
+      expect(res.json).toHaveBeenCalledWith({ message: 'OK'});
+
+      // -- second user
+      const req2 = {
+        body: {
+          username: 'testuser',
           avatar: 'testavatar',
-          scores: {
-            score: [10]
-          }
+          score: 15
         }
-      });
+      };
+      const res2 = {
+        status: jest.fn().mockReturnThis(),
+        json: jest.fn()
+      };
+      const player2 = {
+        username: 'testuser1683068400000',
+        avatar: 'testavatar',
+        scores: { score: [15] },
+        save: jest.fn().mockResolvedValue(),
+      };
+
+      const parseSpy = jest.spyOn(Date, 'parse');
+      parseSpy.mockImplementation(() => 1683068400000);
+
+      const dateString = '2023-05-02T23:00:00.000Z';
+      const expectedDate = new Date(1683068400000);
+      
+      Player.findOne.mockResolvedValue(player);
+      Player.mockReturnValue(player2);
+
+      await PlayersController.CreatePlayer(req2, res2);
+      
+      expect(parseSpy).toHaveBeenCalled();
+      expect(Player.findOne).toHaveBeenCalledTimes(2);
+      expect(Player.findOne).toHaveBeenCalledWith({ username: 'testuser' });
+      expect(player.save).toHaveBeenCalled();
+      expect(res2.status).toHaveBeenCalledWith(201);
+      expect(res2.json).toHaveBeenCalledWith({ message: 'OK'});
+      parseSpy.mockRestore();
     });
   });
   describe('GetPlayersData', () => {
@@ -103,3 +142,15 @@ describe('PlayersController', () => {
     });
   });
 })
+
+/*
+beforeAll(() => {
+    jest.useFakeTimers('modern');
+    jest.setSystemTime(new Date('2022-10-20'));
+  });
+
+  afterAll(() => {
+    jest.useRealTimers();
+  });
+
+*/

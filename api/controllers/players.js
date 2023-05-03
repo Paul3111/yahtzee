@@ -11,7 +11,7 @@ const PlayersController = {
   
       const existingPlayer = await Player.findOne({ username: player.username });
       if (existingPlayer) {
-      const dateString = new Date().toISOString();
+      const dateString = new Date();
       const dateMilliseconds = Date.parse(dateString);
         player.username = player.username.concat(dateMilliseconds);
       }

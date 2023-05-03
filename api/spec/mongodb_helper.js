@@ -13,10 +13,9 @@ beforeAll(function (done) {
   });
 });
 
-/*
-afterAll(function (done) {
-  mongoose.connection.close(true, function () {
-    done();
-  });
+
+afterAll(function () {
+  mongoose.connection.close(true)
+  
 });
-*/
+
