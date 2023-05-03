@@ -36,7 +36,7 @@ const Leaderboard = (props) => {
   }
 
   useEffect(() => {
-    axios.get('/players')
+    axios.get('http://localhost:8080/players')
     .then(response => {
       setPlayers(response.data);
       setPlayerHasSaved(false)
