@@ -36,6 +36,29 @@ const FourOfAKind = (props) => {
 
   const score = fourOfAKindScore(props.values)
 
+  useEffect(() => {
+    props.onRollDice(score)
+    setTimeout(() => {
+      if (props.isBot && !isDisabled && props.botPlayerRooms[7].chosen && props.activePlayer === props.playerNumber) {
+        props.updateTotal(score)
+        props.resetRollCount(0)
+  
+        clickAudio()
+        
+        props.resetDice((prevDiceSet) => {
+          return [
+            { value: prevDiceSet[0].value, locked: false },
+            { value: prevDiceSet[1].value, locked: false },
+            { value: prevDiceSet[2].value, locked: false },
+            { value: prevDiceSet[3].value, locked: false },
+            { value: prevDiceSet[4].value, locked: false }
+          ]
+        })
+        setIsDisabled(true)
+      }
+    }, 1200)
+  }, [props.rollCount])
+
   const useRoom = () => {
     props.onRollDice(score)
     props.updateTotal(score)

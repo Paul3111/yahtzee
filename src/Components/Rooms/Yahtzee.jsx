@@ -67,6 +67,26 @@ const Yahtzee = (props) => {
 
   const score = YahtzeeScore(props.values)
 
+  useEffect(() => {
+    props.onRollDice(score)
+    setTimeout(() => {
+      if (props.isBot && !isDisabled && props.botPlayerRooms[11].chosen && props.activePlayer === props.playerNumber) {
+        props.updateTotal(score)
+        props.resetRollCount(0)
+
+        clickAudio();
+        nice.play();
+
+        props.resetDice((prevDiceSet) => {
+          return prevDiceSet.map((object) => {
+            return {value: object.value, locked: false}
+          })
+        })
+        setIsDisabled(true)
+      }
+    }, 1200)
+  }, [props.rollCount])
+
   const useRoom = () => {
     props.onRollDice(score)
     props.updateTotal(score)

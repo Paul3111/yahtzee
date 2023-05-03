@@ -7,10 +7,11 @@ import GameMenu from '../../Game/JSX/GameMenu'
 import style from '../CSS/Multiplayer.module.css'
 
 const Multiplayer = () => {
-  const [players, setPlayers] = useState([1, 2])
+  const [players, setPlayers] = useState([1])
   const [activePlayer, setActivePlayer] = useState(1)
-  const [key, setKey] = useState(2)
+  const [key, setKey] = useState(1)
   const [isBot, setIsBot] = useState(false)
+  const [botPlayers, setBotPlayers] = useState([])
 
   // ADD PLAYER LOGIC
   const addKey = async () => {
@@ -18,8 +19,17 @@ const Multiplayer = () => {
       return prevKey += 1
     }) 
   }
+
+  console.log("players", players)
+  console.log("bots", botPlayers)
+
+  const addBot = () => {
+    setBotPlayers(prevBotPlayers => [...prevBotPlayers, key + 1])
+    addKey()
+  }
+
   useEffect(() => {
-    if (key > 2) {
+    if (key > 1) {
       setPlayers((prevPlayers) => {
         return [...prevPlayers, key]
       })
@@ -46,14 +56,14 @@ const Multiplayer = () => {
       </div>
       <div className={style['players-container']}>
         {players.map( key => {
-          const isBotPlayer = key > 1 ? true : false // all players past 1 are bots by default
+          const bot = botPlayers.includes(key) ? true : false
           return (
             <Player
               key={key}
               playerNumber={key}
               activePlayer={activePlayer}
               nextPlayer={nextPlayer}
-              isBot={isBotPlayer}
+              isBot={bot}
               setIsBot={setIsBot}
             />
           )
@@ -77,6 +87,7 @@ const Multiplayer = () => {
       <EndGame totalScore={total} getEndScore={props.getEndScore} savingData={props.savingData} gameRound={gameRound} total={total}/> */}
       <div className={style['multiplayer-add-player-btn-container']}>
         <button onClick={addKey}>Add player</button>
+        <button onClick={addBot}>Add bot</button>
       </div>
     </div>
   );

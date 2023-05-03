@@ -46,8 +46,9 @@ const Player = (props) => {
     {name: 'small straight', empty: true, chosen: false},
     {name: 'large straight', empty: true, chosen: false},
     {name: 'yahtzee', empty: true, chosen: false},
+    {name: 'chance', empty: true, chosen: false}
   ])
-  console.log(props.isBot)
+
   const start = () => {
     setStartGame(true)
   }
@@ -123,6 +124,8 @@ const Player = (props) => {
         triggerYahtzee={setIsYahtzee}
         isBot={props.isBot}
         botPlayerRooms={botPlayerRooms}
+        activePlayer={props.activePlayer}
+        playerNumber={props.playerNumber}
       />
 
       <DiceContainer
@@ -141,8 +144,20 @@ const Player = (props) => {
         countRolls={countRolls}
         rollCount={rollCount}
         isBot={props.isBot}
+        activePlayer={props.activePlayer}
+        playerNumber={props.playerNumber}
       />
-      <BotLogic/>
+
+      <BotLogic
+        activePlayer={props.activePlayer}
+        playerNumber={props.playerNumber}
+        botPlayerRooms={botPlayerRooms}
+        setBotPlayerRooms={setBotPlayerRooms}
+        isBot={props.isBot}
+        counts={counts}
+        dice={dice}
+      />
+
       <Dots rollCount={rollCount} />
     </div>
   );
