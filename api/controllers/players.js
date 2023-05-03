@@ -3,21 +3,20 @@ const Player = require('../models/player');
 const { ObjectId } = require("mongodb");
 
 const PlayersController = {
-    CreatePlayer: (req, res) => {
+    CreatePlayer: async (req, res) => {
       const player = new Player();
       player.username = req.body.username;
       player.avatar = req.body.avatar;
       player.scores.score = [...player.scores.score, req.body.score];
   
-      Player.findOne({ username: player.username }).then(existingPlayer => {
-        if (existingPlayer) {
-        const dateString = new Date().toISOString();
-        const dateMilliseconds = Date.parse(dateString);
-          player.username = player.username.concat(dateMilliseconds);
-        }
-        player.save().then(user => {
-          res.status(201).json({ message: 'OK', data: user });
-        });
+      const existingPlayer = await Player.findOne({ username: player.username });
+      if (existingPlayer) {
+      const dateString = new Date().toISOString();
+      const dateMilliseconds = Date.parse(dateString);
+        player.username = player.username.concat(dateMilliseconds);
+      }
+      player.save().then(user => {
+        res.status(201).json({ message: 'OK', data: user });
       });
     },
   
