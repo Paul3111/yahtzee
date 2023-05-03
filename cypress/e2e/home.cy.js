@@ -18,8 +18,17 @@ describe('<Home />', () => {
       cy.contains('PLAY').should('be.visible')
     })
 
-    
+    it('Finds the Home button text on the home page.', () => {
+      cy.contains('Home').should('be.visible')
+    })    
 
+    it('Finds the Leaderboard button text on the home page.', () => {
+      cy.contains('Leaderboard').should('be.visible')
+    })    
+
+    it('Finds the Multiplayer button text on the home page.', () => {
+      cy.contains('Multiplayer').should('be.visible')
+    })    
 
 
       // cy.wait(1000); // Wait for 1 second
