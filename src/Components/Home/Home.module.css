@@ -1,65 +1,104 @@
 .god-container {  
   margin: auto;
-  max-width: 900px;
+  width: 100vw;
+  height: 100vh;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30rem;
+  position: relative;
+}
+
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+.video-container video {
+  width: 100%;
   height: 100%;
-  
+  object-fit: fill;
+  /* position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1; */
+}
+
+.home-title__container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.home-title__letter-container {
+  display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
 }
 
-.page-container {
-  width: 100%;
-  height: 80%;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 50rem;
-  
-  border-radius: 20px;
-  border: var(--pink-neon-color) 5px solid;
-
-  background-color: #111;
-  box-shadow: 0 0 30px 1px var(--pink-neon-color);
-
-  transition: all .1s ease;
+.flickering {
+  animation-name: flickering-effect;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
 }
 
-.btns-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 5rem;
+@keyframes flickering-effect {
+  0% {
+    opacity: .5;
+  }
+  2% {
+    opacity: 0;
+  }
+  4% {
+    opacity: 0.5;
+  }
+  6% {
+    opacity: 0;
+  }
+  8% {
+    opacity: .5;
+  }
+  10% {
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
 }
-.enter-to-start {
-  width: 100%;
+
+.god-container button {
   border: none;
+  color: white;
   cursor: pointer;
-  font-size: 2.5rem;
   font-family: inherit;
   background-color: transparent;
-  color: var(--title-color);
+  font-size: 3rem;
+  text-shadow: 0 0 10px white;
+
+  animation-name: blinking-effect;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
 }
-.enter-to-start:hover {
-  color: var(--pink-neon-color);
-  transition: all .1s ease-in-out
+.god-container button:hover {
+  animation-name: none;
 }
 
-.game-header {
-  width: 100%;
-  color: var(--title-color);
-}
-
-.game-header h1 {
-  color: var(--title-color);
-  font-size: 8rem;
-}
-
-@keyframes enter-to-start {
+@keyframes blinking-effect {
   0% {
     opacity: 1;
   }
@@ -69,8 +108,4 @@
   100% {
     opacity: 1;
   }
-}
-
-.enter-to-start {
-animation: enter-to-start 1.5s infinite;
 }
