@@ -36,7 +36,15 @@ const RollDiceButton = (props) => {
         clickHandler();
       }
     }, 900)
-  }, [props.activePlayer])//??
+  }, [props.activePlayer])
+
+  useEffect(() => {
+    setTimeout(() => {
+      if(props.isBot && !props.botDecision && props.activePlayer === props.playerNumber && props.rollCount > 0 && props.rollCount < 3) {
+        clickHandler();
+      }
+    }, 1100)
+  }, [props.rollCount])
   //--BOT END---
 
   useEffect(() => {

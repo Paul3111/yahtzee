@@ -103,7 +103,8 @@ const DiceContainer = (props) => {
         audioEnabled={props.audioEnabled}
         isBot={props.isBot}
         activePlayer={props.activePlayer}
-        playerNumber={props.playerNumber}/>
+        playerNumber={props.playerNumber}
+        botDecision={props.botDecision}/>
     </div>
   )
 }

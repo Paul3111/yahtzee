@@ -37,7 +37,7 @@ const Fives = (props) => {
 
   useEffect(() => {
     setTimeout(() => {
-      if (props.isBot && !isDisabled && props.botPlayerRooms[4].chosen && props.activePlayer === props.playerNumber) {
+      if (props.isBot && props.botDecision && !isDisabled && props.botPlayerRooms[4].chosen && props.activePlayer === props.playerNumber) {
         props.onRollDice(score)
         props.updateTotal(score)
         props.updateSubTotal(score)
