@@ -43,7 +43,7 @@ describe('PlayersController', () => {
 
       
     it('should update username if player already exists', async () => {
-      // Arrange
+      // -- first user
       const req = {
         body: {
           username: 'testuser',
