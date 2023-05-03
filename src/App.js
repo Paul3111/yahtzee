@@ -29,6 +29,7 @@ const App = () => {
 
   return (
     <Routes>
+      <Route path="/" element={<Home navigate={ useNavigate()} />} />
       <Route path="/home" element={<Home navigate={ useNavigate()} />} />
       <Route path="/game" element={<Game getEndScore={getEndScore} savingData={savingData} navigate={ useNavigate()} />} />
       <Route path="/multiplayer" element={<Multiplayer navigate={ useNavigate()}/>} />

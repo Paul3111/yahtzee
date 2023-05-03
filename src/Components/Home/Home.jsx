@@ -19,10 +19,13 @@ const Home = () => {
         <div className={style['game-header']}>
         <GameHeader />
         </div>
+        <div className={style['btns-container']}>
           <button className={style['enter-to-start']} 
-          onClick={gameRedirect}>
+            onClick={gameRedirect}>
             PLAY
           </button>
+        </div>
+
         </div>
     </div>
   );
