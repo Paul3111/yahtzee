@@ -1,6 +1,16 @@
 import React, {useEffect, useState} from 'react'
 
 const BotLogic = (props) => {
+  const [selectedDice, setSelectedDice] = useState([])
+  const [diceWeights, setDiceWeights] = useState([
+    {value: 1, weight: 1},
+    {value: 2, weight: 2},
+    {value: 3, weight: 3},
+    {value: 4, weight: 4},
+    {value: 5, weight: 5},
+    {value: 6, weight: 6}
+  ])
+
   useEffect(() => {
       if(props.isBot && props.activePlayer === props.playerNumber) {
 
@@ -12,11 +22,11 @@ const BotLogic = (props) => {
           props.setBotDecision(true)
         } else if(isSmallStraight() && props.botPlayerRooms[9].empty && props.rollCount >= 2) {
           smallStraight()
-        } else if(isFullHouse() && props.botPlayerRooms[8].empty && props.rollCount >= 2) {
+        } else if(isFullHouse() && props.botPlayerRooms[8].empty) {
           fullHouse()
           props.setBotDecision(true)
-        } else if(isFourOfAKind() && props.botPlayerRooms[7].empty) {
-          fourOfAKind();
+        } else if(isFourOfAKind() && props.botPlayerRooms[7].empty && props.rollCount >= 2) {
+          return fourOfAKind();
         } else if (isThreeOfAKind() && props.botPlayerRooms[6].empty && props.rollCount >= 2) {
           threeOfAKind();
         } else if (props.botPlayerRooms[12].empty && props.sum > 21 && props.rollCount >= 2) {
@@ -29,12 +39,13 @@ const BotLogic = (props) => {
         if (props.rollCount >= 2) {
           props.setBotDecision(true)
         }
+        if(props.rollCount === 1 || props.rollCount === 2) selectDice();
       }
-      //props.setBotDecision(false)
   }, [props.counts])
 
   useEffect(() => {
     if(props.isBot && props.activePlayer === props.playerNumber) {
+      //resetWeights();
       resetBotRooms()
       props.setBotDecision(false)
     }
@@ -42,10 +53,59 @@ const BotLogic = (props) => {
 
 
   // -------------------------------------
+  //-- WEIGHT SYSTEM (TOGGLE LOCK) ------
+  //------------------------------------
+
+  useEffect(() => {
+    if(props.isBot && props.activePlayer === props.playerNumber) {
+      adjustWeights();
+    }
+
+  }, [props.rollCount])
+
+  const adjustWeights = () => {
+    if(props.rollCount === 1 || props.rollCount === 2) {
+      const updatedWeights = [...diceWeights]
+      for (let i = 0; i < 6; i++) {
+        if(props.counts[i] > 0 ) {
+          updatedWeights[i] = {...diceWeights[i], weight: diceWeights[i].value + 2}
+        }
+        if(props.counts[i] > 1 ) {
+          updatedWeights[i] = {...diceWeights[i], weight: diceWeights[i].value + 2 + (5 * props.counts[i] - 5)}
+        }
+      }
+      console.log("new weights: ", updatedWeights);
+      return setDiceWeights(updatedWeights)
+    }
+  }
+
+  const selectDice = () => {
+    const sum = diceWeights.reduce((sum, die) => sum + die.weight, 0)
+    const threshold = Math.floor(sum / 4 + 1)
+    const selected = []
+
+    for (let i = 0; i < 6; i++) {
+      if (diceWeights[i].weight >= threshold) {
+        selected.push(diceWeights[i]);
+      }
+    }
+    console.log("Threshold: ", threshold)
+    console.log("Selected dice: ", selected)
+    return setSelectedDice(selected)
+  }
+
+  const resetWeights = () => {
+    const newWeightSet = diceWeights.map(die => ({value: die.value, weight: die.value}))
+    console.log("Weights reset!")
+    console.log("starting weights: ", newWeightSet)
+    return setDiceWeights(newWeightSet)
+  }
+
+
+  // -------------------------------------
   //-- DECISION ATTEMPT FUNCTIONS -------
   //------------------------------------
   const chance = () => {
-    console.log("c")
     const updatedRooms = [...props.botPlayerRooms];
     if (props.botPlayerRooms[12].empty) {
       updatedRooms[12] = {...props.botPlayerRooms[12], chosen: true, empty: false}
@@ -54,7 +114,6 @@ const BotLogic = (props) => {
   }
 
   const yahtzee = () => {
-    console.log("y")
     const updatedRooms = [...props.botPlayerRooms];
     if (props.botPlayerRooms[11].empty) {
       updatedRooms[11] = {...props.botPlayerRooms[11], chosen: true, empty: false}
@@ -63,7 +122,6 @@ const BotLogic = (props) => {
   }
 
   const largeStraight = () => {
-    console.log("l-s")
     const updatedRooms = [...props.botPlayerRooms];
     if (props.botPlayerRooms[10].empty) {
       updatedRooms[10] = {...props.botPlayerRooms[10], chosen: true, empty: false}
@@ -72,7 +130,6 @@ const BotLogic = (props) => {
   }
 
   const smallStraight = () => {
-    console.log("s-s called")
     const updatedRooms = [...props.botPlayerRooms];
     if (props.botPlayerRooms[9].empty) {
       updatedRooms[9] = {...props.botPlayerRooms[9], chosen: true, empty: false}
@@ -82,7 +139,6 @@ const BotLogic = (props) => {
 
 
   const fullHouse = () => {
-    console.log("full-house called")
     const updatedRooms = [...props.botPlayerRooms];
     if (props.botPlayerRooms[8].empty) {
       updatedRooms[8] = {...props.botPlayerRooms[8], chosen: true, empty: false}
@@ -92,7 +148,6 @@ const BotLogic = (props) => {
 
 
   const fourOfAKind = () => {
-    console.log("foak called")
     const updatedRooms = [...props.botPlayerRooms];
     if (props.botPlayerRooms[7].empty) {
       updatedRooms[7] = {...props.botPlayerRooms[7], chosen: true, empty: false}
@@ -101,7 +156,6 @@ const BotLogic = (props) => {
   }
 
   const threeOfAKind = () => {
-    console.log("toak called")
     const updatedRooms = [...props.botPlayerRooms];
     if (props.botPlayerRooms[6].empty) {
       updatedRooms[6] = {...props.botPlayerRooms[6], chosen: true, empty: false}
@@ -110,7 +164,6 @@ const BotLogic = (props) => {
   }
 
   const basicOneToSix = () => {
-    console.log("b1-6 called")
     const updatedRooms = [...props.botPlayerRooms];
     let match = false;
     for (let i = 5; i > -1; i--) {
@@ -124,7 +177,6 @@ const BotLogic = (props) => {
   }
 
   const incrementalRoomSelect = () => {
-    console.log("i-s called")
     const updatedRooms = [...props.botPlayerRooms];
     for (let i = 0; i < 13; i++) {
       if(props.botPlayerRooms[i].empty) {
@@ -226,20 +278,11 @@ const BotLogic = (props) => {
 
   const isYahtzee = () =>  {
     for(let i = 0; i < 6; i++) {
-        if(props.counts[i] == 5) {
+        if(props.counts[i] === 5) {
         return true;
         }  
     }
     return false;
-  }
-
-  const lowerHalfAvailable = () => {
-    for (let i = 0; i < 6; i++) {
-      if(props.counts[i] === 0) {
-        return true
-      }
-    }
-    return false
   }
 
   return(<></>)

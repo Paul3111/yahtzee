@@ -50,6 +50,7 @@ const Player = (props) => {
     {name: 'chance', empty: true, chosen: false}
   ])
 
+  // console.log("counts: ", counts)
   const start = () => {
     setStartGame(true)
   }

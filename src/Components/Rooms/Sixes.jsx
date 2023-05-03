@@ -39,7 +39,6 @@ const Sixes = (props) => {
     setTimeout(() => {
       if (props.isBot && props.botDecision && !isDisabled && props.botPlayerRooms[5].chosen && props.activePlayer === props.playerNumber) {
         props.onRollDice(score)
-        console.log("select twos")
         props.updateTotal(score)
         props.updateSubTotal(score)
         props.resetRollCount(0)
