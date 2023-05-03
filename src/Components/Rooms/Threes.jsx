@@ -36,9 +36,9 @@ const Threes = (props) => {
   const score = threeScore(props.values)
 
   useEffect(() => {
-    props.onRollDice(score)
     setTimeout(() => {
       if (props.isBot && !isDisabled && props.botPlayerRooms[2].chosen && props.activePlayer === props.playerNumber) {
+        props.onRollDice(score)
         props.updateTotal(score)
         props.updateSubTotal(score)
         props.resetRollCount(0)

@@ -37,9 +37,10 @@ const Twos = (props) => {
   const score = twoScore(props.values)
 
   useEffect(() => {
-    props.onRollDice(score)
+
     setTimeout(() => {
       if (props.isBot && !isDisabled && props.botPlayerRooms[1].chosen && props.activePlayer === props.playerNumber) {
+        props.onRollDice(score)
         props.updateTotal(score)
         props.updateSubTotal(score)
         props.resetRollCount(0)

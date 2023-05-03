@@ -36,9 +36,9 @@ const Sixes = (props) => {
   const score = sixScore(props.values)
 
   useEffect(() => {
-    props.onRollDice(score)
     setTimeout(() => {
       if (props.isBot && !isDisabled && props.botPlayerRooms[5].chosen && props.activePlayer === props.playerNumber) {
+        props.onRollDice(score)
         console.log("select twos")
         props.updateTotal(score)
         props.updateSubTotal(score)

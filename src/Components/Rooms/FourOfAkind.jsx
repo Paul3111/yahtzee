@@ -37,9 +37,9 @@ const FourOfAKind = (props) => {
   const score = fourOfAKindScore(props.values)
 
   useEffect(() => {
-    props.onRollDice(score)
     setTimeout(() => {
       if (props.isBot && !isDisabled && props.botPlayerRooms[7].chosen && props.activePlayer === props.playerNumber) {
+        props.onRollDice(score)
         props.updateTotal(score)
         props.resetRollCount(0)
   
