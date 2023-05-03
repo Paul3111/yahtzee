@@ -36,9 +36,9 @@ const Fours = (props) => {
   const score = fourScore(props.values)
 
   useEffect(() => {
-    props.onRollDice(score)
     setTimeout(() => {
       if (props.isBot && !isDisabled && props.botPlayerRooms[3].chosen && props.activePlayer === props.playerNumber) {
+        props.onRollDice(score)
         props.updateTotal(score)
         props.updateSubTotal(score)
         props.resetRollCount(0)

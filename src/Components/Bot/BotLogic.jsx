@@ -19,9 +19,10 @@ const BotLogic = (props) => {
           return threeOfAKind();
         } else if (props.botPlayerRooms[12].empty && props.sum > 22) {
           chance();
-        } else if (isTwoOfAKind() && lowerHalfAvailable()) {
+        } else {
+          incrementalRoomSelect()
           basicOneToSix()
-        } else incrementalRoomSelect()
+        }
 
       }
   }, [props.counts])

@@ -33,9 +33,9 @@ const Chance = (props) => {
   const score = ChanceScore(props.values)
 
   useEffect(() => {
-    props.onRollDice(score)
     setTimeout(() => {
       if (props.isBot && !isDisabled && props.botPlayerRooms[12].chosen && props.activePlayer === props.playerNumber) {
+        props.onRollDice(score)
         console.log("select twos")
         props.updateTotal(score)
         props.resetRollCount(0)

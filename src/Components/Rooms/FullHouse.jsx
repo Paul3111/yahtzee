@@ -40,9 +40,9 @@ const FullHouse = (props) => {
   const score = fullHouseScore(props.values)
 
   useEffect(() => {
-    props.onRollDice(score)
     setTimeout(() => {
       if (props.isBot && !isDisabled && props.botPlayerRooms[8].chosen && props.activePlayer === props.playerNumber) {
+        props.onRollDice(score)
         props.updateTotal(score)
         props.resetRollCount(0)
   

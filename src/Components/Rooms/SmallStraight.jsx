@@ -41,9 +41,9 @@ const SmallStraight = (props) => {
   const score = SMstraightScore(props.values)
 
   useEffect(() => {
-    props.onRollDice(score)
     setTimeout(() => {
       if (props.isBot && !isDisabled && props.botPlayerRooms[9].chosen && props.activePlayer === props.playerNumber) {
+        props.onRollDice(score)
         props.updateTotal(score)
         props.resetRollCount(0)
   
