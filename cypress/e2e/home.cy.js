@@ -29,12 +29,5 @@ describe('<Home />', () => {
     it('Finds the Multiplayer button text on the home page.', () => {
       cy.contains('Multiplayer').should('be.visible')
     })    
-
-
-      // cy.wait(1000); // Wait for 1 second
-      // cy.get('.enter-to-start').should('contain', 'PLAY')
-      // cy.get('.navbar-link').scrollIntoView().click();
-
-
   })
 })
