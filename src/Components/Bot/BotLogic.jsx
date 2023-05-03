@@ -1,35 +1,42 @@
 import React, {useEffect, useState} from 'react'
 
 const BotLogic = (props) => {
-
   useEffect(() => {
       if(props.isBot && props.activePlayer === props.playerNumber) {
 
         if(isYahtzee() && props.botPlayerRooms[11].empty) {
           yahtzee()
+          props.setBotDecision(true)
         } else if(isLargeStraight() && props.botPlayerRooms[10].empty) {
           largeStraight()
-        } else if(isSmallStraight() && props.botPlayerRooms[9].empty) {
+          props.setBotDecision(true)
+        } else if(isSmallStraight() && props.botPlayerRooms[9].empty && props.rollCount >= 2) {
           smallStraight()
-        } else if(isFullHouse() && props.botPlayerRooms[8].empty) {
+        } else if(isFullHouse() && props.botPlayerRooms[8].empty && props.rollCount >= 2) {
           fullHouse()
+          props.setBotDecision(true)
         } else if(isFourOfAKind() && props.botPlayerRooms[7].empty) {
-          return fourOfAKind();
-        } else if (isThreeOfAKind() && props.botPlayerRooms[6].empty) {
-          return threeOfAKind();
-        } else if (props.botPlayerRooms[12].empty && props.sum > 22) {
+          fourOfAKind();
+        } else if (isThreeOfAKind() && props.botPlayerRooms[6].empty && props.rollCount >= 2) {
+          threeOfAKind();
+        } else if (props.botPlayerRooms[12].empty && props.sum > 21 && props.rollCount >= 2) {
           chance();
-        } else {
+        } else if (props.rollCount >= 2){
           incrementalRoomSelect()
           basicOneToSix()
         }
 
+        if (props.rollCount >= 2) {
+          props.setBotDecision(true)
+        }
       }
+      //props.setBotDecision(false)
   }, [props.counts])
 
   useEffect(() => {
     if(props.isBot && props.activePlayer === props.playerNumber) {
       resetBotRooms()
+      props.setBotDecision(false)
     }
 }, [props.activePlayer])
 

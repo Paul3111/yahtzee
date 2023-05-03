@@ -33,6 +33,7 @@ const Player = (props) => {
     { value: 1, locked: false }
   ]);
 
+  const [botDecision, setBotDecision] = useState(false)
   const [botPlayerRooms, setBotPlayerRooms] = useState([
     {name: 'ones', empty: true, chosen: false},
     {name: 'twos', empty: true, chosen: false},
@@ -126,6 +127,8 @@ const Player = (props) => {
         botPlayerRooms={botPlayerRooms}
         activePlayer={props.activePlayer}
         playerNumber={props.playerNumber}
+        botDecision={botDecision}
+        setBotDecision={setBotDecision}
       />
 
       <DiceContainer
@@ -146,6 +149,7 @@ const Player = (props) => {
         isBot={props.isBot}
         activePlayer={props.activePlayer}
         playerNumber={props.playerNumber}
+        botDecision={botDecision}
       />
 
       <BotLogic
@@ -156,6 +160,9 @@ const Player = (props) => {
         isBot={props.isBot}
         counts={counts}
         sum={diceValueSum}
+        botDecision={botDecision}
+        setBotDecision={setBotDecision}
+        rollCount={rollCount}
       />
 
       <Dots rollCount={rollCount} />

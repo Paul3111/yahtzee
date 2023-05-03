@@ -37,7 +37,7 @@ const Sixes = (props) => {
 
   useEffect(() => {
     setTimeout(() => {
-      if (props.isBot && !isDisabled && props.botPlayerRooms[5].chosen && props.activePlayer === props.playerNumber) {
+      if (props.isBot && props.botDecision && !isDisabled && props.botPlayerRooms[5].chosen && props.activePlayer === props.playerNumber) {
         props.onRollDice(score)
         console.log("select twos")
         props.updateTotal(score)
@@ -55,7 +55,7 @@ const Sixes = (props) => {
         })
         setIsDisabled(true)
       }
-    }, 1400)
+    }, 1200)
   }, [props.rollCount])
 
   const useRoom = () => {

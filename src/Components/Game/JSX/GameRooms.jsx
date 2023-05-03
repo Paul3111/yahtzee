@@ -60,7 +60,9 @@ const GameRooms = (props) => {
             isBot={props.isBot}
             botPlayerRooms={props.botPlayerRooms}
             activePlayer={props.activePlayer}
-            playerNumber={props.playerNumber}/>
+            playerNumber={props.playerNumber}
+            botDecision={props.botDecision}
+            setBotDecision={props.setBotDecision}/>
           
           <Twos
             startEffect={props.startEffect}
@@ -77,7 +79,9 @@ const GameRooms = (props) => {
             isBot={props.isBot}
             botPlayerRooms={props.botPlayerRooms}
             activePlayer={props.activePlayer}
-            playerNumber={props.playerNumber}/>
+            playerNumber={props.playerNumber}
+            botDecision={props.botDecision}
+            setBotDecision={props.setBotDecision}/>
           
           <Threes
             startEffect={props.startEffect}
@@ -94,7 +98,9 @@ const GameRooms = (props) => {
             isBot={props.isBot}
             botPlayerRooms={props.botPlayerRooms}
             activePlayer={props.activePlayer}
-            playerNumber={props.playerNumber}/>
+            playerNumber={props.playerNumber}
+            botDecision={props.botDecision}
+            setBotDecision={props.setBotDecision}/>
           
           <Fours
             startEffect={props.startEffect}
@@ -111,7 +117,9 @@ const GameRooms = (props) => {
             isBot={props.isBot}
             botPlayerRooms={props.botPlayerRooms}
             activePlayer={props.activePlayer}
-            playerNumber={props.playerNumber}/>
+            playerNumber={props.playerNumber}
+            botDecision={props.botDecision}
+            setBotDecision={props.setBotDecision}/>
           
           <Fives
             startEffect={props.startEffect}
@@ -128,7 +136,9 @@ const GameRooms = (props) => {
             isBot={props.isBot}
             botPlayerRooms={props.botPlayerRooms}
             activePlayer={props.activePlayer}
-            playerNumber={props.playerNumber}/>
+            playerNumber={props.playerNumber}
+            botDecision={props.botDecision}
+            setBotDecision={props.setBotDecision}/>
           
           <Sixes
             startEffect={props.startEffect}
@@ -145,7 +155,9 @@ const GameRooms = (props) => {
             isBot={props.isBot}
             botPlayerRooms={props.botPlayerRooms}
             activePlayer={props.activePlayer}
-            playerNumber={props.playerNumber}/>
+            playerNumber={props.playerNumber}
+            botDecision={props.botDecision}
+            setBotDecision={props.setBotDecision}/>
           
           <Bonus
             startEffect={props.startEffect}
@@ -171,7 +183,9 @@ const GameRooms = (props) => {
             isBot={props.isBot}
             botPlayerRooms={props.botPlayerRooms}
             activePlayer={props.activePlayer}
-            playerNumber={props.playerNumber}/>
+            playerNumber={props.playerNumber}
+            botDecision={props.botDecision}
+            setBotDecision={props.setBotDecision}/>
           
           <FourOfAKind
             startEffect={props.startEffect}
@@ -187,7 +201,9 @@ const GameRooms = (props) => {
             isBot={props.isBot}
             botPlayerRooms={props.botPlayerRooms}
             activePlayer={props.activePlayer}
-            playerNumber={props.playerNumber}/>
+            playerNumber={props.playerNumber}
+            botDecision={props.botDecision}
+            setBotDecision={props.setBotDecision}/>
           
           <FullHouse
             startEffect={props.startEffect}
@@ -203,7 +219,9 @@ const GameRooms = (props) => {
             isBot={props.isBot}
             botPlayerRooms={props.botPlayerRooms}
             activePlayer={props.activePlayer}
-            playerNumber={props.playerNumber}/>
+            playerNumber={props.playerNumber}
+            botDecision={props.botDecision}
+            setBotDecision={props.setBotDecision}/>
           
           <SmallStraight
             startEffect={props.startEffect}
@@ -219,7 +237,9 @@ const GameRooms = (props) => {
             isBot={props.isBot}
             botPlayerRooms={props.botPlayerRooms}
             activePlayer={props.activePlayer}
-            playerNumber={props.playerNumber}/>
+            playerNumber={props.playerNumber}
+            botDecision={props.botDecision}
+            setBotDecision={props.setBotDecision}/>
           
           <LargeStraight
             startEffect={props.startEffect}
@@ -235,7 +255,9 @@ const GameRooms = (props) => {
             isBot={props.isBot}
             botPlayerRooms={props.botPlayerRooms}
             activePlayer={props.activePlayer}
-            playerNumber={props.playerNumber}/>
+            playerNumber={props.playerNumber}
+            botDecision={props.botDecision}
+            setBotDecision={props.setBotDecision}/>
           
           <Yahtzee
             startEffect={props.startEffect}
@@ -253,7 +275,9 @@ const GameRooms = (props) => {
             isBot={props.isBot}
             botPlayerRooms={props.botPlayerRooms}
             activePlayer={props.activePlayer}
-            playerNumber={props.playerNumber}/>
+            playerNumber={props.playerNumber}
+            botDecision={props.botDecision}
+            setBotDecision={props.setBotDecision}/>
           
           <Chance
             startEffect={props.startEffect}
@@ -269,7 +293,9 @@ const GameRooms = (props) => {
             isBot={props.isBot}
             botPlayerRooms={props.botPlayerRooms}
             activePlayer={props.activePlayer}
-            playerNumber={props.playerNumber}/>
+            playerNumber={props.playerNumber}
+            botDecision={props.botDecision}
+            setBotDecision={props.setBotDecision}/>
         </div>
 
       </div>

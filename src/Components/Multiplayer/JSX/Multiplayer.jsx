@@ -20,9 +20,6 @@ const Multiplayer = () => {
     }) 
   }
 
-  console.log("players", players)
-  console.log("bots", botPlayers)
-
   const addBot = () => {
     setBotPlayers(prevBotPlayers => [...prevBotPlayers, key + 1])
     addKey()
