@@ -155,7 +155,7 @@ const Player = (props) => {
         setBotPlayerRooms={setBotPlayerRooms}
         isBot={props.isBot}
         counts={counts}
-        dice={dice}
+        sum={diceValueSum}
       />
 
       <Dots rollCount={rollCount} />
