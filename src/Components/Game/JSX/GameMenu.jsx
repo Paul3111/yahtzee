@@ -5,8 +5,7 @@ const GameMenu = () => {
     <ul className={style['navbar-container']}>
       <li><a className={style['navbar-link']} href="/home">Home</a></li>
       <li><a className={style['navbar-link']} href="/leaderboard">Leaderboard</a></li>
-      <li><a className={style['navbar-link']} href="/settings">Settings</a></li>
-      <li><a className={style['navbar-link']} href="/signup">Signup</a></li>
+      <li><a className={style['navbar-link']} href="/multiplayer">Multiplayer(BETA)</a></li>
     </ul>
   );
 };

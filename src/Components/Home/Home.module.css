@@ -28,6 +28,13 @@
   transition: all .1s ease;
 }
 
+.btns-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+}
 .enter-to-start {
   width: 100%;
   border: none;
@@ -36,6 +43,10 @@
   font-family: inherit;
   background-color: transparent;
   color: var(--title-color);
+}
+.enter-to-start:hover {
+  color: var(--pink-neon-color);
+  transition: all .1s ease-in-out
 }
 
 .game-header {
