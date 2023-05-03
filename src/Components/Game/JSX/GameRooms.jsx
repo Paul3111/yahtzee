@@ -56,7 +56,11 @@ const GameRooms = (props) => {
             updateTotal={props.updateTotal}
             updateSubTotal={updateSubTotal}
             values={props.values} 
-            audioEnabled={props.audioEnabled}/>
+            audioEnabled={props.audioEnabled}
+            isBot={props.isBot}
+            botPlayerRooms={props.botPlayerRooms}
+            activePlayer={props.activePlayer}
+            playerNumber={props.playerNumber}/>
           
           <Twos
             startEffect={props.startEffect}
@@ -69,7 +73,11 @@ const GameRooms = (props) => {
             updateTotal={props.updateTotal}
             updateSubTotal={updateSubTotal}
             values={props.values} 
-            audioEnabled={props.audioEnabled}/>
+            audioEnabled={props.audioEnabled}
+            isBot={props.isBot}
+            botPlayerRooms={props.botPlayerRooms}
+            activePlayer={props.activePlayer}
+            playerNumber={props.playerNumber}/>
           
           <Threes
             startEffect={props.startEffect}
@@ -82,7 +90,11 @@ const GameRooms = (props) => {
             updateTotal={props.updateTotal}
             updateSubTotal={updateSubTotal}
             values={props.values} 
-            audioEnabled={props.audioEnabled}/>
+            audioEnabled={props.audioEnabled}
+            isBot={props.isBot}
+            botPlayerRooms={props.botPlayerRooms}
+            activePlayer={props.activePlayer}
+            playerNumber={props.playerNumber}/>
           
           <Fours
             startEffect={props.startEffect}
@@ -95,7 +107,11 @@ const GameRooms = (props) => {
             updateTotal={props.updateTotal}
             updateSubTotal={updateSubTotal}
             values={props.values} 
-            audioEnabled={props.audioEnabled}/>
+            audioEnabled={props.audioEnabled}
+            isBot={props.isBot}
+            botPlayerRooms={props.botPlayerRooms}
+            activePlayer={props.activePlayer}
+            playerNumber={props.playerNumber}/>
           
           <Fives
             startEffect={props.startEffect}
@@ -108,7 +124,11 @@ const GameRooms = (props) => {
             updateTotal={props.updateTotal}
             updateSubTotal={updateSubTotal}
             values={props.values} 
-            audioEnabled={props.audioEnabled}/>
+            audioEnabled={props.audioEnabled}
+            isBot={props.isBot}
+            botPlayerRooms={props.botPlayerRooms}
+            activePlayer={props.activePlayer}
+            playerNumber={props.playerNumber}/>
           
           <Sixes
             startEffect={props.startEffect}
@@ -121,7 +141,11 @@ const GameRooms = (props) => {
             updateTotal={props.updateTotal}
             updateSubTotal={updateSubTotal}
             values={props.values}
-            audioEnabled={props.audioEnabled} />
+            audioEnabled={props.audioEnabled}
+            isBot={props.isBot}
+            botPlayerRooms={props.botPlayerRooms}
+            activePlayer={props.activePlayer}
+            playerNumber={props.playerNumber}/>
           
           <Bonus
             startEffect={props.startEffect}
@@ -143,7 +167,11 @@ const GameRooms = (props) => {
             savedScore={threeOfAKind}
             updateTotal={props.updateTotal}
             values={props.values} 
-            audioEnabled={props.audioEnabled}/>
+            audioEnabled={props.audioEnabled}
+            isBot={props.isBot}
+            botPlayerRooms={props.botPlayerRooms}
+            activePlayer={props.activePlayer}
+            playerNumber={props.playerNumber}/>
           
           <FourOfAKind
             startEffect={props.startEffect}
@@ -155,7 +183,11 @@ const GameRooms = (props) => {
             savedScore={fourOfAKind}
             updateTotal={props.updateTotal}
             values={props.values} 
-            audioEnabled={props.audioEnabled}/>
+            audioEnabled={props.audioEnabled}
+            isBot={props.isBot}
+            botPlayerRooms={props.botPlayerRooms}
+            activePlayer={props.activePlayer}
+            playerNumber={props.playerNumber}/>
           
           <FullHouse
             startEffect={props.startEffect}
@@ -167,7 +199,11 @@ const GameRooms = (props) => {
             savedScore={fullHouse}
             updateTotal={props.updateTotal}
             values={props.values} 
-            audioEnabled={props.audioEnabled}/>
+            audioEnabled={props.audioEnabled}
+            isBot={props.isBot}
+            botPlayerRooms={props.botPlayerRooms}
+            activePlayer={props.activePlayer}
+            playerNumber={props.playerNumber}/>
           
           <SmallStraight
             startEffect={props.startEffect}
@@ -179,7 +215,11 @@ const GameRooms = (props) => {
             savedScore={SMstraight}
             updateTotal={props.updateTotal}
             values={props.values}
-            audioEnabled={props.audioEnabled}/>
+            audioEnabled={props.audioEnabled}
+            isBot={props.isBot}
+            botPlayerRooms={props.botPlayerRooms}
+            activePlayer={props.activePlayer}
+            playerNumber={props.playerNumber}/>
           
           <LargeStraight
             startEffect={props.startEffect}
@@ -191,7 +231,11 @@ const GameRooms = (props) => {
             savedScore={LGstraight}
             updateTotal={props.updateTotal}
             values={props.values} 
-            audioEnabled={props.audioEnabled}/>
+            audioEnabled={props.audioEnabled}
+            isBot={props.isBot}
+            botPlayerRooms={props.botPlayerRooms}
+            activePlayer={props.activePlayer}
+            playerNumber={props.playerNumber}/>
           
           <Yahtzee
             startEffect={props.startEffect}
@@ -206,7 +250,10 @@ const GameRooms = (props) => {
             triggerYahtzee={props.triggerYahtzee}
             updateYahtzeeScore={updateYahtzeeScore}
             audioEnabled={props.audioEnabled}
-          />
+            isBot={props.isBot}
+            botPlayerRooms={props.botPlayerRooms}
+            activePlayer={props.activePlayer}
+            playerNumber={props.playerNumber}/>
           
           <Chance
             startEffect={props.startEffect}
@@ -218,7 +265,11 @@ const GameRooms = (props) => {
             savedScore={chance}
             updateTotal={props.updateTotal}
             values={props.values} 
-            audioEnabled={props.audioEnabled}/>
+            audioEnabled={props.audioEnabled}
+            isBot={props.isBot}
+            botPlayerRooms={props.botPlayerRooms}
+            activePlayer={props.activePlayer}
+            playerNumber={props.playerNumber}/>
         </div>
 
       </div>

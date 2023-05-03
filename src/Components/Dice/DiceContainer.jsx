@@ -38,12 +38,12 @@ const DiceContainer = (props) => {
   const rollDice = () => {
     const rolledDice = dice.map(die => (die.locked ? die : { ...die, rolling: true, value: rollDie()})); //rollDie()
     setDice(rolledDice);
+    generateCounts(rolledDice);
+    generateSum(rolledDice);
 
     setTimeout(() => {
       const finishedDice = rolledDice.map(die => ({ ...die, rolling: false }));
       setDice(finishedDice);
-      generateCounts(finishedDice);
-      generateSum(finishedDice);
       returnRollValues(finishedDice)
     }, 800);
 
@@ -100,7 +100,10 @@ const DiceContainer = (props) => {
         isHoveredFalse={props.isHoveredFalse}
         onRoll={rollDice}
         rollCount={props.rollCount} 
-        audioEnabled={props.audioEnabled}/>
+        audioEnabled={props.audioEnabled}
+        isBot={props.isBot}
+        activePlayer={props.activePlayer}
+        playerNumber={props.playerNumber}/>
     </div>
   )
 }

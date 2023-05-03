@@ -8,6 +8,8 @@ import GameTotalScore from '../../Game/JSX/GameTotalScore';
 import DiceContainer from '../../Dice/DiceContainer';
 import Dots from '../../Game/JSX/GameDots';
 
+import BotLogic from '../../Bot/BotLogic.jsx'
+
 const Player = (props) => {
   const [isYahtzee, setIsYahtzee] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
@@ -30,6 +32,22 @@ const Player = (props) => {
     { value: 1, locked: false },
     { value: 1, locked: false }
   ]);
+
+  const [botPlayerRooms, setBotPlayerRooms] = useState([
+    {name: 'ones', empty: true, chosen: false},
+    {name: 'twos', empty: true, chosen: false},
+    {name: 'threes', empty: true, chosen: false},
+    {name: 'fours', empty: true, chosen: false},
+    {name: 'fives', empty: true, chosen: false},
+    {name: 'sixes', empty: true, chosen: false},
+    {name: 'three of a kind', empty: true, chosen: false},
+    {name: 'four of a kind', empty: true, chosen: false},
+    {name: 'full house', empty: true, chosen: false},
+    {name: 'small straight', empty: true, chosen: false},
+    {name: 'large straight', empty: true, chosen: false},
+    {name: 'yahtzee', empty: true, chosen: false},
+    {name: 'chance', empty: true, chosen: false}
+  ])
 
   const start = () => {
     setStartGame(true)
@@ -104,6 +122,10 @@ const Player = (props) => {
         resetRollCount={setRollCount}
         values={values} updateTotal={updateTotal}
         triggerYahtzee={setIsYahtzee}
+        isBot={props.isBot}
+        botPlayerRooms={botPlayerRooms}
+        activePlayer={props.activePlayer}
+        playerNumber={props.playerNumber}
       />
 
       <DiceContainer
@@ -121,6 +143,19 @@ const Player = (props) => {
         setValues={setValues}
         countRolls={countRolls}
         rollCount={rollCount}
+        isBot={props.isBot}
+        activePlayer={props.activePlayer}
+        playerNumber={props.playerNumber}
+      />
+
+      <BotLogic
+        activePlayer={props.activePlayer}
+        playerNumber={props.playerNumber}
+        botPlayerRooms={botPlayerRooms}
+        setBotPlayerRooms={setBotPlayerRooms}
+        isBot={props.isBot}
+        counts={counts}
+        sum={diceValueSum}
       />
 
       <Dots rollCount={rollCount} />

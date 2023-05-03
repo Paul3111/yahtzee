@@ -13,6 +13,10 @@ import startSFX from '../audio/miniRetro-yahtzeeStartGame.mp3'
 import EndGame from '../../EndGame/JSX/EndGame';
 import GameToggleBtns from './GameToggleBtns';
 
+//--BOT START-----
+import BotLogic from '../../Bot/BotLogic.jsx'
+//--BOT END ------
+
 const Game = (props) => {
   const [isPlaying, setIsPlaying] = useState(false)
   const [audioEnabled, setAudioEnabled] = useState(false)
