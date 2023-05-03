@@ -18,7 +18,7 @@ const Home = () => {
       <div className={style['page-container']}>
         <div className={style['game-header']}>
         <GameHeader />
-        </div>
+        </div>  
         <div className={style['btns-container']}>
           <button className={style['enter-to-start']} 
             onClick={gameRedirect}>
