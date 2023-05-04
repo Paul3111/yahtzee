@@ -154,7 +154,7 @@ If it does not, navigate to `http://localhost:3000/` to view the game.
 
 <h3>Goal</h3>
 The goal of the game is to score as many points as possible by 
-rolling specific combinations of numbers over the course of 13 rounds
+rolling specific combinations of numbers over the course of 13 rounds.
 
 <h3>Turns</h3>
 On each turn, a player is allowed up to three rolls to try and 
@@ -193,6 +193,7 @@ Overall, Yahtzee is a fun and exciting game that requires both luck and strategy
 With its simple rules and fast-paced gameplay, 
 it's no wonder that it has remained a popular game for generations.
 
+<br/>
 <br/>
 
 [Learn more about Yahtzee](https://en.wikipedia.org/wiki/Yahtzee)
