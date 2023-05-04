@@ -61,7 +61,7 @@ const Multiplayer = () => {
               playerNumber={key}
               activePlayer={activePlayer}
               nextPlayer={nextPlayer}
-              isBot={bot}
+              isBot={true} // change to true for all bot players
               setIsBot={setIsBot}
             />
           )

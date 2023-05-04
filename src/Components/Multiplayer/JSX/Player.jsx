@@ -51,6 +51,7 @@ const Player = (props) => {
   ])
 
   const [botHeldDice, setBotHeldDice] = useState([])
+  const [threshold, setThreshold] = useState(0)
   const [botDecision, setBotDecision] = useState(false)
   const [botPlayerRooms, setBotPlayerRooms] = useState([
     {name: 'ones', empty: true, chosen: false},
@@ -68,8 +69,8 @@ const Player = (props) => {
     {name: 'chance', empty: true, chosen: false}
   ])
 
-  // console.log("counts: ", counts)
-  console.log("HELD", botHeldDice)
+  //console.log(counts)
+
   const start = () => {
     setStartGame(true)
   }
@@ -172,6 +173,7 @@ const Player = (props) => {
         botDecision={botDecision}
         botHeldDice={botHeldDice}
         diceWeights={diceWeights}
+        threshold={threshold}
       />
 
       <BotLogic
@@ -190,6 +192,8 @@ const Player = (props) => {
         diceWeights={diceWeights}
         setDiceWeights={setDiceWeights}
         gameRound={gameRound}
+        threshold={threshold}
+        setThreshold={setThreshold}
       />
 
       <Dots rollCount={rollCount} />

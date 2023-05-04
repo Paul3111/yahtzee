@@ -30,13 +30,11 @@ const BotLogic = (props) => {
         if (props.rollCount >= 2) {
           props.setBotDecision(true)
         }
-       // selectDice();
       }
   }, [props.counts])
 
   useEffect(() => {
     if(props.isBot && props.activePlayer === props.playerNumber) {
-      //resetWeights();
       resetBotRooms()
       props.setBotDecision(false)
     }
@@ -55,8 +53,14 @@ const BotLogic = (props) => {
   }, [props.rollCount, props.counts])
 
   const adjustWeights = () => {
+    adjustWeights_Core();
+    adjustWeights_nearLargeStraight();
+  }
+
+  const adjustWeights_Core = () => {
     if(props.rollCount === 1 || props.rollCount === 2) {
       const updatedWeights = [...props.diceWeights]
+      const sum = props.diceWeights.reduce((sum, die) => sum + die.weight, 0)
       for (let i = 0; i < 6; i++) {
         if(props.counts[i] > 0 ) {
           updatedWeights[i] = {...props.diceWeights[i], weight: props.diceWeights[i].value + 2}
@@ -66,17 +70,50 @@ const BotLogic = (props) => {
         }
       }
       console.log("new weights: ", updatedWeights);
+      props.setThreshold(Math.floor(sum/4 + 1))
       return props.setDiceWeights(updatedWeights)
     }
   }
 
+  const adjustWeights_nearLargeStraight = () => {
+      if((props.rollCount === 1 || props.rollCount === 2)) {
+        const updatedWeights = [...props.diceWeights]
+        let emptyBonus = 0
 
-  const resetWeights = () => {
-    const newWeightSet = props.diceWeights.map(die => ({value: die.value, weight: die.value}))
-    console.log("Weights reset!")
-    console.log("starting weights: ", newWeightSet)
-    return props.setDiceWeights(newWeightSet)
-  }
+      if(props.botPlayerRooms[9].empty && props.botPlayerRooms[10].empty) {
+        emptyBonus += 20
+      } else if (props.botPlayerRooms[9].empty) {
+        emptyBonus += 17
+      } else if (props.botPlayerRooms[10].empty) {
+        emptyBonus += 12
+      } else emptyBonus -= 3
+
+        if(isMiddleStraight() && props.botPlayerRooms[9].empty) {
+          console.log("is middle straight")
+          updatedWeights[0] = {...props.diceWeights[0], weight: props.diceWeights[0].value = 0}
+          updatedWeights[5] = {...props.diceWeights[5], weight: props.diceWeights[5].value = 0}
+          props.setThreshold(1)
+          console.log("new weights: ", updatedWeights);
+          return props.setDiceWeights(updatedWeights)
+
+        } else if(isRightStraight() && props.botPlayerRooms[9].empty) {
+          console.log("is right straight")
+          updatedWeights[0] = {...props.diceWeights[0], weight: props.diceWeights[0].value = 0}
+          updatedWeights[1] = {...props.diceWeights[1], weight: props.diceWeights[1].value = 0}
+          props.setThreshold(1)
+          console.log("new weights: ", updatedWeights);
+          return props.setDiceWeights(updatedWeights)
+        } else if(isLeftStraight() && props.botPlayerRooms[9].empty) {
+          console.log("is left straight")
+          updatedWeights[4] = {...props.diceWeights[4], weight: props.diceWeights[4].value = 0}
+          updatedWeights[5] = {...props.diceWeights[5], weight: props.diceWeights[5].value = 0}
+          props.setThreshold(1)
+          console.log("new weights: ", updatedWeights);
+          return props.setDiceWeights(updatedWeights)
+        }
+      }
+    }
+  
 
 
   // -------------------------------------
@@ -185,15 +222,6 @@ const BotLogic = (props) => {
     return false
   }
 
-  const isTwoOfAKind = () => {
-    for (let i = 0; i < 6; i++) {
-      if(props.counts[i] >= 2) {
-          return true;
-      }      
-    }
-    return false
-  }
-
   const isFourOfAKind = () => {
     for (let i = 0; i < 6; i++) {
         if(props.counts[i] >= 4) {
@@ -236,6 +264,29 @@ const BotLogic = (props) => {
 
     return false;
   }
+
+  const isLeftStraight = () => {
+    const counts = [...props.counts];
+    if (counts[0] >= 1 && counts[1] >= 1 && counts[2] >= 1 && counts[3] >= 1) {
+      return true;
+    }
+  }
+
+  const isMiddleStraight = () => {
+    const counts = [...props.counts];
+    if (counts[1] >= 1 && counts[2] >= 1 && counts[3] >= 1 && counts[4] >= 1) {
+      return true;
+    }
+  }
+  
+  const isRightStraight = () => {
+    const counts = [...props.counts];
+    if (counts[2] >= 1 && counts[3] >= 1 && counts[4] >= 1 && counts[5] >= 1) {
+      return true;
+    }
+  }
+
+  
 
   const isLargeStraight = () => {
     const counts = [...props.counts];
