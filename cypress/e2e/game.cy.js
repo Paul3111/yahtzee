@@ -16,7 +16,6 @@ describe('<Game />', () => {
       // cy.wait(1000);
       // cy.get('ToggleMusic', {timeout: 1000}).click();
       cy.get('label[for="ToggleMusic"]').click({force:true});
-      // cy.get('audio').should('not.exist')
     })
 
     xit('Deactivates music and audio does not run.', () => {
@@ -31,13 +30,12 @@ describe('<Game />', () => {
   context('Buttons', () => {
     beforeEach(() => {
       cy.visit('http://localhost:3000/game')
-      // the lines below press Yes on the popup
-      cy.on('window:confirm', (message) => {
-        cy.get('.start-game-popup__btn').click()
-        expect(message).to.equal('Ready?')
-        return true
-      })
-      })  
+      // the lines below press Yes on the popup - not required anymore
+      // cy.on('window:confirm', (message) => {
+      //   cy.get('.start-game-popup__btn').click()
+      //   expect(message).to.equal('Ready?')
+      //   return true
+    })
 
     it('Finds YAHTZEE on the game page.', () => {
       cy.contains('YAHTZEE').should('be.visible')
