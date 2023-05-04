@@ -29,7 +29,7 @@ describe('<Game />', () => {
       cy.contains('YAHTZEE').should('be.visible')
     })
 
-    it('Finds the first die on the game page.', () => {
+    it('Finds the ROLL button on the game page.', () => {
       cy.get('.wrapper').scrollIntoView().click();
       cy.contains('ROLL').should('be.visible')
     })
