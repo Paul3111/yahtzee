@@ -1,15 +1,6 @@
 import React, {useEffect, useState} from 'react'
 
 const BotLogic = (props) => {
-  const [selectedDice, setSelectedDice] = useState([])
-  const [diceWeights, setDiceWeights] = useState([
-    {value: 1, weight: 1},
-    {value: 2, weight: 2},
-    {value: 3, weight: 3},
-    {value: 4, weight: 4},
-    {value: 5, weight: 5},
-    {value: 6, weight: 6}
-  ])
 
   useEffect(() => {
       if(props.isBot && props.activePlayer === props.playerNumber) {
@@ -39,7 +30,7 @@ const BotLogic = (props) => {
         if (props.rollCount >= 2) {
           props.setBotDecision(true)
         }
-        if(props.rollCount === 1 || props.rollCount === 2) selectDice();
+       // selectDice();
       }
   }, [props.counts])
 
@@ -61,44 +52,44 @@ const BotLogic = (props) => {
       adjustWeights();
     }
 
-  }, [props.rollCount])
+  }, [props.rollCount, props.counts])
 
   const adjustWeights = () => {
     if(props.rollCount === 1 || props.rollCount === 2) {
-      const updatedWeights = [...diceWeights]
+      const updatedWeights = [...props.diceWeights]
       for (let i = 0; i < 6; i++) {
         if(props.counts[i] > 0 ) {
-          updatedWeights[i] = {...diceWeights[i], weight: diceWeights[i].value + 2}
+          updatedWeights[i] = {...props.diceWeights[i], weight: props.diceWeights[i].value + 2}
         }
         if(props.counts[i] > 1 ) {
-          updatedWeights[i] = {...diceWeights[i], weight: diceWeights[i].value + 2 + (5 * props.counts[i] - 5)}
+          updatedWeights[i] = {...props.diceWeights[i], weight: props.diceWeights[i].value + 2 + (5 * props.counts[i] - 5)}
         }
       }
       console.log("new weights: ", updatedWeights);
-      return setDiceWeights(updatedWeights)
+      return props.setDiceWeights(updatedWeights)
     }
   }
 
   const selectDice = () => {
-    const sum = diceWeights.reduce((sum, die) => sum + die.weight, 0)
-    const threshold = Math.floor(sum / 4 + 1)
+    const sum = props.diceWeights.reduce((sum, die) => sum + die.weight, 0)
+    const threshold = Math.floor(7)
     const selected = []
 
     for (let i = 0; i < 6; i++) {
-      if (diceWeights[i].weight >= threshold) {
-        selected.push(diceWeights[i]);
+      if (props.diceWeights[i].weight >= threshold) {
+        selected.push(props.diceWeights[i]);
       }
     }
     console.log("Threshold: ", threshold)
     console.log("Selected dice: ", selected)
-    return setSelectedDice(selected)
+    return props.setBotHeldDice(selected)
   }
 
   const resetWeights = () => {
-    const newWeightSet = diceWeights.map(die => ({value: die.value, weight: die.value}))
+    const newWeightSet = props.diceWeights.map(die => ({value: die.value, weight: die.value}))
     console.log("Weights reset!")
     console.log("starting weights: ", newWeightSet)
-    return setDiceWeights(newWeightSet)
+    return props.setDiceWeights(newWeightSet)
   }
 
 
