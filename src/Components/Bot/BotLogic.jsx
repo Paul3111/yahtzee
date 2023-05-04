@@ -17,7 +17,7 @@ const BotLogic = (props) => {
           fullHouse()
           props.setBotDecision(true)
         } else if(isFourOfAKind() && props.botPlayerRooms[7].empty && props.rollCount >= 2) {
-          return fourOfAKind();
+          fourOfAKind();
         } else if (isThreeOfAKind() && props.botPlayerRooms[6].empty && props.rollCount >= 2) {
           threeOfAKind();
         } else if (props.botPlayerRooms[12].empty && props.sum > 21 && props.rollCount >= 2) {
@@ -70,20 +70,6 @@ const BotLogic = (props) => {
     }
   }
 
-  const selectDice = () => {
-    const sum = props.diceWeights.reduce((sum, die) => sum + die.weight, 0)
-    const threshold = Math.floor(7)
-    const selected = []
-
-    for (let i = 0; i < 6; i++) {
-      if (props.diceWeights[i].weight >= threshold) {
-        selected.push(props.diceWeights[i]);
-      }
-    }
-    console.log("Threshold: ", threshold)
-    console.log("Selected dice: ", selected)
-    return props.setBotHeldDice(selected)
-  }
 
   const resetWeights = () => {
     const newWeightSet = props.diceWeights.map(die => ({value: die.value, weight: die.value}))
