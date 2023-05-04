@@ -10,8 +10,8 @@ describe('<Home />', () => {
       cy.url().should('eq', 'http://localhost:3000/home')
     })
 
-    it('Finds YAHTZEE on the home page.', () => {
-      cy.contains('YAHTZEE').should('be.visible')
+    it('Finds Y on the home page.', () => {
+      cy.get('img[src="/yahtzee_letters/Y.png"]').should('exist')
     })
 
     it('Finds the play button text on the home page.', () => {
@@ -19,7 +19,7 @@ describe('<Home />', () => {
     })
 
     it('Finds the Home button text on the home page.', () => {
-      cy.contains('Home').should('be.visible')
+      cy.contains('Arcade Mode').should('be.visible')
     })    
 
     it('Finds the Leaderboard button text on the home page.', () => {

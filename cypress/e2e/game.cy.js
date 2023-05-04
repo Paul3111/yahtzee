@@ -6,20 +6,36 @@ describe('<Game />', () => {
     })
 
   context('Location', () => {
-    it('Goes to Home page', () => {
+    it('Goes to Game page', () => {
         cy.url().should('eq', 'http://localhost:3000/game')
     })
+
+    it('Deactivates background music.', () => {
+      cy.get('.wrapper').scrollIntoView().click();
+      cy.contains('Music').should('be.visible');
+      // cy.wait(1000);
+      // cy.get('ToggleMusic', {timeout: 1000}).click();
+      cy.get('label[for="ToggleMusic"]').click({force:true});
+    })
+
+    xit('Deactivates music and audio does not run.', () => {
+      cy.get('.wrapper').scrollIntoView().click();
+      cy.contains('Music').should('be.visible');
+      cy.get('label[for="ToggleMusic"]').click({force:true});
+      // cy.get('audio').should('not.exist')
+    })  
+
 })
 
   context('Buttons', () => {
     beforeEach(() => {
       cy.visit('http://localhost:3000/game')
-      cy.on('window:confirm', (message) => {
-        cy.get('.start-game-popup__btn').click()
-        expect(message).to.equal('Ready?')
-        return true
-      })
-      })
+      // the lines below press Yes on the popup - not required anymore
+      // cy.on('window:confirm', (message) => {
+      //   cy.get('.start-game-popup__btn').click()
+      //   expect(message).to.equal('Ready?')
+      //   return true
+    })
 
     it('Finds YAHTZEE on the game page.', () => {
       cy.contains('YAHTZEE').should('be.visible')
@@ -34,24 +50,70 @@ describe('<Game />', () => {
       cy.contains('ROLL').should('be.visible')
     })
 
-    xit('Finds the Home button text on the home page.', () => {
-      cy.contains('Home').should('be.visible')
+    it('Finds the How to play button text on the game page.', () => {
+      cy.contains('How to play').scrollIntoView().click({force:true})
+      cy.contains('better').should('be.visible')
+      cy.contains('X').scrollIntoView().click({force:true})
     })    
 
-    xit('Finds the Leaderboard button text on the home page.', () => {
-      cy.contains('Leaderboard').should('be.visible')
+    it('Rolls the die and selects a room.', () => {
+      cy.get('.wrapper').scrollIntoView().click();
+      cy.contains('ROLL').should('be.visible').click()
+      cy.contains('Threes').click()
     })    
 
-    xit('Finds the Multiplayer button text on the home page.', () => {
-      cy.contains('Multiplayer').should('be.visible')
-    })    
+    it('Rolls the die and selects a room - 2 cycles.', () => {
+      cy.get('.wrapper').scrollIntoView().click();
+      cy.contains('ROLL').should('be.visible').click()
+      cy.contains('Threes').click()
+      cy.get('.wrapper').scrollIntoView().click();
+      cy.contains('ROLL').should('be.visible').click()
+      cy.contains('Twos').click()
+    })     
 
-    // cy.get('img[src="/path/to/image.png"]').should('have.attr', 'alt', 'My image')
-    // cy.get('img[src="/path/to/image.png"]').should('have.css', 'width', '100px')
-    // cy.get('img[src="/path/to/image.png"]').should('have.css', 'height', '100px') 
-    // cy.wait(1000); // Wait for 1 second
-    // cy.get('.enter-to-start').should('contain', 'PLAY')
-    // cy.get('.navbar-link').scrollIntoView().click();
+    it('Rolls the die and selects a room - 13 cycles.', () => {
+      cy.get('.wrapper').scrollIntoView().click();
+      cy.contains('ROLL').click()
+      cy.contains('Ones').click()
+      cy.get('.wrapper').scrollIntoView().click();
+      cy.contains('ROLL').click()
+      cy.contains('Twos').click()
+      cy.get('.wrapper').scrollIntoView().click();
+      cy.contains('ROLL').click()
+      cy.contains('Threes').click()
+      cy.get('.wrapper').scrollIntoView().click();
+      cy.contains('ROLL').click()
+      cy.contains('Fours').click()
+      cy.get('.wrapper').scrollIntoView().click();
+      cy.contains('ROLL').click()
+      cy.contains('Fives').click()
+      cy.get('.wrapper').scrollIntoView().click();
+      cy.contains('ROLL').click()
+      cy.contains('Sixes').click()
+      cy.get('.wrapper').scrollIntoView().click();
+      cy.contains('ROLL').click()
+      cy.contains('Three of a kind').click()
+      cy.get('.wrapper').scrollIntoView().click();
+      cy.contains('ROLL').click()
+      cy.contains('Four of a kind').click()
+      cy.get('.wrapper').scrollIntoView().click();
+      cy.contains('ROLL').click()
+      cy.contains('Full House').click()
+      cy.get('.wrapper').scrollIntoView().click();
+      cy.contains('ROLL').click()
+      cy.contains('Small Straight').click()
+      cy.get('.wrapper').scrollIntoView().click();
+      cy.contains('ROLL').click()
+      cy.contains('Large Straight').click()
+      cy.get('.wrapper').scrollIntoView().click();
+      cy.contains('ROLL').click()
+      cy.contains('Yahtzee').click()
+      cy.get('.wrapper').scrollIntoView().click();
+      cy.contains('ROLL').click()
+      cy.contains('Chance').click()
+    })
+    
+
 
 
   })
