@@ -53,6 +53,11 @@ const Game = (props) => {
   const start = () => {
     setStartGame(true)
   }
+  useEffect(() => {
+    setTimeout(() => {
+      start()
+    }, 1000)
+  }, [])
 
   useEffect(() => {
     if (startGame) {
@@ -198,7 +203,7 @@ const Game = (props) => {
       />
       <HowToPlay />
 
-      { !startGame && <StartPopup start={start} /> }
+      {/* { !startGame && <StartPopup start={start} /> } */}
       <EndGame totalScore={total} getEndScore={props.getEndScore} savingData={props.savingData} gameRound={gameRound} total={total}/>
     </div>
     

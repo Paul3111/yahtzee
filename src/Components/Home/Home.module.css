@@ -142,22 +142,22 @@
 } */
 
 .hanging {
-  transform-origin: top right;
+  transform-origin: top ;
   animation-name: hanging-effect;
-  animation-duration: 3s;
+  animation-duration: 2s;
   animation-iteration-count: infinite;
-animation-direction: normal;
+animation-direction: alternate-reverse;
 }
 
 @keyframes hanging-effect {
     0% {
-      transform: rotate(-1deg);
+      transform: rotate(4deg);
     }
-    45% {
-      transform: rotate(-7deg);
-    }
+    /* 50% {
+      transform: rotate(-8deg);
+    } */
     100% {
-      transform: rotate(-1deg);
+      transform: rotate(-5deg);
     }
 }
 /* @keyframes rebooting-effect {
