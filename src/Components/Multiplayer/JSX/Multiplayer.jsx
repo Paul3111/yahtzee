@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react'
 import Player from "./Player";
 import GameHeader from '../../Game/JSX/GameHeader'
 import GameMenu from '../../Game/JSX/GameMenu'
-
+import EndGameMp from '../../EndGameMp/JSX/EndGameMp';
 import style from '../CSS/Multiplayer.module.css'
 
 const Multiplayer = () => {
@@ -50,6 +50,7 @@ const Multiplayer = () => {
       <div className={style['multiplayer-header']}>
         <GameHeader />
         <GameMenu />
+        {/* <EndGameMp/> */}
       </div>
       <div className={style['players-container']}>
         {players.map( key => {
@@ -86,6 +87,7 @@ const Multiplayer = () => {
         <button onClick={addKey}>Add player</button>
         <button onClick={addBot}>Add bot</button>
       </div>
+      
     </div>
   );
 };
