@@ -3,6 +3,7 @@ import {useEffect, useState} from 'react'
 import style from '../../Game/CSS/Game.module.css';
 import ownStyle from '../CSS/Player.module.css';
 
+import EndGameMp from '../../EndGameMp/JSX/EndGameMp';
 import GameRooms from '../../Game/JSX/GameRooms';
 import GameTotalScore from '../../Game/JSX/GameTotalScore';
 import DiceContainer from '../../Dice/DiceContainer';
@@ -14,7 +15,7 @@ const Player = (props) => {
   const [isYahtzee, setIsYahtzee] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
 
-  const [gameRound, setGameRound] = useState(0)
+  const [gameRound, setGameRound] = useState(12)
   const [counts, setCounts] = useState([0, 0, 0, 0, 0, 0]);
   const [diceValueSum, setDiceValueSum] = useState(0);
   const [values, setValues] = useState([])
@@ -109,11 +110,11 @@ const Player = (props) => {
 
   return (
     <div className={`${style['game-container']} ${ownStyle['multiplayer-game-container']} ${(startEffect && !isActivePlayer) && ownStyle['inactive-player']} ${isYahtzee && style['yahtzee-celebration']} ${startEffect && style['game-on']} ${isHovered && style['lights-up']}`}>
+      <EndGameMp totalScore={total} gameRound={gameRound}/>
       <GameTotalScore
         startEffect={startGame}
         isHovered={isHovered}
         total={total} />
-
       <GameRooms
         startEffect={startGame}
         disableLights={hoverHandler}
@@ -166,6 +167,7 @@ const Player = (props) => {
       />
 
       <Dots rollCount={rollCount} />
+      
     </div>
   );
 };
