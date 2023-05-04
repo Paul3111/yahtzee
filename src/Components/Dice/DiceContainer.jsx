@@ -29,12 +29,25 @@ const DiceContainer = (props) => {
 
   const selectDice = () => {
     const sum = props.diceWeights.reduce((sum, die) => sum + die.weight, 0)
-    const threshold = Math.floor(sum/4 + 1)
+    const threshold = props.threshold
     const selected = []
 
-    for (let i = 0; i < 6; i++) {
-      if (props.diceWeights[i].weight >= threshold) {
-        selected.push(props.diceWeights[i]);
+    if(props.threshold === 1) {
+      const uniqueValues = new Set()
+      for (let i = 0; i < 6; i++) {
+        if (props.diceWeights[i].weight >= threshold && !uniqueValues.has(props.diceWeights[i].value) && !selected.some(die => die.value === props.diceWeights[i].value)) {
+          if (!selected.some(die => die.value === props.diceWeights[i].value)) {
+            selected.push(props.diceWeights[i])
+            uniqueValues.add(props.diceWeights[i].value)
+          }
+        }
+      }
+    }
+    else {
+      for (let i = 0; i < 6; i++) {
+        if (props.diceWeights[i].weight >= threshold) {
+          selected.push(props.diceWeights[i]);
+        }
       }
     }
     console.log("Threshold: ", threshold)
@@ -45,16 +58,13 @@ const DiceContainer = (props) => {
   useEffect(() => {
     setTimeout(() => {
       if (props.isBot && props.activePlayer === props.playerNumber && props.rollCount ===1) {
-        console.log("I'VE BEEN TRIGGERED!")
         const selectedDice = selectDice()
         const updatedDice = [...dice]
         
         for (let i = 0; i < updatedDice.length; i++) {
           if (selectedDice.some(die => die.value === updatedDice[i].value)) {
-            console.log(" -I'VE BEEN LOCKED!")
             updatedDice[i].locked = true
           } else {
-            console.log(" -I'VE BEEN UNLOCKED!")
             updatedDice[i].locked = false
           }
         }
