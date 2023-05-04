@@ -95,6 +95,7 @@ Other technologies and tools used include:
 - Cakewalk for audio recording and editing.
 - Helm and Synth1 synthesizers for creating SFX and music
 <br/>
+
 ---
 
 ## Installation and usage
