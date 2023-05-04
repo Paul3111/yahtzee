@@ -29,17 +29,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: auto;
-  /* border: red 1px solid; */
-  margin: 10rem 0;
+  margin: 5rem auto;
 }
 .multiplayer-add-player-btn-container button{
   cursor: pointer;
-  font-size: 3rem;
+  font-size: 2rem;
   font-family: inherit;
   
   width: 10%;
-  height: 10rem;
+  height: 8rem;
   border: transparent 4px solid;
   border-radius: 20px;
  
