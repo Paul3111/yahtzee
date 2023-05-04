@@ -26,6 +26,13 @@ const Player = (props) => {
   const [startGame, setStartGame] = useState(true)
   const [startEffect, setStartEffect] = useState(false)
 
+  const [endGame, setEndGame] = useState(false)
+
+
+  const triggerEndGame = () => {
+    setEndGame(true)
+  }
+
   const [dice, setDice] = useState([
     { value: 1, locked: false },
     { value: 1, locked: false },
@@ -109,8 +116,8 @@ const Player = (props) => {
   const isActivePlayer = props.activePlayer === props.playerNumber
 
   return (
-    <div className={`${style['game-container']} ${ownStyle['multiplayer-game-container']} ${(startEffect && !isActivePlayer) && ownStyle['inactive-player']} ${isYahtzee && style['yahtzee-celebration']} ${startEffect && style['game-on']} ${isHovered && style['lights-up']}`}>
-      <EndGameMp totalScore={total} gameRound={gameRound}/>
+    <div className={`${style['game-container']} ${ownStyle['multiplayer-game-container']} ${(startEffect && !isActivePlayer && !endGame) && ownStyle['inactive-player']} ${isYahtzee && style['yahtzee-celebration']} ${startEffect && style['game-on']} ${isHovered && style['lights-up']}`}>
+      <EndGameMp triggerEndGame={triggerEndGame} totalScore={total} gameRound={gameRound}/>
       <GameTotalScore
         startEffect={startGame}
         isHovered={isHovered}

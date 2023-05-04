@@ -9,6 +9,7 @@ const EndGameMp = (props) => {
   useEffect(() => {
     if(props.gameRound === 13) {
       setGameEnd(true)
+      props.triggerEndGame()
     }
   }, [props.gameRound])
 
