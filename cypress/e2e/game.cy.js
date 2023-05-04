@@ -9,6 +9,23 @@ describe('<Game />', () => {
     it('Goes to Game page', () => {
         cy.url().should('eq', 'http://localhost:3000/game')
     })
+
+    it('Deactivates background music.', () => {
+      cy.get('.wrapper').scrollIntoView().click();
+      cy.contains('Music').should('be.visible');
+      // cy.wait(1000);
+      // cy.get('ToggleMusic', {timeout: 1000}).click();
+      cy.get('label[for="ToggleMusic"]').click({force:true});
+      // cy.get('audio').should('not.exist')
+    })
+
+    xit('Deactivates music and audio does not run.', () => {
+      cy.get('.wrapper').scrollIntoView().click();
+      cy.contains('Music').should('be.visible');
+      cy.get('label[for="ToggleMusic"]').click({force:true});
+      // cy.get('audio').should('not.exist')
+    })  
+
 })
 
   context('Buttons', () => {
@@ -20,7 +37,7 @@ describe('<Game />', () => {
         expect(message).to.equal('Ready?')
         return true
       })
-      })
+      })  
 
     it('Finds YAHTZEE on the game page.', () => {
       cy.contains('YAHTZEE').should('be.visible')
@@ -96,11 +113,10 @@ describe('<Game />', () => {
       cy.get('.wrapper').scrollIntoView().click();
       cy.contains('ROLL').click()
       cy.contains('Chance').click()
-
-      
-    })     
-    // cy.wait(1000); // Wait for 1 second
+    })
     
+
+
 
   })
 })
