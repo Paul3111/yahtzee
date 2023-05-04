@@ -24,6 +24,7 @@ const Home = () => {
       <div className={style['home-content-container']}>
         <div className={style['video-container']}>
           <video src={video} autoPlay loop muted ></video>
+          
         </div>
         <div className={style['home-title__container']}>
           <div className={`${style['home-title__letter-container']}  ${style['flickering']}`}>
