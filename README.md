@@ -144,9 +144,9 @@ Alternatively, you can connect to the database test
 npm run start:test
 ```
 
-Once you've installed the program and run the server, simply press play to start a new game when the game is displayed.
+Once you've installed the program and run the server, simply press play to start a new game.
 
-If it does not, navigate to `http://localhost:3000` to view the game.
+If it does not, navigate to `http://localhost:3000/` to view the game.
 <br/>
 
 ---
