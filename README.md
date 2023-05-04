@@ -16,10 +16,7 @@
   - [How to play](#how-to-play)
 ---
 
-## Our approach
-
-
-![diagram](/support/designMockup.png)
+## Our approach![diagram](/support/designMockup.png)
 
 ---
 ## Getting started
@@ -109,6 +106,7 @@ Overall, Yahtzee is a fun and exciting game that requires both luck and strategy
 With its simple rules and fast-paced gameplay, 
 it's no wonder that it has remained a popular game for generations.
 
+<br/>
 <br/>
 
 [Learn more about Yahtzee](https://en.wikipedia.org/wiki/Yahtzee)
