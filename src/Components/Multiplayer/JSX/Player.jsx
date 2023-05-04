@@ -15,7 +15,7 @@ const Player = (props) => {
   const [isYahtzee, setIsYahtzee] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
 
-  const [gameRound, setGameRound] = useState(12)
+  const [gameRound, setGameRound] = useState(0)
   const [counts, setCounts] = useState([0, 0, 0, 0, 0, 0]);
   const [diceValueSum, setDiceValueSum] = useState(0);
   const [values, setValues] = useState([])
