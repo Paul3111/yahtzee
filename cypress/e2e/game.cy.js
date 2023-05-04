@@ -35,6 +35,7 @@ describe('<Game />', () => {
       cy.contains('ROLL').should('be.visible')
     })
 
+    
     it('Finds the How to play button text on the game page.', () => {
       cy.contains('How to play').scrollIntoView().click({force:true})
       cy.contains('better').should('be.visible')
