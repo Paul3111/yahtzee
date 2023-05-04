@@ -60,7 +60,7 @@ Overall, building a Yahtzee game in code requires a combination of programming s
 
 This bot idea comes from playing a lot of ‘Total War’ games, and the fact that AI player actions are given precedence given the state of the game.
 
-Our yahtzee ai player uses dice which are assigned weights given their resulting value.
+Our yahtzee AI player uses dice which are assigned weights given their resulting value.
 
 <img src="./support/screenshots/BotScreenshot_1.png" alt="alt_text" height="200px">
 
