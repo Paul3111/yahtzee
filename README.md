@@ -35,7 +35,7 @@ Yahtzee is a game that involves a lot of complex logic and strategy, making it a
 
 Implementing all of these rules and logic in a digital format requires careful planning and programming. The game also involves a lot of random chance, which makes it a good challenge to implement in a way that feels fair and balanced. Additionally, building a multiplayer version of the game adds an extra layer of complexity, as each players need to have their own game logic isolated from the others.
 
-### conclusion
+### Conclusion
 Overall, building a Yahtzee game in code requires a combination of programming skills, logical thinking, and game design experience. It was a fun challenge for us, and it is also a great opportunity to showcase our technical abilities.
 
 ![screenshot_1](/support/screenshots/Screenshot_1.png)
