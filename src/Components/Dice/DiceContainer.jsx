@@ -25,6 +25,47 @@ const DiceContainer = (props) => {
     }
   }
 
+  //--BOT START ---
+
+  const selectDice = () => {
+    const sum = props.diceWeights.reduce((sum, die) => sum + die.weight, 0)
+    const threshold = Math.floor(sum/4 + 1)
+    const selected = []
+
+    for (let i = 0; i < 6; i++) {
+      if (props.diceWeights[i].weight >= threshold) {
+        selected.push(props.diceWeights[i]);
+      }
+    }
+    console.log("Threshold: ", threshold)
+    console.log("Selected dice: ", selected)
+    return selected
+  }
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (props.isBot && props.activePlayer === props.playerNumber && props.rollCount ===1) {
+        console.log("I'VE BEEN TRIGGERED!")
+        const selectedDice = selectDice()
+        const updatedDice = [...dice]
+        
+        for (let i = 0; i < updatedDice.length; i++) {
+          if (selectedDice.some(die => die.value === updatedDice[i].value)) {
+            console.log(" -I'VE BEEN LOCKED!")
+            updatedDice[i].locked = true
+          } else {
+            console.log(" -I'VE BEEN UNLOCKED!")
+            updatedDice[i].locked = false
+          }
+        }
+        setDice(updatedDice)
+        lockDieAudio()
+      }
+    }, 200)
+  }, [props.botHeldDice, props.diceWeights])
+
+  //-- BOT END ----
+
   // toggles dice state between locked and unlocked
   const toggleLock = (index) => {
     if (props.rollCount === 0) return

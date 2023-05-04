@@ -33,6 +33,16 @@ const Player = (props) => {
     { value: 1, locked: false }
   ]);
 
+  const [diceWeights, setDiceWeights] = useState([
+    {value: 1, weight: 1},
+    {value: 2, weight: 2},
+    {value: 3, weight: 3},
+    {value: 4, weight: 4},
+    {value: 5, weight: 5},
+    {value: 6, weight: 6}
+  ])
+
+  const [botHeldDice, setBotHeldDice] = useState([])
   const [botDecision, setBotDecision] = useState(false)
   const [botPlayerRooms, setBotPlayerRooms] = useState([
     {name: 'ones', empty: true, chosen: false},
@@ -50,6 +60,8 @@ const Player = (props) => {
     {name: 'chance', empty: true, chosen: false}
   ])
 
+  // console.log("counts: ", counts)
+  console.log("HELD", botHeldDice)
   const start = () => {
     setStartGame(true)
   }
@@ -150,6 +162,8 @@ const Player = (props) => {
         activePlayer={props.activePlayer}
         playerNumber={props.playerNumber}
         botDecision={botDecision}
+        botHeldDice={botHeldDice}
+        diceWeights={diceWeights}
       />
 
       <BotLogic
@@ -163,6 +177,11 @@ const Player = (props) => {
         botDecision={botDecision}
         setBotDecision={setBotDecision}
         rollCount={rollCount}
+        botHeldDice={botHeldDice}
+        setBotHeldDice={setBotHeldDice}
+        diceWeights={diceWeights}
+        setDiceWeights={setDiceWeights}
+        gameRound={gameRound}
       />
 
       <Dots rollCount={rollCount} />
