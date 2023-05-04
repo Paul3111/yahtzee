@@ -17,7 +17,7 @@ const Home = () => {
   return (
     <div className={style['god-container']}>
       <ul className={style['home-header-container']}>
-        <li><a className={style['home-header-link']} href="/game">Arcade</a></li>
+        <li><a className={style['home-header-link']} href="/game">Arcade Mode</a></li>
         <li><a className={style['home-header-link']} href="/multiplayer">Multiplayer(BETA)</a></li>
         <li><a className={style['home-header-link']} href="/leaderboard">Leaderboard</a></li>
       </ul>

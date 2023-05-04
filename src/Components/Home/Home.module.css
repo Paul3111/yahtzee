@@ -5,10 +5,7 @@
   
   display: flex;
   flex-direction: column;
-  /* align-items: center;
-  justify-content: center; */
   position: relative;
-  /* border: red 5px solid; */
 }
 
 .home-content-container {
@@ -22,7 +19,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 5rem;
+  gap: 10rem;
 }
 
 .home-header-container {
@@ -38,8 +35,9 @@
 
 .home-header-container li a {
   color: var(--title-color);
+  text-shadow: 0 0 10px white;
   text-decoration: none;
-  font-size: 1.7rem;
+  font-size: 1.4rem;
 }
 .home-header-container li a:hover {
   color: var(--pink-neon-color);
@@ -83,7 +81,7 @@
   cursor: pointer;
   font-family: inherit;
   background-color: transparent;
-  font-size: 3rem;
+  font-size: 2.5rem;
   text-shadow: 0 0 10px white;
 
   animation-name: blinking-effect;
@@ -137,16 +135,12 @@
   }
 }
 
-/* .tilted {
-  transform: rotate(-20deg);
-} */
-
 .hanging {
-  transform-origin: top ;
+  transform-origin: top;
   animation-name: hanging-effect;
   animation-duration: 2s;
   animation-iteration-count: infinite;
-animation-direction: alternate-reverse;
+  animation-direction: alternate-reverse;
 }
 
 @keyframes hanging-effect {
@@ -160,35 +154,3 @@ animation-direction: alternate-reverse;
       transform: rotate(-5deg);
     }
 }
-/* @keyframes rebooting-effect {
-  0% {
-    opacity: 0;
-  }
-  30% {
-    opacity: 1;
-  }
-  92% {
-    opacity: 1;
-  }
-  93% {
-    opacity: 0;
-  }
-  94% {
-    opacity: .5;
-  }
-  95% {
-    opacity: 0;
-  }
-  96% {
-    opacity: .5;
-  }
-  97% {
-    opacity: 0;
-  }
-  99% {
-    opacity: .5;
-  }
-  100% {
-    opacity: 1;
-  }
-} */
