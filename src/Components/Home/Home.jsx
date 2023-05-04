@@ -16,36 +16,42 @@ const Home = () => {
 
   return (
     <div className={style['god-container']}>
-      {/* <GameMenu /> */}
-      <div className={style['video-container']}>
-        <video src={video} autoPlay loop muted ></video>
+      <ul className={style['home-header-container']}>
+        <li><a className={style['home-header-link']} href="/game">Arcade</a></li>
+        <li><a className={style['home-header-link']} href="/multiplayer">Multiplayer(BETA)</a></li>
+        <li><a className={style['home-header-link']} href="/leaderboard">Leaderboard</a></li>
+      </ul>
+      <div className={style['home-content-container']}>
+        <div className={style['video-container']}>
+          <video src={video} autoPlay loop muted ></video>
+        </div>
+        <div className={style['home-title__container']}>
+          <div className={`${style['home-title__letter-container']}  ${style['flickering']}`}>
+            <img src="/yahtzee_letters/Y.png" alt="" />
+          </div>
+          <div className={`${style['home-title__letter-container']}`}>
+            <img src="/yahtzee_letters/A.png" alt="" />
+          </div>
+          <div className={`${style['home-title__letter-container']}`}>
+            <img src="/yahtzee_letters/H.png" alt="" />
+          </div>
+          <div className={`${style['home-title__letter-container']}`}>
+            <img src="/yahtzee_letters/T.png" alt="" />
+          </div>
+          <div className={`${style['home-title__letter-container']}  ${style['hanging']}`}>
+            <img src="/yahtzee_letters/Z.png" alt="" />
+          </div>
+          <div className={`${style['home-title__letter-container']} `}>
+            <img src="/yahtzee_letters/E.png" alt="" />
+          </div>
+          <div className={`${style['home-title__letter-container']} `}>
+            <img src="/yahtzee_letters/E.png" alt="" />
+          </div>
+        </div>
+        <button className={style['enter-to-start']} onClick={gameRedirect}>
+          PLAY
+        </button>
       </div>
-      <div className={style['home-title__container']}>
-        <div className={`${style['home-title__letter-container']}  ${style['flickering']}`}>
-          <img src="/yahtzee_letters/Y.png" alt="" />
-        </div>
-        <div className={`${style['home-title__letter-container']}`}>
-          <img src="/yahtzee_letters/A.png" alt="" />
-        </div>
-        <div className={`${style['home-title__letter-container']}`}>
-          <img src="/yahtzee_letters/H.png" alt="" />
-        </div>
-        <div className={`${style['home-title__letter-container']}`}>
-          <img src="/yahtzee_letters/T.png" alt="" />
-        </div>
-        <div className={`${style['home-title__letter-container']}`}>
-          <img src="/yahtzee_letters/Z.png" alt="" />
-        </div>
-        <div className={`${style['home-title__letter-container']} `}>
-          <img src="/yahtzee_letters/E.png" alt="" />
-        </div>
-        <div className={`${style['home-title__letter-container']}`}>
-          <img src="/yahtzee_letters/E.png" alt="" />
-        </div>
-      </div>
-      <button className={style['enter-to-start']} onClick={gameRedirect}>
-        PLAY
-      </button>
     </div>
   );
 };

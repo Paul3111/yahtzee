@@ -5,10 +5,48 @@
   
   display: flex;
   flex-direction: column;
+  /* align-items: center;
+  justify-content: center; */
+  position: relative;
+  /* border: red 5px solid; */
+}
+
+.home-content-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 30rem;
-  position: relative;
+  gap: 5rem;
+}
+
+.home-header-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8rem;
+  width: 100%;
+  height: 10vh;
+  z-index: 1;
+}
+
+.home-header-container li a {
+  color: var(--title-color);
+  text-decoration: none;
+  font-size: 1.7rem;
+}
+.home-header-container li a:hover {
+  color: var(--pink-neon-color);
+  transition: all .1s ease-in-out;
+  animation-name: flickering-effect;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
 }
 
 .video-container {
@@ -23,16 +61,7 @@
 .video-container video {
   width: 100%;
   height: 100%;
-  object-fit: fill;
-  /* position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  z-index: -1; */
+  object-fit: cover;
 }
 
 .home-title__container {
@@ -48,12 +77,39 @@
   justify-content: center;
 }
 
+.god-container button {
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-family: inherit;
+  background-color: transparent;
+  font-size: 3rem;
+  text-shadow: 0 0 10px white;
+
+  animation-name: blinking-effect;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+.god-container button:hover {
+  animation-name: none;
+}
+@keyframes blinking-effect {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .flickering {
   animation-name: flickering-effect;
   animation-duration: 3s;
   animation-iteration-count: infinite;
 }
-
 @keyframes flickering-effect {
   0% {
     opacity: .5;
@@ -81,31 +137,58 @@
   }
 }
 
-.god-container button {
-  border: none;
-  color: white;
-  cursor: pointer;
-  font-family: inherit;
-  background-color: transparent;
-  font-size: 3rem;
-  text-shadow: 0 0 10px white;
+/* .tilted {
+  transform: rotate(-20deg);
+} */
 
-  animation-name: blinking-effect;
-  animation-duration: 2s;
+.hanging {
+  transform-origin: top right;
+  animation-name: hanging-effect;
+  animation-duration: 3s;
   animation-iteration-count: infinite;
-}
-.god-container button:hover {
-  animation-name: none;
+animation-direction: normal;
 }
 
-@keyframes blinking-effect {
+@keyframes hanging-effect {
+    0% {
+      transform: rotate(-1deg);
+    }
+    45% {
+      transform: rotate(-7deg);
+    }
+    100% {
+      transform: rotate(-1deg);
+    }
+}
+/* @keyframes rebooting-effect {
   0% {
+    opacity: 0;
+  }
+  30% {
     opacity: 1;
   }
-  50% {
+  92% {
+    opacity: 1;
+  }
+  93% {
     opacity: 0;
+  }
+  94% {
+    opacity: .5;
+  }
+  95% {
+    opacity: 0;
+  }
+  96% {
+    opacity: .5;
+  }
+  97% {
+    opacity: 0;
+  }
+  99% {
+    opacity: .5;
   }
   100% {
     opacity: 1;
   }
-}
+} */
