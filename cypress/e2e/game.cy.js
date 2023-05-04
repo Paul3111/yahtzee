@@ -14,6 +14,7 @@ describe('<Game />', () => {
   context('Buttons', () => {
     beforeEach(() => {
       cy.visit('http://localhost:3000/game')
+      // the lines below press Yes on the popup
       cy.on('window:confirm', (message) => {
         cy.get('.start-game-popup__btn').click()
         expect(message).to.equal('Ready?')
@@ -34,11 +35,13 @@ describe('<Game />', () => {
       cy.contains('ROLL').should('be.visible')
     })
 
-    xit('Finds the Home button text on the home page.', () => {
-      cy.contains('Home').should('be.visible')
+    it('Finds the How to play button text on the game page.', () => {
+      cy.contains('How to play').scrollIntoView().click({force:true})
+      cy.contains('better').should('be.visible')
+      cy.contains('X').scrollIntoView().click({force:true})
     })    
 
-    xit('Finds the Leaderboard button text on the home page.', () => {
+    xit('Opens How to play popup and closes it.', () => {
       cy.contains('Leaderboard').should('be.visible')
     })    
 
@@ -46,13 +49,9 @@ describe('<Game />', () => {
       cy.contains('Multiplayer').should('be.visible')
     })    
 
-    // cy.get('img[src="/path/to/image.png"]').should('have.attr', 'alt', 'My image')
-    // cy.get('img[src="/path/to/image.png"]').should('have.css', 'width', '100px')
-    // cy.get('img[src="/path/to/image.png"]').should('have.css', 'height', '100px') 
+    
     // cy.wait(1000); // Wait for 1 second
-    // cy.get('.enter-to-start').should('contain', 'PLAY')
-    // cy.get('.navbar-link').scrollIntoView().click();
-
+    
 
   })
 })
