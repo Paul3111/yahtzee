@@ -91,6 +91,7 @@
 .god-container button:hover {
   animation-name: none;
 }
+
 @keyframes blinking-effect {
   0% {
     opacity: 1;
@@ -147,9 +148,6 @@
     0% {
       transform: rotate(4deg);
     }
-    /* 50% {
-      transform: rotate(-8deg);
-    } */
     100% {
       transform: rotate(-5deg);
     }
