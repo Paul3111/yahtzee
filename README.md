@@ -1,7 +1,5 @@
 # YAHTZEE
 
-<!-- ![test](https://img.shields.io/badge/test-100%25-brightgreen?style=flat-square&logo=github) -->
-![coverage](https://img.shields.io/badge/Coverage-100%25-brightgreen?style=flat-square&logo=github)
 
 ![test](https://img.shields.io/badge/React-blue?style=flat-square&logo=react)
 ![test](https://img.shields.io/badge/CSS3-blue?style=flat-square&logo=css3)
@@ -9,6 +7,8 @@
 ![test](https://img.shields.io/badge/express-lightgrey?style=flat-square&logo=express)
 ![test](https://img.shields.io/badge/node.js-grey?style=flat-square&logo=nodedotjs)
 
+![test](https://img.shields.io/badge/test-100%25-brightgreen?style=flat-square&logo=github)
+![coverage](https://img.shields.io/badge/Coverage-100%25-brightgreen?style=flat-square&logo=github)
 ---
 ## Contents
   - [The Game](#the-game)
