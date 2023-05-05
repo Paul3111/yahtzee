@@ -10,19 +10,24 @@ describe('<Leaderboard />', () => {
         cy.url().should('eq', 'http://localhost:3000/leaderboard')
     })
 
-    it('Finds LEADERBOARD on the game page.', () => {
+    it('Finds LEADERBOARD on the leaderboard page.', () => {
       cy.contains('LEADERBOARD').should('be.visible')
     })
 })
 
   context('Buttons', () => {
   
-    it('Finds the Home button text on the home page.', () => {
+    it('Finds the Home button text on the leaderboard page.', () => {
       cy.contains('Home').should('be.visible')
     })    
 
-    it('Finds the Multiplayer(BETA) button text on the home page.', () => {
+    it('Finds the Multiplayer(BETA) button text on the leaderboard page.', () => {
       cy.contains('Multiplayer(BETA)').should('be.visible')
+    })    
+
+    it('Finds the Avatar on the leaderboard page.', () => {
+      
+      cy.get('img[src="/public/to/avatar_*.jpeg"]').should('have.attr', 'alt', 'My image')
     })    
 
     // cy.get('img[src="/path/to/image.png"]').should('have.attr', 'alt', 'My image')
