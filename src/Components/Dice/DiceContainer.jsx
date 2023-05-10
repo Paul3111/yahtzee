@@ -5,9 +5,9 @@ import './DiceContainer.css'
 import lockDie from './audio/miniRetro-yahtzeeLockDie.mp3'
 import { GameContext } from '../Game/JSX/Game'
 
-
 const DiceContainer = (props) => {
   const gameContext = useContext(GameContext);
+
   const { dice, setDice, counts, setCounts, diceValueSum, setDiceValueSum, values, setValues } = props
   const [lockDieSound] = useState(new Audio(lockDie))
   const [gameOn, setGameOn] = useState(false)
@@ -105,7 +105,7 @@ const DiceContainer = (props) => {
   
   // returns a random number 1 - 6
   const rollDie = () => {
-    if(props.onlyYahtzees) return 6
+    if(gameContext.onlyYahtzees) return 6
     return Math.floor(Math.random() * 6) + 1;
   }
 

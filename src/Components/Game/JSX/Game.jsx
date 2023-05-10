@@ -18,16 +18,16 @@ export const GameContext = React.createContext() // {Provider: fn, Consumer: fn}
 
 const Game = (props) => {
   const [isPlaying, setIsPlaying] = useState(false)
-  
   const [audioEnabled, setAudioEnabled] = useState(false)
-
   const [music] = useState(new Audio(backgroundMusic))
   const [startSound] = useState(new Audio(startSFX))
-
   const [cheatMode, setCheatMode] = useState(false)
   const [onlyYahtzees, setOnlyYahtzees] = useState(false)
-
   const [isYahtzee, setIsYahtzee] = useState(false)
+  
+
+
+
   
   const [isHovered, setIsHovered] = useState(false)
 
@@ -146,8 +146,9 @@ const Game = (props) => {
   return (
     <GameContext.Provider value={{
       isPlaying: isPlaying,
-      audioEnabled: audioEnabled
-
+      audioEnabled: audioEnabled,
+      cheatMode: cheatMode,
+      onlyYahtzees: onlyYahtzees
     }}>
       <div className={`${style['god-container']} ${isYahtzee && style['yahtzee-celebration']}`}>
         <GameHeader startEffect={startGame} />
@@ -167,12 +168,11 @@ const Game = (props) => {
             rollCount={rollCount}
             resetRollCount={setRollCount}
             values={values} updateTotal={updateTotal}
-            triggerYahtzee={setIsYahtzee}
+            // triggerYahtzee={setIsYahtzee}
             setGameRound={setGameRound}
           />
         
           <DiceContainer
-            onlyYahtzees={onlyYahtzees}
             startEffect={startGame}
             isHoveredTrue={isHoveredTrue}
             isHoveredFalse={isHoveredFalse}
@@ -195,8 +195,6 @@ const Game = (props) => {
           
         </div>
         <GameToggleBtns
-          cheatMode={cheatMode}
-          onlyYahtzees={onlyYahtzees}
           toggleMusic={toggleMusic}
           toggleSFX={toggleSFX}
           toggleCheatMode={toggleCheatMode}

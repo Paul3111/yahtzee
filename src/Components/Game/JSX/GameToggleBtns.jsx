@@ -28,7 +28,7 @@ const GameToggleBtns = (props) => {
 
       <div className={style['audio-checkbox']}>
         <div className={style['audio-checkbox-btn-container']}>
-          <input checked={props.cheatMode} className={style['audio-checkbox-btn']} type="checkbox" value="ToggleCheatMode" onChange={props.toggleCheatMode}></input>
+          <input checked={gameContext.cheatMode} className={style['audio-checkbox-btn']} type="checkbox" value="ToggleCheatMode" onChange={props.toggleCheatMode}></input>
           <div className={style['audio-checkbox-btn-filled']}></div>
         </div>
         <label htmlFor="ToggleCheatMode">Demo Mode</label>
@@ -36,7 +36,7 @@ const GameToggleBtns = (props) => {
 
       <div className={style['audio-checkbox']}>
         <div className={style['audio-checkbox-btn-container']}>
-          <input checked={props.onlyYahtzees} className={style['audio-checkbox-btn']} type="checkbox" value="ToggleCheatMode" onChange={props.toggleOnlyYahtzees}></input>
+          <input checked={gameContext.onlyYahtzees} className={style['audio-checkbox-btn']} type="checkbox" value="ToggleCheatMode" onChange={props.toggleOnlyYahtzees}></input>
           <div className={style['audio-checkbox-btn-filled']}></div>
         </div>
         <label htmlFor="ToggleCheatMode">Only Yahtzees</label>
