@@ -31,7 +31,7 @@ const Game = (props) => {
   
   const [isHovered, setIsHovered] = useState(false)
 
-  const [gameRound, setGameRound] = useState(12)
+  const [gameRound, setGameRound] = useState(0)
   const [counts, setCounts] = useState([0, 0, 0, 0, 0, 0]);
   const [diceValueSum, setDiceValueSum] = useState(0);
   const [values, setValues] = useState([])
@@ -145,7 +145,9 @@ const Game = (props) => {
 
   return (
     <GameContext.Provider value={{
-      isPlaying: isPlaying
+      isPlaying: isPlaying,
+      audioEnabled: audioEnabled
+
     }}>
       <div className={`${style['god-container']} ${isYahtzee && style['yahtzee-celebration']}`}>
         <GameHeader startEffect={startGame} />
@@ -166,7 +168,6 @@ const Game = (props) => {
             resetRollCount={setRollCount}
             values={values} updateTotal={updateTotal}
             triggerYahtzee={setIsYahtzee}
-            audioEnabled={audioEnabled}
             setGameRound={setGameRound}
           />
         

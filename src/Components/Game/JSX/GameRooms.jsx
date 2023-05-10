@@ -56,7 +56,6 @@ const GameRooms = (props) => {
             updateTotal={props.updateTotal}
             updateSubTotal={updateSubTotal}
             values={props.values} 
-            audioEnabled={props.audioEnabled}
             isBot={props.isBot}
             botPlayerRooms={props.botPlayerRooms}
             activePlayer={props.activePlayer}
@@ -75,7 +74,6 @@ const GameRooms = (props) => {
             updateTotal={props.updateTotal}
             updateSubTotal={updateSubTotal}
             values={props.values} 
-            audioEnabled={props.audioEnabled}
             isBot={props.isBot}
             botPlayerRooms={props.botPlayerRooms}
             activePlayer={props.activePlayer}
@@ -94,7 +92,6 @@ const GameRooms = (props) => {
             updateTotal={props.updateTotal}
             updateSubTotal={updateSubTotal}
             values={props.values} 
-            audioEnabled={props.audioEnabled}
             isBot={props.isBot}
             botPlayerRooms={props.botPlayerRooms}
             activePlayer={props.activePlayer}
@@ -113,7 +110,6 @@ const GameRooms = (props) => {
             updateTotal={props.updateTotal}
             updateSubTotal={updateSubTotal}
             values={props.values} 
-            audioEnabled={props.audioEnabled}
             isBot={props.isBot}
             botPlayerRooms={props.botPlayerRooms}
             activePlayer={props.activePlayer}
@@ -132,7 +128,6 @@ const GameRooms = (props) => {
             updateTotal={props.updateTotal}
             updateSubTotal={updateSubTotal}
             values={props.values} 
-            audioEnabled={props.audioEnabled}
             isBot={props.isBot}
             botPlayerRooms={props.botPlayerRooms}
             activePlayer={props.activePlayer}
@@ -151,7 +146,6 @@ const GameRooms = (props) => {
             updateTotal={props.updateTotal}
             updateSubTotal={updateSubTotal}
             values={props.values}
-            audioEnabled={props.audioEnabled}
             isBot={props.isBot}
             botPlayerRooms={props.botPlayerRooms}
             activePlayer={props.activePlayer}
@@ -179,7 +173,6 @@ const GameRooms = (props) => {
             savedScore={threeOfAKind}
             updateTotal={props.updateTotal}
             values={props.values} 
-            audioEnabled={props.audioEnabled}
             isBot={props.isBot}
             botPlayerRooms={props.botPlayerRooms}
             activePlayer={props.activePlayer}
@@ -197,7 +190,6 @@ const GameRooms = (props) => {
             savedScore={fourOfAKind}
             updateTotal={props.updateTotal}
             values={props.values} 
-            audioEnabled={props.audioEnabled}
             isBot={props.isBot}
             botPlayerRooms={props.botPlayerRooms}
             activePlayer={props.activePlayer}
@@ -215,7 +207,6 @@ const GameRooms = (props) => {
             savedScore={fullHouse}
             updateTotal={props.updateTotal}
             values={props.values} 
-            audioEnabled={props.audioEnabled}
             isBot={props.isBot}
             botPlayerRooms={props.botPlayerRooms}
             activePlayer={props.activePlayer}
@@ -233,7 +224,6 @@ const GameRooms = (props) => {
             savedScore={SMstraight}
             updateTotal={props.updateTotal}
             values={props.values}
-            audioEnabled={props.audioEnabled}
             isBot={props.isBot}
             botPlayerRooms={props.botPlayerRooms}
             activePlayer={props.activePlayer}
@@ -251,7 +241,6 @@ const GameRooms = (props) => {
             savedScore={LGstraight}
             updateTotal={props.updateTotal}
             values={props.values} 
-            audioEnabled={props.audioEnabled}
             isBot={props.isBot}
             botPlayerRooms={props.botPlayerRooms}
             activePlayer={props.activePlayer}
@@ -271,7 +260,6 @@ const GameRooms = (props) => {
             values={props.values}
             triggerYahtzee={props.triggerYahtzee}
             updateYahtzeeScore={updateYahtzeeScore}
-            audioEnabled={props.audioEnabled}
             isBot={props.isBot}
             botPlayerRooms={props.botPlayerRooms}
             activePlayer={props.activePlayer}
@@ -289,7 +277,6 @@ const GameRooms = (props) => {
             savedScore={chance}
             updateTotal={props.updateTotal}
             values={props.values} 
-            audioEnabled={props.audioEnabled}
             isBot={props.isBot}
             botPlayerRooms={props.botPlayerRooms}
             activePlayer={props.activePlayer}

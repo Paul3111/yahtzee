@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import style from './CSS/Room.module.css'
-
+import { GameContext } from '../Game/JSX/Game';
 import scoreSelect from './audio/miniRetro-yahtzeeScoreSelect2.mp3'
 
 const FourOfAKind = (props) => {
+  const gameContext = useContext(GameContext);
   const [isDisabled, setIsDisabled] = useState(false)
   const [scoreSelect2] = useState(new Audio(scoreSelect))
   const [gameOn, setGameOn] = useState(false)
@@ -16,7 +17,7 @@ const FourOfAKind = (props) => {
 
   const clickAudio = () => {
     scoreSelect2.currentTime = 0;
-    if(props.audioEnabled) {
+    if(gameContext.audioEnabled) {
       scoreSelect2.play()
     } else {
       scoreSelect2.pause()

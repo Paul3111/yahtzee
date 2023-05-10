@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { GameContext } from '../Game/JSX/Game';
 import style from './CSS/Room.module.css'
 
 import scoreSelect from './audio/miniRetro-yahtzeeScoreSelect3.mp3'
@@ -8,6 +9,7 @@ import bonusVoice from './audio/miniRetro-yahtzeeBonus.mp3'
 import { set } from 'mongoose';
 
 const Yahtzee = (props) => {
+  const gameContext = useContext(GameContext);
   const [isDisabled, setIsDisabled] = useState(false)
   const [scoreSelect3] = useState(new Audio(scoreSelect))
   const [gameOn, setGameOn] = useState(false)
@@ -28,7 +30,7 @@ const Yahtzee = (props) => {
 
   const clickAudio = () => {
     scoreSelect3.currentTime = 0;
-    if(props.audioEnabled) {
+    if(gameContext.audioEnabled) {
       scoreSelect3.play()
     } else {
       scoreSelect3.pause()
