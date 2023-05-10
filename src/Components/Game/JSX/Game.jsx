@@ -16,7 +16,6 @@ import GameToggleBtns from './GameToggleBtns';
 //--BOT START-----
 import BotLogic from '../../Bot/BotLogic.jsx'
 //--BOT END ------
-
 const Game = (props) => {
   const [isPlaying, setIsPlaying] = useState(false)
   const [audioEnabled, setAudioEnabled] = useState(false)
@@ -31,7 +30,7 @@ const Game = (props) => {
   
   const [isHovered, setIsHovered] = useState(false)
 
-  const [gameRound, setGameRound] = useState(0)
+  const [gameRound, setGameRound] = useState(12)
   const [counts, setCounts] = useState([0, 0, 0, 0, 0, 0]);
   const [diceValueSum, setDiceValueSum] = useState(0);
   const [values, setValues] = useState([])
@@ -204,7 +203,7 @@ const Game = (props) => {
       <HowToPlay />
 
       {/* { !startGame && <StartPopup start={start} /> } */}
-      <EndGame totalScore={total} getEndScore={props.getEndScore} savingData={props.savingData} gameRound={gameRound} total={total}/>
+      <EndGame totalScore={total} getEndScore={props.getEndScore} gameRound={gameRound} total={total}/>
     </div>
     
   );

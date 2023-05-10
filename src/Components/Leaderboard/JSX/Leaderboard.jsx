@@ -1,10 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 import style from '../CSS/Leaderboard.module.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import FirstPopUp from '../../FirstPopUp/JSX/FirstPopUp';
 
+import EndGameContext from '../../../Context/EndGameContext';
+
 const Leaderboard = (props) => {
+  const context = useContext(EndGameContext)
   const navigate = useNavigate();
   const [players, setPlayers] = useState([]);
   const [playerHasSaved, setPlayerHasSaved] = useState(false)
@@ -22,7 +25,7 @@ const Leaderboard = (props) => {
   }
 
   const saveScore = (name, avatar) => {
-    props.savingData();
+    context.savingData();
     
     fetch('http://localhost:8080/players', {
           method: 'post',
@@ -78,7 +81,7 @@ const Leaderboard = (props) => {
       </div>
     </div>
       <div className={style['save-popup']}>
-        {props.showSavePopUp && <FirstPopUp markAsSaved={markAsSaved} endScore={props.endScore} saveScore={saveScore} savingData={props.savingData}/>}
+        {context.showSavePopUp && <FirstPopUp markAsSaved={markAsSaved} endScore={props.endScore} saveScore={saveScore} />}
       </div>
   </div>
   );

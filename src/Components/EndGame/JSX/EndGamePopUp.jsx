@@ -1,7 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import style from '../CSS/EndGamePopUp.module.css';
+import { useContext } from 'react';
+import EndGameContext from '../../../Context/EndGameContext';
 
 const EndGamePopUp = (props) => {
+  const context = useContext(EndGameContext)
   const navigate = useNavigate();
 
   const homeRedirect = () => {
@@ -10,7 +13,7 @@ const EndGamePopUp = (props) => {
 
   const leaderboardRedirect = () => {
     props.getEndScore(props.totalScore)
-    props.savingData()
+    context.savingData()
     navigate('/leaderboard')
   }
 
