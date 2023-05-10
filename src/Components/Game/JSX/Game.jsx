@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import style from '../CSS/Game.module.css';
 import GameHeader from './GameHeader';
 import GameMenu from './GameMenu';
@@ -12,12 +12,13 @@ import backgroundMusic from '../audio/miniRetro-yahtzeeBackgroundv2.mp3'
 import startSFX from '../audio/miniRetro-yahtzeeStartGame.mp3'
 import EndGame from '../../EndGame/JSX/EndGame';
 import GameToggleBtns from './GameToggleBtns';
-
-//--BOT START-----
 import BotLogic from '../../Bot/BotLogic.jsx'
-//--BOT END ------
+
+export const GameContext = React.createContext() // {Provider: fn, Consumer: fn}
+
 const Game = (props) => {
   const [isPlaying, setIsPlaying] = useState(false)
+  
   const [audioEnabled, setAudioEnabled] = useState(false)
 
   const [music] = useState(new Audio(backgroundMusic))
@@ -143,69 +144,71 @@ const Game = (props) => {
   }
 
   return (
-    <div className={`${style['god-container']} ${isYahtzee && style['yahtzee-celebration']}`}>
-      <GameHeader startEffect={startGame} />
-      <GameMenu />
-      <div className={`${style['game-container']} ${startEffect && style['game-on']} ${isHovered && style['lights-up']}`}>
-      
-        <GameTotalScore
-          startEffect={startGame}
-          isHovered={isHovered}
-          total={total} />
-
-        <GameRooms
-          startEffect={startGame}
-          disableLights={hoverHandler}
-          isHovered={isHovered}
-          resetDice={setDice}
-          rollCount={rollCount}
-          resetRollCount={setRollCount}
-          values={values} updateTotal={updateTotal}
-          triggerYahtzee={setIsYahtzee}
-          audioEnabled={audioEnabled}
-          setGameRound={setGameRound}
-        />
-      
-        <DiceContainer
-          onlyYahtzees={onlyYahtzees}
-          startEffect={startGame}
-          isHoveredTrue={isHoveredTrue}
-          isHoveredFalse={isHoveredFalse}
-          isHovered={isHovered}
-          dice={dice}
-          setDice={setDice}
-          counts={counts}
-          setCounts={setCounts}
-          diceValueSum={diceValueSum}
-          setDiceValueSum={setDiceValueSum}
-          values={values}
-          setValues={setValues}
-          countRolls={countRolls}
-          rollCount={rollCount}
-          audioEnabled={audioEnabled}
-        />
-
-        <Dots rollCount={rollCount} />
-
-        <audio src={backgroundMusic} loop/>
+    <GameContext.Provider value={{
+      isPlaying: isPlaying
+    }}>
+      <div className={`${style['god-container']} ${isYahtzee && style['yahtzee-celebration']}`}>
+        <GameHeader startEffect={startGame} />
+        <GameMenu />
+        <div className={`${style['game-container']} ${startEffect && style['game-on']} ${isHovered && style['lights-up']}`}>
         
-      </div>
-      <GameToggleBtns
-        isPlaying={isPlaying}
-        audioEnabled={audioEnabled}
-        cheatMode={cheatMode}
-        onlyYahtzees={onlyYahtzees}
-        toggleMusic={toggleMusic}
-        toggleSFX={toggleSFX}
-        toggleCheatMode={toggleCheatMode}
-        toggleOnlyYahtzees={toggleOnlyYahtzees}
-      />
-      <HowToPlay />
+          <GameTotalScore
+            startEffect={startGame}
+            isHovered={isHovered}
+            total={total} />
 
-      {/* { !startGame && <StartPopup start={start} /> } */}
-      <EndGame totalScore={total} gameRound={gameRound} total={total}/>
-    </div>
-    
+          <GameRooms
+            startEffect={startGame}
+            disableLights={hoverHandler}
+            isHovered={isHovered}
+            resetDice={setDice}
+            rollCount={rollCount}
+            resetRollCount={setRollCount}
+            values={values} updateTotal={updateTotal}
+            triggerYahtzee={setIsYahtzee}
+            audioEnabled={audioEnabled}
+            setGameRound={setGameRound}
+          />
+        
+          <DiceContainer
+            onlyYahtzees={onlyYahtzees}
+            startEffect={startGame}
+            isHoveredTrue={isHoveredTrue}
+            isHoveredFalse={isHoveredFalse}
+            isHovered={isHovered}
+            dice={dice}
+            setDice={setDice}
+            counts={counts}
+            setCounts={setCounts}
+            diceValueSum={diceValueSum}
+            setDiceValueSum={setDiceValueSum}
+            values={values}
+            setValues={setValues}
+            countRolls={countRolls}
+            rollCount={rollCount}
+            audioEnabled={audioEnabled}
+          />
+
+          <Dots rollCount={rollCount} />
+
+          <audio src={backgroundMusic} loop/>
+          
+        </div>
+        <GameToggleBtns
+          audioEnabled={audioEnabled}
+          cheatMode={cheatMode}
+          onlyYahtzees={onlyYahtzees}
+          toggleMusic={toggleMusic}
+          toggleSFX={toggleSFX}
+          toggleCheatMode={toggleCheatMode}
+          toggleOnlyYahtzees={toggleOnlyYahtzees}
+        />
+        <HowToPlay />
+
+        {/* { !startGame && <StartPopup start={start} /> } */}
+        <EndGame totalScore={total} gameRound={gameRound} total={total}/>
+      </div>  
+    </GameContext.Provider>
   );
 };
   

@@ -1,13 +1,18 @@
 
 import style from '../CSS/GameToggleBtns.module.css'
 
+import { useContext } from 'react';
+import { GameContext } from './Game';
+
 const GameToggleBtns = (props) => {
+  const gameContext = useContext(GameContext)
+
   return (
     <div className={style['checkbox-container']}>
 
       <div className={style['audio-checkbox']}>
         <div className={style['audio-checkbox-btn-container']}>
-          <input checked={props.isPlaying} className={style['audio-checkbox-btn']} type="checkbox" value="ToggleMusic" onChange={props.toggleMusic}></input>
+          <input checked={gameContext.isPlaying} className={style['audio-checkbox-btn']} type="checkbox" value="ToggleMusic" onChange={props.toggleMusic}></input>
           <div className={style['audio-checkbox-btn-filled']}></div>
         </div>
         <label htmlFor="ToggleMusic">Music</label>
