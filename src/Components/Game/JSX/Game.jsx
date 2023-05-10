@@ -203,7 +203,7 @@ const Game = (props) => {
       <HowToPlay />
 
       {/* { !startGame && <StartPopup start={start} /> } */}
-      <EndGame totalScore={total} getEndScore={props.getEndScore} gameRound={gameRound} total={total}/>
+      <EndGame totalScore={total} gameRound={gameRound} total={total}/>
     </div>
     
   );

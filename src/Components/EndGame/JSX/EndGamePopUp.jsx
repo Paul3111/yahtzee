@@ -12,7 +12,7 @@ const EndGamePopUp = (props) => {
   }
 
   const leaderboardRedirect = () => {
-    props.getEndScore(props.totalScore)
+    context.getEndScore(props.totalScore)
     context.savingData()
     navigate('/leaderboard')
   }

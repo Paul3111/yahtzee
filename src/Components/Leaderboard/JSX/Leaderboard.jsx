@@ -32,7 +32,7 @@ const Leaderboard = (props) => {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({username: name, avatar: avatar, score: props.endScore})
+          body: JSON.stringify({username: name, avatar: avatar, score: context.endScore})
         }).then(res => {
           console.log(res)
         })
@@ -81,7 +81,7 @@ const Leaderboard = (props) => {
       </div>
     </div>
       <div className={style['save-popup']}>
-        {context.showSavePopUp && <FirstPopUp markAsSaved={markAsSaved} endScore={props.endScore} saveScore={saveScore} />}
+        {context.showSavePopUp && <FirstPopUp markAsSaved={markAsSaved} saveScore={saveScore} />}
       </div>
   </div>
   );

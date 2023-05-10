@@ -16,19 +16,13 @@ import {
 
 const App = () => {
   
-  const [endScore, setEndScore] = useState(0)
-
-  const getEndScore = (score) => {
-    setEndScore(score)
-  }
-
   return (
     <Routes>
       <Route path="/" element={<Home navigate={ useNavigate()} />} />
       <Route path="/home" element={<Home navigate={ useNavigate()} />} />
-      <Route path="/game" element={<Game getEndScore={getEndScore} navigate={ useNavigate()} />} />
+      <Route path="/game" element={<Game navigate={ useNavigate()} />} />
       <Route path="/multiplayer" element={<Multiplayer navigate={ useNavigate()}/>} />
-      <Route path="/leaderboard" element={<Leaderboard endScore={endScore} navigate={ useNavigate()} />} />      
+      <Route path="/leaderboard" element={<Leaderboard navigate={ useNavigate()} />} />      
       <Route path="/settings" element={<Settings navigate={ useNavigate()} />} />
       <Route path="/signup" element={<Signup navigate={ useNavigate()} />} />
     </Routes>

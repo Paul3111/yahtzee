@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const EndGameContext = React.createContext(); // { Provider: fn, Consumer: fn  }
+const EndGameContext = React.createContext(); // returns { Provider: fn, Consumer: fn  }
 
 export const EndGameContextProvider = (props) => {
 
@@ -10,7 +10,7 @@ export const EndGameContextProvider = (props) => {
   const savingData = () => {
     setShowSavePopUp(!showSavePopUp)
   }
-
+  
   const getEndScore = (score) => {
     setEndScore(score)
   }

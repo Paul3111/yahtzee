@@ -1,7 +1,9 @@
 import style from '../CSS/FirstPopUp.module.css';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import EndGameContext from '../../../Context/EndGameContext';
 
 const FirstPopUp = (props) => {
+    const context = useContext(EndGameContext);
     const [name, setName] = useState('');
     const [isChecked, setIsChecked] = useState("/avatar_3.jpeg");
   
@@ -27,7 +29,7 @@ const FirstPopUp = (props) => {
             <h1>Save your game</h1>
           </div>
           <div className={style['leaderboard-first-popup__input-container']}>
-            <h2>Your score: {props.endScore}</h2>
+            <h2>Your score: {context.endScore}</h2>
             <form onSubmit={handleSave}>
               <div className={style['name-prompt-container']}>
                 <h2>Enter your name</h2>
