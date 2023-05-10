@@ -20,7 +20,7 @@ const GameToggleBtns = (props) => {
 
       <div className={style['audio-checkbox']}>
         <div className={style['audio-checkbox-btn-container']}>
-          <input checked={props.audioEnabled} className={style['audio-checkbox-btn']} type="checkbox" value="ToggleSFX" onChange={props.toggleSFX}></input>
+          <input checked={gameContext.audioEnabled} className={style['audio-checkbox-btn']} type="checkbox" value="ToggleSFX" onChange={props.toggleSFX}></input>
           <div className={style['audio-checkbox-btn-filled']}></div>
         </div>
         <label htmlFor="ToggleSFX">SFX</label>

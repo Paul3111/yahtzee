@@ -195,7 +195,6 @@ const Game = (props) => {
           
         </div>
         <GameToggleBtns
-          audioEnabled={audioEnabled}
           cheatMode={cheatMode}
           onlyYahtzees={onlyYahtzees}
           toggleMusic={toggleMusic}
