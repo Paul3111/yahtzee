@@ -187,7 +187,6 @@ const Game = (props) => {
             setValues={setValues}
             countRolls={countRolls}
             rollCount={rollCount}
-            audioEnabled={audioEnabled}
           />
 
           <Dots rollCount={rollCount} />

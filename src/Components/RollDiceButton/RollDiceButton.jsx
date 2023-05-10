@@ -1,4 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import { GameContext } from '../Game/JSX/Game'
+
 
 import style from './RollDiceButton.module.css'
 import roll1 from './audio/miniRetro-yahtzeeRoll1.mp3'
@@ -6,6 +8,7 @@ import roll2 from './audio/miniRetro-yahtzeeRoll2.mp3'
 import roll3 from './audio/miniRetro-yahtzeeRoll3.mp3'
 
 const RollDiceButton = (props) => {
+  const gameContext = useContext(GameContext);
   const [isWaiting, setIsWaiting] = useState(false)
   const [isDisabled, setIsDisabled] = useState(false)
 
@@ -20,7 +23,7 @@ const RollDiceButton = (props) => {
     let rollSounds = [rollSound1, rollSound2, rollSound3]
     for (let i = 0; i < rollSounds.length; i++) {
       rollSounds[i].currentTime = 0
-      if (props.rollCount === i && props.audioEnabled) {
+      if (props.rollCount === i && gameContext.audioEnabled) {
         rollSounds[i].play()
       } else {
         rollSounds[i].pause();

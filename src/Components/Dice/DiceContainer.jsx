@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext} from 'react'
 import RollDiceButton from '../RollDiceButton/RollDiceButton'
 import Die from './Die/Die'
 import './DiceContainer.css'
 import lockDie from './audio/miniRetro-yahtzeeLockDie.mp3'
+import { GameContext } from '../Game/JSX/Game'
+
 
 const DiceContainer = (props) => {
-
-  const { dice, setDice, counts, setCounts, diceValueSum, setDiceValueSum, values, setValues, audioEnabled } = props
+  const gameContext = useContext(GameContext);
+  const { dice, setDice, counts, setCounts, diceValueSum, setDiceValueSum, values, setValues } = props
   const [lockDieSound] = useState(new Audio(lockDie))
   const [gameOn, setGameOn] = useState(false)
 
@@ -18,7 +20,7 @@ const DiceContainer = (props) => {
 
   const lockDieAudio = () => {
     lockDieSound.currentTime = 0;
-    if(props.audioEnabled) {
+    if(gameContext.audioEnabled) {
       lockDieSound.play()
     } else {
       lockDieSound.pause()
@@ -151,7 +153,6 @@ const DiceContainer = (props) => {
         isHoveredFalse={props.isHoveredFalse}
         onRoll={rollDice}
         rollCount={props.rollCount} 
-        audioEnabled={props.audioEnabled}
         isBot={props.isBot}
         activePlayer={props.activePlayer}
         playerNumber={props.playerNumber}
