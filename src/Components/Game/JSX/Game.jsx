@@ -16,7 +16,7 @@ import BotLogic from '../../Bot/BotLogic.jsx'
 
 export const GameContext = React.createContext() // {Provider: fn, Consumer: fn}
 
-const Game = (props) => {
+const Game = () => {
   const [isPlaying, setIsPlaying] = useState(false)
   const [audioEnabled, setAudioEnabled] = useState(false)
   const [music] = useState(new Audio(backgroundMusic))
@@ -24,12 +24,12 @@ const Game = (props) => {
   const [cheatMode, setCheatMode] = useState(false)
   const [onlyYahtzees, setOnlyYahtzees] = useState(false)
   const [isYahtzee, setIsYahtzee] = useState(false)
-  
-
-
-
-  
   const [isHovered, setIsHovered] = useState(false)
+  
+
+
+
+  
 
   const [gameRound, setGameRound] = useState(0)
   const [counts, setCounts] = useState([0, 0, 0, 0, 0, 0]);
@@ -150,7 +150,8 @@ const Game = (props) => {
       audioEnabled: audioEnabled,
       cheatMode: cheatMode,
       onlyYahtzees: onlyYahtzees,
-      isHovered: isHovered
+      isHovered: isHovered,
+      gameRound: gameRound,
     }}>
       <div className={`${style['god-container']} ${isYahtzee && style['yahtzee-celebration']}`}>
         <GameHeader startEffect={startGame} />
@@ -168,7 +169,6 @@ const Game = (props) => {
             rollCount={rollCount}
             resetRollCount={setRollCount}
             values={values} updateTotal={updateTotal}
-            setGameRound={setGameRound}
           />
         
           <DiceContainer
