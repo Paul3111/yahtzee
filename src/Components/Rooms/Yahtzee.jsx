@@ -6,7 +6,6 @@ import scoreSelect from './audio/miniRetro-yahtzeeScoreSelect3.mp3'
 import celebrationVoice from './audio/miniRetro-yahtzeeCelebration.mp3'
 import niceVoice from './audio/miniRetro-yahtzeeNice.mp3'
 import bonusVoice from './audio/miniRetro-yahtzeeBonus.mp3'
-import { set } from 'mongoose';
 
 const Yahtzee = (props) => {
   const gameContext = useContext(GameContext);

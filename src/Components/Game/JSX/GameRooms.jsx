@@ -258,7 +258,6 @@ const GameRooms = (props) => {
             savedScore={yahtzee}
             updateTotal={props.updateTotal}
             values={props.values}
-            // triggerYahtzee={props.triggerYahtzee}
             updateYahtzeeScore={updateYahtzeeScore}
             isBot={props.isBot}
             botPlayerRooms={props.botPlayerRooms}

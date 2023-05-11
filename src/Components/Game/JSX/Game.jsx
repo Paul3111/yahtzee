@@ -124,6 +124,7 @@ const Game = (props) => {
   useEffect(() => {
     setIsHovered(false)
   }, [values])
+
   const hoverHandler = () => {
     setIsHovered(!isHovered)
   }
@@ -148,7 +149,8 @@ const Game = (props) => {
       isPlaying: isPlaying,
       audioEnabled: audioEnabled,
       cheatMode: cheatMode,
-      onlyYahtzees: onlyYahtzees
+      onlyYahtzees: onlyYahtzees,
+      isHovered: isHovered
     }}>
       <div className={`${style['god-container']} ${isYahtzee && style['yahtzee-celebration']}`}>
         <GameHeader startEffect={startGame} />
@@ -157,18 +159,15 @@ const Game = (props) => {
         
           <GameTotalScore
             startEffect={startGame}
-            isHovered={isHovered}
             total={total} />
 
           <GameRooms
             startEffect={startGame}
             disableLights={hoverHandler}
-            isHovered={isHovered}
             resetDice={setDice}
             rollCount={rollCount}
             resetRollCount={setRollCount}
             values={values} updateTotal={updateTotal}
-            // triggerYahtzee={setIsYahtzee}
             setGameRound={setGameRound}
           />
         
@@ -176,7 +175,6 @@ const Game = (props) => {
             startEffect={startGame}
             isHoveredTrue={isHoveredTrue}
             isHoveredFalse={isHoveredFalse}
-            isHovered={isHovered}
             dice={dice}
             setDice={setDice}
             counts={counts}

@@ -135,7 +135,7 @@ const DiceContainer = (props) => {
 
   return (
     <div className="wrapper">
-      <div className={`dice-container ${props.isHovered && 'light-up'} ${gameOn && 'gameOn'}`}>
+      <div className={`dice-container ${gameContext.isHovered && 'light-up'} ${gameOn && 'gameOn'}`}>
         { dice.map((die, index) => (
           <Die key={index}
             startEffect={props.startEffect}
@@ -143,7 +143,7 @@ const DiceContainer = (props) => {
             rolling={die.rolling}
             onClick={() => toggleLock(index)}
             rollCount={props.rollCount}
-            isHovered={props.isHovered}
+            isHovered={gameContext.isHovered}
           />
         ))}
       </div>
